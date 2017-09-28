@@ -1,0 +1,28 @@
+.cim {
+    text-align: center;
+    color: red;
+    text-shadow: inherit;
+    font-size: 35px;
+}
+
+p {
+    text-align: center;
+    color: white;
+    text-shadow: inherit;
+    font-size: 18px;
+}
+.buttons { 
+    text-align:center;
+}
+body {
+    background-color: #f8f8f8;
+    background-position: center top;
+    font-family: "Georgia", "Times", serif;
+    -webkit-font-smoothing: antialiased;
+    background-image: url("hatter.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+div {
+    height: 100vh;
+}
