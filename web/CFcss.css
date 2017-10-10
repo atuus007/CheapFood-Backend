@@ -6,6 +6,9 @@
     font-size: 35px;
 	padding-top: 10px;
 }
+.container{
+	align-content: center;
+}
 
 p {
     text-align: center;
@@ -20,7 +23,7 @@ body {
     background-color: #f8f8f8;
     background-position: center top;
     font-family: "Georgia", "Times", serif;
-    background-image: url("hatter.jpg");
+    background-image: url("images/hatter.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 	background-clip: border-box;
@@ -69,4 +72,20 @@ body {
 .footer-text{
 	text-align: left;
 	font-size: 10px;
+}
+.menu{
+	width:900px;
+	height:40px;
+	background-color:gray;
+	opacity: 0.8;
+}
+.fooldal-leiras{
+	width: 900px;
+	background-color:gray;
+	opacity: 0.8;
+}
+.keszitok-leiras{
+	width: 900px;
+	background-color:gray;
+	opacity: 0.8;
 }
