@@ -20,8 +20,22 @@
 <title>CheapFood</title>
 </head>
 
-<body>
-<div id="container">
+<body onload="myFunction()" style="margin:0;">
+<script>
+var myVar;
+
+function myFunction() {
+    myVar = setTimeout(showPage, 1200);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("container").style.display = "block";
+  document.getElementById("container2").style.display = "block";
+}
+</script>
+<div class="loader" id="loader"></div>
+<div class="container" id="container" style="display:none;">
 	<center>
 	<table class="headertable">
 		<tr>
@@ -41,9 +55,10 @@
         </center>
          
 <center>
-     
-         <hr width="900px">
-          <div class="menu">
+    <hr width="900px">
+     <div class="menu">
+         
+          
          	<table style="text-align: center;height: 40px">
          	<tr>
          		<td class="menutd">
@@ -59,15 +74,17 @@
          	</table>
          	 </div>
          	 </center>
-       </div>
-         	   <hr width="900px">
+         	 <hr width="900px">
+      		 </div>
+         	   
          	   
 		<center>	 
-       	  <div class="fooldal-leiras">
+       	 <div class="container" id="container2">
+       	   <div class="fooldal-leiras">
          	<table style="text-align: center;">
 				<tr>
 					<td>
-						<p>Üdvözöllek a Cheap Foods-on! Ezen alkalmazás segítségével megtalálhatod a pénztárcádnak megfelelő ételek receptjeit. Nem kell mást tenned, csak az Ételek menüre kattintani és ott kiválasztani mennyi összeget szánsz az étel elkészítésére.</p>
+						<p>Üdvözöllek a Cheap Foods-on! Mivel ez az alkalmazás főleg kollégistáknak készült, segítségével megtalálhatod a pénztárcádnak megfelelő ételek receptjeit. Nem kell mást tenned, csak az Ételek menüre kattintani és ott kiválasztani mennyi összeget szánsz az étel elkészítésére.</p>
 					</td>
 				</tr>	  
        	 <tr>
@@ -76,9 +93,10 @@
        	 	</td>
        	 </tr>
         	 </table>
-		  </div>
+			</div>
+			</div>
 	 </center>
-	 
+	
 </body>
 <footer>
 	<p class="footer-text"> <script>document.write(new Date().getFullYear())</script> © Cheap Foods </p>

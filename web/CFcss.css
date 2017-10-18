@@ -8,6 +8,21 @@
 }
 .container{
 	align-content: center;
+	display: none;
+}
+#container{
+		position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+#container2{
+		position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s;
 }
 
 p {
@@ -27,6 +42,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 	background-clip: border-box;
+	
+	
 }
 .headertable{
 	background-color: gray;
@@ -84,8 +101,74 @@ body {
 	background-color:gray;
 	opacity: 0.8;
 }
-.keszitok-leiras{
-	width: 900px;
+#keszitok-leiras{
+	width: 904px;
 	background-color:gray;
+	display: inline-block;	
 	opacity: 0.8;
+	position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+#keszitok-leiras1{
+	width: 450px;
+	background-color:gray;
+	display: inline-block;	
+	opacity: 0.8;
+	position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s;
+}
+#keszitok-leiras2{
+	width: 450px;
+	display: inline-block;
+	background-color:gray;
+	opacity: 0.92;
+	position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 2s;
+  animation-name: animatebottom;
+  animation-duration: 2s;
+}
+#leftstyle{
+	padding-top:3px;
+  width: 300px;
+  display: inline-block;
+  background-color:gray;
+  opacity: 0.8;
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 4s;
+  animation-name: animatebottom;
+  animation-duration: 4s;
+}
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+	position: absolute;
+	left: 45%;
+  	top: 40%;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+	-webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
 }
