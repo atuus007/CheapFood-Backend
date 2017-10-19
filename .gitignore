@@ -14,3 +14,11 @@ out/
 .idea/modules.xml
 .idea/workspace.xml
 
+cheapfoodweb/cheapfoodweb.iml
+CheapFood.iml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/libraries/Maven__junit_junit_3_8_1.xml
+.idea/compiler.xml
+.idea/artifacts/cheapfoodweb_war_exploded.xml
