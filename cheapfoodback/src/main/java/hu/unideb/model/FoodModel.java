@@ -1,4 +1,4 @@
-package main.java.hu.unideb.model;
+package hu.unideb.model;
 
 import java.util.Date;
 
