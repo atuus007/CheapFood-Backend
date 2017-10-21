@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="cheapfoodweb:war">
-    <output-path>$PROJECT_DIR$/cheapfoodweb/target</output-path>
-    <root id="archive" name="cheapfood-web.war">
-      <element id="artifact" artifact-name="cheapfoodweb:war exploded" />
-    </root>
-  </artifact>
-</component>
