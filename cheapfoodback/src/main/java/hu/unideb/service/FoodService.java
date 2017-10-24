@@ -1,4 +1,9 @@
 package hu.unideb.service;
 
-public class FoodService {
+import hu.unideb.model.FoodModel;
+
+import java.util.List;
+
+public interface FoodService {
+    List<FoodModel> findAll();
 }
