@@ -1,6 +1,6 @@
 package hu.unideb.service;
 
-import hu.unideb.model.FoodModel;
+import hu.unideb.model.Food;
 import hu.unideb.repository.FoodRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<FoodModel> findAll(){
+    public List<Food> findAll(){
         return foodRepository.findAll();
     }
 }
