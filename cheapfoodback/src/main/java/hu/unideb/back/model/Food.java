@@ -1,18 +1,13 @@
-package hu.unideb.model;
-
-import hu.unideb.enums.MeasureEnum;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
+package hu.unideb.back.model;
 
 
 public class Food {
 
     private Integer id;
     private String name;
-    private Date date;
-    private MeasureEnum mennyisegFajta;
+
+    //private MeasureEnum mennyisegFajta;
+    private Integer mennyisegFajta;
     private Integer mennyiseg;
 
     public String getName() {
@@ -23,21 +18,13 @@ public class Food {
         this.name = name;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public MeasureEnum getMennyisegFajta() {
+    public Integer getMennyisegFajta() {
         return mennyisegFajta;
     }
 
 
     public void setMennyisegFajta(Integer mennyisegFajta) {
-        this.mennyisegFajta = MeasureEnum.values()[mennyisegFajta];
+        this.mennyisegFajta = mennyisegFajta;
     }
 
     public Integer getMennyiseg() {

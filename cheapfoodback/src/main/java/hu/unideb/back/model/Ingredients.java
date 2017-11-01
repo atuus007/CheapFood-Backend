@@ -1,4 +1,4 @@
-package hu.unideb.model;
+package hu.unideb.back.model;
 
 public class Ingredients {
     private Integer id;
