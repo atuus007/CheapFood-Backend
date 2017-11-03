@@ -14,7 +14,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://192.168.0.106:5432/testdb?autoReconnect=true"/>
+        <property name="url" value="jdbc:postgresql://192.168.0.105:5432/fooddb?autoReconnect=true"/>
         <property name="username" value="rft" />
         <property name="password" value="test123" />
     </bean>
