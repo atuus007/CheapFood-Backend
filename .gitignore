@@ -1,6 +1,11 @@
 .idea/
+.idea/artifacts/
+.idea/libraries/
+.idea/inspectionProfiles/
 *.iml
 target/
+cheapfoodback/target/
+cheapfoodweb/target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -11,14 +16,4 @@ buildNumber.properties
 .mvn/timing.properties
 build/
 out/
-.idea/modules.xml
-.idea/workspace.xml
 
-cheapfoodweb/cheapfoodweb.iml
-CheapFood.iml
-.idea/vcs.xml
-.idea/modules.xml
-.idea/misc.xml
-.idea/libraries/Maven__junit_junit_3_8_1.xml
-.idea/compiler.xml
-.idea/artifacts/cheapfoodweb_war_exploded.xml
