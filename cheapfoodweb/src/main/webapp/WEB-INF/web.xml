@@ -4,23 +4,59 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
   <servlet>
-    <servlet-name>cheapfoodServlet</servlet-name>
+    <servlet-name>cheapFoodServlet</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/servlet-config.xml</param-value>
+      <param-value>
+        /WEB-INF/config/servlet-config.xml
+        classpath:spring-config.xml
+      </param-value>
     </init-param>
+   <load-on-startup>1</load-on-startup>
   </servlet>
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>cheapfoodServlet</servlet-name>
-    <url-pattern>*.html</url-pattern>
-  </servlet-mapping>
 
-  <servlet-mapping>
-    <servlet-name>cheapfoodServlet</servlet-name>
-    <url-pattern>*.json</url-pattern>
-  </servlet-mapping>
 
-  <display-name>CheapFood Web Application</display-name>
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>/images/**</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>*.json</url-pattern>
+    </servlet-mapping>
+
+
+
+
+<!--
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring-config.xml</param-value>
+  </context-param>
+-->
+
+  <!--
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
+      <servlet-mapping>
+        <servlet-name>cheapfoodServlet</servlet-name>
+        <url-pattern>*.json</url-pattern>
+      </servlet-mapping>
+  -->
+      <servlet-mapping>
+        <servlet-name>cheapFoodServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+      </servlet-mapping>
+
+  <display-name>CheapFood</display-name>
 </web-app>

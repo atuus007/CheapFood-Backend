@@ -1,4 +1,4 @@
-package hu.unideb.enums;
+package hu.unideb.back.enums;
 
 
 public enum MeasureEnum {
