@@ -12,9 +12,10 @@
 		                   http://www.springframework.org/schema/context/spring-context.xsd">
     <mvc:annotation-driven/>
     <context:component-scan base-package="hu.unideb.controller"/>
-
+    <mvc:resources location="/assets/" mapping="/assets/**"/>
+    <mvc:resources mapping="/resources/**" location="/resources/" />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/jsp/" p:suffix=".jsp" />
+          p:prefix="/WEB-INF/assets/" p:suffix=".jsp" />
 
 
 </beans>

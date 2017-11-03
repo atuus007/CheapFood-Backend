@@ -7,6 +7,7 @@ import hu.unideb.back.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,8 +20,24 @@ public class FoodController {
 
     @Autowired
     private FoodService foodService;
+/*
+    @RequestMapping(value = "/index")
+    public String index(Model model){
+        return "forward:index.jsp";
+    }
+*/
 
 
+    @RequestMapping(value = "/index")
+    public String creator(Model model){
+        return "forward:index.jsp";
+    }
+
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
+    public String directCreator(@ModelAttribute("index") Model model){
+        System.out.println("directCreatory");
+        return "redirect:keszitok.html";
+    }
     @RequestMapping(value = "/foods", method = RequestMethod.GET)
     public @ResponseBody List<Food> getFoods(){
         System.out.println("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");

@@ -13,8 +13,26 @@
         classpath:spring-config.xml
       </param-value>
     </init-param>
-   <!-- <load-on-startup>1</load-on-startup>-->
+   <load-on-startup>1</load-on-startup>
   </servlet>
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>/images/**</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>cheapFoodServlet</servlet-name>
+      <url-pattern>*.json</url-pattern>
+    </servlet-mapping>
+
+
 
 
 <!--
