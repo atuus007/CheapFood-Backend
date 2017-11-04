@@ -1,15 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Ati
-  Date: 2017. 11. 02.
-  Time: 8:34
-  To change this template use File | Settings | File Templates.
-
---%>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><head>
     <link href="<c:url value="/resources/css/CFcss.css" />" rel="stylesheet" type="text/css" charset="utf-8"/>
 
     <script>
@@ -25,8 +16,9 @@
 
         },7000);
     </script>
-    <meta charset="utf-8">
-    <title>Fasz</title>
+    
+<meta charset="utf-8">
+    <title>Cheap Foods</title>
 </head>
 
 <body onload="myFunction()" style="margin:0;">
