@@ -35,11 +35,11 @@ p {
     text-align:center;
 }
 body {
-    background-color: #f8f8f8;
-	/*background-color: #fe1830;*/
+    /*background-color: #f8f8f8;*/
+	/*background-color: #d3d3d3 ;*/
     background-position: center top;
     font-family: "Georgia", "Times", serif;
-    background-image: url("../images/hatter.jpg");
+    background-image: url(resources/images/hatter.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 	background-clip: border-box;

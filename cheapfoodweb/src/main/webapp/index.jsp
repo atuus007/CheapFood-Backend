@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><head>
-    <link href="<c:url value="/resources/css/CFcss.css" />" rel="stylesheet" type="text/css" charset="utf-8"/>
+	<!--<link href="<c:url value="/resources/css/CFcss.css"/>" rel="stylesheet" type="text/css" charset="utf-8"/>
+--><link href=".//resources//css//CFcss.css" rel="stylesheet" type="text/css" charset="utf-8"/>
 
     <script>
         var images = ["resources/images/food1.jpg","resources/images/food2.jpg","resources/images/food3.jpg","resources/images/food4.jpg","resources/images/food5.jpg","resources/images/CheapFoodsLogo.png"];
@@ -21,7 +22,7 @@
     <title>Cheap Foods</title>
 </head>
 
-<body onload="myFunction()" style="margin:0;">
+<body onload="myFunction()" style="margin:0; background-image: url(resources/images/hatter.jpg);">
 
     <script>
         var myVar;
@@ -67,7 +68,7 @@
                                <a href="" class="headerlink">Főoldal</a>
                            </td>
                            <td class="menutd">
-                               <a href="keszitok.html" class="headerlink">Készítők</a>
+                               <a href="keszitok.jsp" class="headerlink">Készítők</a>
                            </td>
                            <td class="menutd">
                                <a href="" class="headerlink">Ételek</a>
