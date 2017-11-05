@@ -34,6 +34,21 @@ p {
 .buttons { 
     text-align:center;
 }
+#food-button:hover{
+	/*border-radius: 6px;
+	color: white;
+	background-color: navy;
+	opacity: 0.3;
+	*/
+	background-color: #e7e7e7;
+}
+#food-button{
+	/*border-radius: 6px;
+	color: navy;*/
+	 background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
 body {
     /*background-color: #f8f8f8;*/
 	/*background-color: #d3d3d3 ;*/
