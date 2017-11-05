@@ -65,13 +65,13 @@
                    <table style="text-align: center;height: 40px">
                        <tr>
                            <td class="menutd">
-                               <a href="" class="headerlink">Főoldal</a>
+                               <a href="index.jsp" class="headerlink">Főoldal</a>
                            </td>
                            <td class="menutd">
                                <a href="keszitok.jsp" class="headerlink">Készítők</a>
                            </td>
                            <td class="menutd">
-                               <a href="" class="headerlink">Ételek</a>
+                               <a href="foods.jsp" class="headerlink">Ételek</a>
                            </td>
                        </tr>
                    </table>

@@ -157,6 +157,30 @@ body {
 	-webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
 }
+#etelek-feliras{
+	border: 8px solid #f3f3f3;
+	width: 900px;
+	background-color:gray;
+	display: inline-block;	
+	opacity: 0.8;
+	position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s;
+}
+#etelek-gombok{
+	 border: 8px solid #f3f3f3;
+	width: 900px;
+	background-color:gray;
+	display: inline-block;	
+	opacity: 0.8;
+	position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s;
+}
 
 @keyframes spin {
     0% { transform: rotate(0deg); }

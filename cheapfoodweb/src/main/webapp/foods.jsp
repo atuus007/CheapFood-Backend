@@ -50,13 +50,13 @@
          	   <hr width="900px">
          	   
 		<center>	 
-       	  <div id="keszitok-leiras" align="center">
+       	  <div id="etelek-feliras" align="center">
        	  
          	<table style="text-align: center;">
 				<tr>
 					<td>
 						<p>
-						<strong>Készítők:</strong>
+						<strong>Válassz, mennyi pénzt szánsz az étel elkészítésére:</strong>
 						</p>
 					</td>
 				</tr>	  
@@ -64,77 +64,41 @@
         	 </table> 
 			</div>
 			<center>
+			<div id="etelek-gombok" align="center" >
 			<table width="600px">
 				<tr>
-					<td colspan="2">
-						<div id="keszitok-leiras1" align="center" >
+					<td >
+						
 							<p>
-								<strong>Magyari László</strong>
+								GOMB1 lesz
 							</p>
-						</div>
+						
 					</td>
 					<td>
-						<div id="keszitok-leiras2" align="center">
-							<p>
-								Frontend
-							</p>
-						</div>
+						<p>
+						GOMB2 lesz
+						</p>
 					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div id="keszitok-leiras1" align="center">
+
+					<td>
+					
 							<p>
-								<strong>Málik Tamás</strong>
+								GOMB3 lesz
 							</p>
-						</div>
+						
 					</td>
 					<td>
-						<div id="keszitok-leiras2" align="center">
+					
 							<p>
-								Backend
+								GOMB4 lesz
 							</p>
-						</div>
+						
 					</td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<div id="keszitok-leiras1" align="center">
-							<p>
-								<strong>Fodor Attila</strong>
-							</p>
-						</div>
-					</td>
-					<td>
-						<div id="keszitok-leiras2" align="center">
-							<p>
-								Backend
-							</p>
-						</div>
-					</td>
-				</tr>
+				
 			</table>
+			</div>
 			</center>
-        <!--	 
-		 
-		   <div class="keszitok-leiras2">
-		   <p>
-        	 	<strong></strong>
-        	 </p>
-        	 <p>
-        	 	Backend
-        	 </p>
-        	 </div>
-        	 <div class="keszitok-leiras3">
-        		 <div id="leftstyle" style="display: inline-block; text-align: left;">
-		  		 <p>
-        	 		<strong></strong>
-        		 </p>
-        		 <p>
-        	 		Backend
-        		 </p>
-				 </div>
-        	 </div> -->
 	 
 	  </center>
 </body>
