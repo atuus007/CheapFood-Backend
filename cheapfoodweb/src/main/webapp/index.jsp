@@ -1,16 +1,8 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Ati
-  Date: 2017. 11. 02.
-  Time: 8:34
-  To change this template use File | Settings | File Templates.
-
---%>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<head>
-    <link href="<c:url value="/resources/css/CFcss.css" />" rel="stylesheet" type="text/css" charset="utf-8"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><head>
+	<!--<link href="<c:url value="/resources/css/CFcss.css"/>" rel="stylesheet" type="text/css" charset="utf-8"/>
+--><link href=".//resources//css//CFcss.css" rel="stylesheet" type="text/css" charset="utf-8"/>
 
     <script>
         var images = ["resources/images/food1.jpg","resources/images/food2.jpg","resources/images/food3.jpg","resources/images/food4.jpg","resources/images/food5.jpg","resources/images/CheapFoodsLogo.png"];
@@ -25,11 +17,12 @@
 
         },7000);
     </script>
-    <meta charset="utf-8">
-    <title>Fasz</title>
+    
+<meta charset="utf-8">
+    <title>Cheap Foods</title>
 </head>
 
-<body onload="myFunction()" style="margin:0;">
+<body onload="myFunction()" style="margin:0; background-image: url(resources/images/hatter.jpg);">
 
     <script>
         var myVar;
@@ -72,13 +65,13 @@
                    <table style="text-align: center;height: 40px">
                        <tr>
                            <td class="menutd">
-                               <a href="" class="headerlink">Főoldal</a>
+                               <a href="index.jsp" class="headerlink">Főoldal</a>
                            </td>
                            <td class="menutd">
-                               <a href="keszitok.html" class="headerlink">Készítők</a>
+                               <a href="keszitok.jsp" class="headerlink">Készítők</a>
                            </td>
                            <td class="menutd">
-                               <a href="" class="headerlink">Ételek</a>
+                               <a href="foods.jsp" class="headerlink">Ételek</a>
                            </td>
                        </tr>
                    </table>
