@@ -1,4 +1,6 @@
 <!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><head>
 <html>
 <head>
 <!-- <link href="CFcss.css" rel="stylesheet" type="text/css" charset="utf-8" /> -->
@@ -69,30 +71,30 @@
 				<tr>
 					<td >
 						
-							<p>
-								GOMB1 lesz
-							</p>
+							
+								<button id="food-button" type="button">200 - 400 FT</button>
+							
 						
 					</td>
 					<td>
-						<p>
-						GOMB2 lesz
-						</p>
+						
+								<button id="food-button" type="button">400 - 600 FT</button>
+						
 					</td>
 
 					<td>
 					
-							<p>
-								GOMB3 lesz
-							</p>
+							<button id="food-button" type="button">600 - 800 FT</button>
 						
 					</td>
 					<td>
-					
-							<p>
-								GOMB4 lesz
-							</p>
-						
+						<form:form method="GET" name="mainForm" action="/foods"
+						commandName="commandName">
+							<!--<button id="food-button" type="button">800 - 1000 FT</button> -->
+						<!--	<input type="hidden" value="/foods" name="nameOfbutton"> -->
+							<input type="submit" value="/foods" name="GOMB"/>
+							
+							<!--<input type="button"  onclick="location.href='keszitok.jsp'" value="keszitok" > -->
 					</td>
 				</tr>
 				
