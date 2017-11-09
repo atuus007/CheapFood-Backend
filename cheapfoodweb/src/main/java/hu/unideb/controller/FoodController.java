@@ -7,15 +7,16 @@ import hu.unideb.back.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
+//@RestController
 public class FoodController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class FoodController {
     }
 */
 
-
+/*
     @RequestMapping(value = "/index")
     public String creator(Model model){
         return "forward:index.jsp";
@@ -38,9 +39,12 @@ public class FoodController {
         System.out.println("directCreatory");
         return "redirect:keszitok.html";
     }
-    @RequestMapping(value = "/foods", method = RequestMethod.GET)
+    */
+    @RequestMapping(value = "/foodslist", method = RequestMethod.GET)
     public @ResponseBody List<Food> getFoods(){
-        System.out.println("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        System.out.println("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa "+dateFormat.format(date));
         //List<Food> foods=new ArrayList<Food>();
 /*
         Food food=new Food();
