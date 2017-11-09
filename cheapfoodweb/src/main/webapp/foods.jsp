@@ -11,10 +11,10 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 		<script>
 		function myFunction($scope, $http) {
-			$http.get('http://localhost:8080/CheapFood/foodslist.json').success(function (data) {
+			$http.get('http://172.22.223.195:8080/CheapFood/foodslist.json').success(function (data) {
 				$scope.foodslist=data;
 			});
-			alert("Your book is overdue");
+			//alert("Your book is overdue");
 		}
 		function myFunction2() {
 			var x = document.getElementById("asd").tagName;
@@ -88,7 +88,7 @@
 						<button id="food-button2" type="button">600 - 800 FT</button>
 					</td>
 					<td>
-						<button onload="myFunction();">Try it</button>
+						<button onclick="myFunction2()" onload="myFunction()" >Try it</button>
 					</td>
 				</tr>
 			</table>
