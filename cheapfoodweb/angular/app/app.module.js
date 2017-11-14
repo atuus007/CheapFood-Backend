@@ -15,6 +15,11 @@ var app_contentAreaComponent_1 = require("./contentArea/app.contentAreaComponent
 var app_footerComponent_1 = require("./footer/app.footerComponent");
 var app_keszitokComponent_1 = require("./keszitok/app.keszitokComponent");
 var app_etelekComponent_1 = require("./etelek/app.etelekComponent");
+var app_etelek1Component_1 = require("./etelek/app.etelek1Component");
+var app_foodlist200Component_1 = require("./etelek/foodlist200/app.foodlist200Component");
+var app_foodlist400Component_1 = require("./etelek/foodlist400/app.foodlist400Component");
+var app_foodlist600Component_1 = require("./etelek/foodlist600/app.foodlist600Component");
+var app_foodlist800Component_1 = require("./etelek/foodlist800/app.foodlist800Component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +34,12 @@ AppModule = __decorate([
             app_contentAreaComponent_1.contentAreaComponent,
             app_footerComponent_1.footerComponent,
             app_keszitokComponent_1.keszitokComponent,
-            app_etelekComponent_1.etelekComponent],
+            app_etelekComponent_1.etelekComponent,
+            app_etelek1Component_1.etelek1Component,
+            app_foodlist200Component_1.foodlist200Component,
+            app_foodlist400Component_1.foodlist400Component,
+            app_foodlist600Component_1.foodlist600Component,
+            app_foodlist800Component_1.foodlist800Component],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

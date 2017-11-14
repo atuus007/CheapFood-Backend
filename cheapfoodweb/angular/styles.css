@@ -52,25 +52,16 @@ p {
     text-align:center;
 }
 #food-button:hover{
-	/*border-radius: 6px;
-	color: white;
-	background-color: navy;
-	opacity: 0.3;
-	*/
 	background-color: #e7e7e7;
 }
 #food-button{
-	/*border-radius: 6px;
-	color: navy;*/
+text-decoration: none;
 	 background-color: white;
      font-family: 'Carter One', cursive;
     color: darkblue;
-
-    border: 2px solid #000080;
+    border: 1px solid #000080;
 }
 body {
-    /*background-color: #f8f8f8;*/
-	/*background-color: #d3d3d3 ;*/
     background-position: center top;
     font-family: "Georgia", "Times", serif;
     background-image: url(app/images/hatter.jpg);
@@ -185,25 +176,15 @@ body {
   animation-name: animatebottom;
   animation-duration: 4s;
 }
+.foodlistTable{
 
-/*.loader {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #3498db;
-	position: absolute;
-	left: 45%;
-  	top: 40%;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-	-webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}*/
+}
 .etelek-feliras{
   align-content: center;
     display: block;
   margin: 0 auto;
   text-align: center;
-	border: 3px solid #000080;
+	//border: 3px solid #000080;
 	width: 930px;
 	background-color:gray;
 	opacity: 0.8;
@@ -213,9 +194,20 @@ body {
   animation-name: animatebottom;
   animation-duration: 1.5s;
 }
-#etelek-gombok{
-  	 border: 3px solid #000080;
+.etelek-feliras1{
+  align-content: center;
+    display: block;
+  margin: 0 auto;
+  text-align: center;
+	//border: 3px solid #000080;
 	width: 930px;
+	background-color:gray;
+	opacity: 0.8;
+	position: relative;
+}
+#etelek-gombok{
+  border: 2px solid #000080;
+	width: 927px;
 	background-color:gray;
   margin: 0 auto;
   text-align:center;
@@ -226,11 +218,30 @@ body {
   animation-name: animatebottom;
   animation-duration: 1.9s;
 }
+#etelek-gombok1{
+  border: 2px solid #000080;
+	width: 927px;
+	background-color:gray;
+  margin: 0 auto;
+  text-align:center;
+	opacity: 0.8;
+	position: relative;
+}
 #align{
   width: 230px;
 }
 #align2{
   width: 400px;
+}
+.foodlistTable{
+  border: 3px solid #FFFFFF;
+  top:5px;
+  width: 933px;
+	background-color:gray;
+  margin: 0 auto;
+  text-align:center;
+	opacity: 0.8;
+	position: relative;
 }
 
 @-webkit-keyframes animatebottom {
