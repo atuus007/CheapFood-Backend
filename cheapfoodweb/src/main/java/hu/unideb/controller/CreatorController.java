@@ -12,7 +12,7 @@ public class CreatorController {
     @RequestMapping(value = "/keszitok")
     public String displayCreatorPage(Model model){
         System.out.println("CreatorControllers.displayCreatorPage");
-        return "forward:assets/keszitok.jsp";
+        return "forward:keszitok.html";
     }
 
     /*
