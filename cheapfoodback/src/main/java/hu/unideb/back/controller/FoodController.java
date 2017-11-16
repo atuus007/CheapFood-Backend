@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@Controller
-//@RestController
+//@Controller
+@RestController
 public class FoodController {
 
     @Autowired
