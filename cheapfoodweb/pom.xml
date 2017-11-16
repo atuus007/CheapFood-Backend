@@ -8,14 +8,14 @@
 	<!--dfasfs-->
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cheapfood-web</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>cheapfood-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
 
 
     <dependencies>
-
+<!--
         <dependency>
             <groupId>rft.unideb</groupId>
             <artifactId>cheapfoodback</artifactId>
@@ -70,19 +70,54 @@
             <artifactId>xstream</artifactId>
             <version>1.3.1</version>
         </dependency>
-<!--
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.3.6.RELEASE</version>
-        </dependency>
 -->
-
     </dependencies>
 
 
     <build>
         <finalName>cheapfood-web</finalName>
-
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-clean-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+                <failOnError>false</failOnError>
+                <filesets>
+                    <fileset>
+                        <directory>.</directory>
+                        <includes>
+                            <include>dist/**/*.*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+                    </fileset>
+                </filesets>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+                <execution>
+                    <id>angular-cli build</id>
+                    <configuration>
+                        <workingDirectory>.</workingDirectory>
+                        <executable>ng</executable>
+                        <arguments>
+                            <argument>build</argument>
+                            <argument>--prod</argument>
+                            <argument>--base-href</argument>
+                            <argument>"/cheapfood-web/"</argument>
+                        </arguments>
+                    </configuration>
+                    <phase>generate-resources</phase>
+                    <goals>
+                        <goal>exec</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+        </plugins>
     </build>
 </project>

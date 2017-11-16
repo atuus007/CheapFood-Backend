@@ -1,4 +1,4 @@
-package hu.unideb.controller;
+package hu.unideb.back.controller;
 
 
 //import hu.unideb.back.model.Food;
