@@ -1,25 +1,23 @@
 package hu.unideb.back.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "etel")
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
-    private int mennyisegFajta;
+    private int mennyisegfajta;
     private int mennyiseg;
 
     public Food() {
     }
 
-    public Food(String name, int mennyisegFajta, int mennyiseg) {
+    public Food(String name, int mennyisegfajta, int mennyiseg) {
         this.name = name;
-        this.mennyisegFajta = mennyisegFajta;
+        this.mennyisegfajta = mennyisegfajta;
         this.mennyiseg = mennyiseg;
     }
 
@@ -30,10 +28,10 @@ public class Food {
         this.name = name;
     }
     public int getMennyisegFajta() {
-        return mennyisegFajta;
+        return mennyisegfajta;
     }
-    public void setMennyisegFajta(int mennyisegFajta) {
-        this.mennyisegFajta = mennyisegFajta;
+    public void setMennyisegFajta(int mennyisegfajta) {
+        this.mennyisegfajta = mennyisegfajta;
     }
     public int getMennyiseg() { return mennyiseg; }
     public void setMennyiseg(int mennyiseg) {

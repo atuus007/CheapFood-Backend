@@ -21,13 +21,14 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public List<Food> findAll(){
-        logger.error("findAll Service");
-        return null;
+
+        logger.debug("findAll Service ");
+        return foodRepository.findAll();
     }
 
     @Override
     public void sdf() {
-        System.out.println("dfasfasfdasdfasdfasf");
+        logger.debug("dfasfasfdasdfasdfasf");
     }
 /*
     @Override
