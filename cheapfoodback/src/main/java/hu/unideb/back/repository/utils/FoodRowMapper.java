@@ -2,13 +2,13 @@ package hu.unideb.back.repository.utils;
 
 import hu.unideb.back.model.Food;
 
-import org.springframework.jdbc.core.RowMapper;
+// import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class FoodRowMapper implements RowMapper<Food>{
-
+public class FoodRowMapper /*implements RowMapper<Food>*/{
+/*
     @Override
     public Food mapRow(ResultSet rs, int rowNum)throws SQLException{
        Food food = new Food();
@@ -19,4 +19,5 @@ public class FoodRowMapper implements RowMapper<Food>{
        return food;
        //food.setMennyisegFajta();
     }
+    */
 }

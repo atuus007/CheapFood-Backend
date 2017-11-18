@@ -4,8 +4,8 @@ package hu.unideb.back.repository;
 import hu.unideb.back.model.Food;
 import hu.unideb.back.repository.utils.FoodRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+// import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import org.springframework.stereotype.Repository;
 
@@ -18,13 +18,13 @@ import java.util.Map;
 public class FoodRepositoryImpl implements FoodRepository {
 
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    //@Autowired
+    //private JdbcTemplate jdbcTemplate;
     @Override
     public Food insertFood(Food food) {
         System.out.println("BBBBBBBBBBBBBBB");
-        SimpleJdbcInsert insert=new SimpleJdbcInsert(jdbcTemplate);
-        insert.setGeneratedKeyName("id");
+      //  SimpleJdbcInsert insert=new SimpleJdbcInsert(jdbcTemplate);
+       // insert.setGeneratedKeyName("id");
 
 
         Map<String, Object> data = new HashMap<>();
@@ -38,18 +38,18 @@ public class FoodRepositoryImpl implements FoodRepository {
         columns.add("mennyiseg");
         columns.add("mennyisegfajta");
 
-        insert.setTableName("etel");
-        insert.setColumnNames(columns);
-        Number id = insert.executeAndReturnKey(data);
+        //insert.setTableName("etel");
+        //insert.setColumnNames(columns);
+        //Number id = insert.executeAndReturnKey(data);
 
-        return getFoodById(id.intValue());
+        return /*getFoodById(id.intValue())*/null;
     }
 
     @Override
     public Food getFoodById(Integer id) {
-        Food food = jdbcTemplate.queryForObject("select * from etel where id = ?", new FoodRowMapper(), id);
+        //Food food = jdbcTemplate.queryForObject("select * from etel where id = ?", new FoodRowMapper(), id);
 
-        return food;
+        return null;
     }
 
 
@@ -58,7 +58,7 @@ public class FoodRepositoryImpl implements FoodRepository {
     public List<Food> findAll(){
         System.out.println("findAll Repo");
 
-        List<Food> foods=jdbcTemplate.query("select * from etel", new FoodRowMapper());
+       // List<Food> foods=jdbcTemplate.query("select * from etel", new FoodRowMapper());
 /*
             @Override
             public Food mapRow(ResultSet resultSet, int i) throws SQLException {
@@ -74,7 +74,7 @@ public class FoodRepositoryImpl implements FoodRepository {
         food.setMennyiseg(21);
         food.setMennyisegFajta(2);
         */
-        return foods;
+        return null;
     }
 
 
