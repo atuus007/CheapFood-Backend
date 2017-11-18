@@ -4,11 +4,13 @@ package hu.unideb.back.controller;
 //import hu.unideb.back.model.Food;
 import hu.unideb.back.model.Food;
 import hu.unideb.back.service.FoodService;
+import hu.unideb.back.service.FoodServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ import java.util.List;
 //@Controller
 @RestController
 public class FoodController {
-
+    private static final Logger logger = LoggerFactory.getLogger(FoodController.class);
     @Autowired
     private FoodService foodService;
 /*
@@ -44,7 +46,7 @@ public class FoodController {
     public @ResponseBody List<Food> getFoods(){
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        System.out.println("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa "+dateFormat.format(date));
+        logger.error("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa "+dateFormat.format(date));
         //List<Food> foods=new ArrayList<Food>();
 /*
         Food food=new Food();

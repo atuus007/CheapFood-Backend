@@ -1,0 +1,26 @@
+base:
+  url: http://localhost:8080
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost.:5432/fooddb
+    username: rft
+    password: test123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    show-sql: true
+
+logging:
+  level:
+    root: info

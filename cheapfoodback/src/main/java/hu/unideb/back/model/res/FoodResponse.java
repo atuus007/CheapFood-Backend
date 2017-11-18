@@ -1,26 +1,13 @@
-package hu.unideb.back.model;
+package hu.unideb.back.model.res;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class FoodResponse {
 
-@Entity
-public class Food {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
     private int mennyisegFajta;
     private int mennyiseg;
 
-    public Food() {
-    }
-
-    public Food(String name, int mennyisegFajta, int mennyiseg) {
-        this.name = name;
-        this.mennyisegFajta = mennyisegFajta;
-        this.mennyiseg = mennyiseg;
+    public FoodResponse() {
     }
 
     public String getName() {
