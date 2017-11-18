@@ -1,39 +1,40 @@
 package hu.unideb.back.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+//@Entity
 public class Ingredients {
-    private Integer id;
-    private Integer atlagar;
-    private Integer mennyiseg;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private int atlagar;
+    private int mennyiseg;
     private String name;
 
-    public Integer getMennyiseg() {
+    public int getMennyiseg() {
         return mennyiseg;
     }
-
     public void setMennyiseg(Integer mennyiseg) {
         this.mennyiseg = mennyiseg;
     }
-
-    public Integer getId() {
+    public long getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public Integer getAtlagar() {
+    public int getAtlagar() {
         return atlagar;
     }
-
     public void setAtlagar(Integer atlagar) {
         this.atlagar = atlagar;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
