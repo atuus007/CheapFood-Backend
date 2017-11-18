@@ -20,6 +20,7 @@ var app_foodlist200Component_1 = require("./etelek/foodlist200/app.foodlist200Co
 var app_foodlist400Component_1 = require("./etelek/foodlist400/app.foodlist400Component");
 var app_foodlist600Component_1 = require("./etelek/foodlist600/app.foodlist600Component");
 var app_foodlist800Component_1 = require("./etelek/foodlist800/app.foodlist800Component");
+var app_foodsubmitComponent_1 = require("./foodsubmit/app.foodsubmitComponent");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -39,7 +40,8 @@ AppModule = __decorate([
             app_foodlist200Component_1.foodlist200Component,
             app_foodlist400Component_1.foodlist400Component,
             app_foodlist600Component_1.foodlist600Component,
-            app_foodlist800Component_1.foodlist800Component],
+            app_foodlist800Component_1.foodlist800Component,
+            app_foodsubmitComponent_1.foodsubmitComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

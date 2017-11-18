@@ -14,6 +14,7 @@ import { foodlist200Component } from './etelek/foodlist200/app.foodlist200Compon
 import { foodlist400Component } from './etelek/foodlist400/app.foodlist400Component';
 import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Component';
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
+import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 
 @NgModule({
   imports:      [ BrowserModule,routes ],
@@ -28,7 +29,8 @@ import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Compon
                   foodlist200Component,
                   foodlist400Component,
                   foodlist600Component,
-                  foodlist800Component],
+                  foodlist800Component,
+                  foodsubmitComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
