@@ -19,3 +19,4 @@ out/
 
 # angular dependencies
 */node_modules/**
+*/node/**
