@@ -1,48 +1,46 @@
 package hu.unideb.back.model;
 
+import javax.persistence.*;
 
+@Entity
+@Table(name = "etel")
 public class Food {
-
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String name;
+    private int mennyisegfajta;
+    private int mennyiseg;
 
-    //private MeasureEnum mennyisegFajta;
-    private Integer mennyisegFajta;
-    private Integer mennyiseg;
+    public Food() {
+    }
+
+    public Food(String name, int mennyisegfajta, int mennyiseg) {
+        this.name = name;
+        this.mennyisegfajta = mennyisegfajta;
+        this.mennyiseg = mennyiseg;
+    }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public Integer getMennyisegFajta() {
-        return mennyisegFajta;
+    public int getMennyisegFajta() {
+        return mennyisegfajta;
     }
-
-
-    public void setMennyisegFajta(Integer mennyisegFajta) {
-        this.mennyisegFajta = mennyisegFajta;
+    public void setMennyisegFajta(int mennyisegfajta) {
+        this.mennyisegfajta = mennyisegfajta;
     }
-
-    public Integer getMennyiseg() {
-        return mennyiseg;
-    }
-
-    public void setMennyiseg(Integer mennyiseg) {
+    public int getMennyiseg() { return mennyiseg; }
+    public void setMennyiseg(int mennyiseg) {
         this.mennyiseg = mennyiseg;
     }
-
-    public Integer getId() {
+    public long getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
-
-
 }

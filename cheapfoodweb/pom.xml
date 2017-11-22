@@ -1,78 +1,92 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <parent>
-        <artifactId>CheapFood</artifactId>
-        <groupId>rft.unideb</groupId>
-        <version>1.0</version>
-    </parent>
-	<!--dfasfs-->
-    <modelVersion>4.0.0</modelVersion>
-    <artifactId>cheapfood-web</artifactId>
-    <packaging>war</packaging>
-    <name>cheapfood-web Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+	<parent>
+		<artifactId>CheapFood</artifactId>
+		<groupId>rft.unideb</groupId>
+		<version>1.0</version>
+	</parent>
 
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>cheapfood-web</artifactId>
+	<packaging>jar</packaging>
+	<name>cheapfood-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<npm.executable>npm</npm.executable>
+	</properties>
 
+	<build>
+		<finalName>cheapfood-web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
 
-    <dependencies>
-
-        <dependency>
-            <groupId>rft.unideb</groupId>
-            <artifactId>cheapfoodback</artifactId>
-            <version>1.0</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version> 5.0.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.0.2.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+				<executions>
+					<execution>
+						<id>exec-npm-install</id>
+						<!--<phase>generate-sources</phase>-->
+						<configuration>
+							<workingDirectory>${project.basedir}</workingDirectory>
+							<executable>${npm.executable}</executable>
+							<arguments>
+								<argument>install</argument>
+							</arguments>
+						</configuration>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
 <!--
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.3.6.RELEASE</version>
-        </dependency>
+          <execution>
+            <id>exec-npm-run-tsc</id>
+            <phase>deploy</phase>
+            <configuration>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <executable>${npm.executable}</executable>
+              <arguments>
+                <argument>run build</argument>
+
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+          -->
+<!--
+          <execution>
+            <id>exec-npm-run-tsc</id>
+            <phase>generate-sources</phase>
+            <configuration>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <executable>${npm.executable}</executable>
+              <arguments>
+                <argument>run</argument>
+                <argument>tsc</argument>
+              </arguments>
+            </configuration>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
 -->
-
-    </dependencies>
-
-
-    <build>
-        <finalName>cheapfood-web</finalName>
-
-    </build>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+  <profiles>
+       <profile>
+         <id>platform-windwos</id>
+         <activation>
+           <os>
+              <family>windwos</family>
+           </os>
+         </activation>
+         <properties>
+           <npm.executable>npm.cmd</npm.executable>
+         </properties>
+       </profile>
+  </profiles>
 </project>
