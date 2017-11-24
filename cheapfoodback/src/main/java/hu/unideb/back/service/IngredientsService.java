@@ -6,4 +6,5 @@ import java.util.List;
 public interface IngredientsService {
 
     List<Ingredients> findAll();
+    List<Ingredients> findIngredientsById(Long Id);
 }

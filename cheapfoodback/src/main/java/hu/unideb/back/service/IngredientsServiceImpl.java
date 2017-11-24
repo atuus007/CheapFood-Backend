@@ -24,6 +24,12 @@ public class IngredientsServiceImpl implements IngredientsService {
         return ingredientsRepository.findAll();
     }
 
+    @Override
+    public List<Ingredients> findIngredientsById(Long Id){
+        logger.debug("findIngredientsById");
+        return ingredientsRepository.findIngredientsById(Id);
+    }
+
 
 
 
