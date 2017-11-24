@@ -45,11 +45,9 @@ public class FoodController {
         }
         */
     @RequestMapping(value = "/foodslist", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Food> getFoods() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        logger.debug("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa " + dateFormat.format(date));
+    public @ResponseBody List<Food> getFoods() {
+
+        logger.debug("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa " );
         //List<Food> foods=new ArrayList<Food>();
 /*
         Food food=new Food();
