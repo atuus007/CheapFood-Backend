@@ -29,8 +29,4 @@ public class IngredientsServiceImpl implements IngredientsService {
         logger.debug("findIngredientsById");
         return ingredientsRepository.findIngredientsById(Id);
     }
-
-
-
-
 }
