@@ -9,6 +9,11 @@ var core_1 = require("@angular/core");
 var foodsubmitComponent = (function () {
     function foodsubmitComponent() {
     }
+    foodsubmitComponent.prototype.onSubmit = function (form) {
+        if (form.valid) {
+            console.log(form.value);
+        }
+    };
     return foodsubmitComponent;
 }());
 foodsubmitComponent = __decorate([

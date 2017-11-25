@@ -15,9 +15,10 @@ import { foodlist400Component } from './etelek/foodlist400/app.foodlist400Compon
 import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Component';
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
+import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports:      [ BrowserModule,routes ],
+  imports:      [ BrowserModule,routes,FormsModule,ReactiveFormsModule ],
   declarations: [ AppComponent,
                   headerComponent,
                   navComponent,
@@ -30,7 +31,8 @@ import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
                   foodlist400Component,
                   foodlist600Component,
                   foodlist800Component,
-                  foodsubmitComponent],
+                  foodsubmitComponent
+                  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
