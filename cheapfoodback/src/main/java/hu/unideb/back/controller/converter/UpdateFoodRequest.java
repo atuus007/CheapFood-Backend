@@ -1,11 +1,20 @@
 package hu.unideb.back.controller.converter;
 
-public class CreatePetRequest {
+public class UpdateFoodRequest {
+    private long id;
     private String name;
     private int mennyisegfajta;
     private int mennyiseg;
 
-    public CreatePetRequest() {
+    public UpdateFoodRequest() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {

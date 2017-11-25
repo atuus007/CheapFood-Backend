@@ -1,7 +1,7 @@
 package hu.unideb.back.service.convertesrs;
 
+import hu.unideb.back.controller.converter.CreateFoodRequest;
 import hu.unideb.back.model.Food;
-import hu.unideb.back.model.res.CreateFoodRequest;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +17,7 @@ public class CreateFoodRequestConverter {
     public CreateFoodRequestConverter(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
+
     public Food form(CreateFoodRequest createFoodRequest){
         logger.info("Convertin CreatePetRequest from Pet.");
         return modelMapper.map(createFoodRequest,Food.class);
