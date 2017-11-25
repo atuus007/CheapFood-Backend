@@ -37,7 +37,24 @@ h1 {
   animation-name: animatebottom;
   animation-duration: 1.5s;
 }
+.ng-invalid.ng-touched:not(form) {
+  border: 2px solid red;
+}
 
+.foodsubmit{
+  border: 8px solid #f3f3f3;
+  width: 912px;
+  display: table;
+  margin: 0 auto;
+  text-align:center;
+  background-color:gray;
+  opacity: 0.8;
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
 p {
     text-align: center;
     color: white;
