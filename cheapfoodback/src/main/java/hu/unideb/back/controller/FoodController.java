@@ -1,12 +1,15 @@
 package hu.unideb.back.controller;
 
-
-//import hu.unideb.back.model.Food;
-
+import hu.unideb.back.controller.converter.CreateFoodRequest;
+import hu.unideb.back.controller.converter.UpdateFoodRequest;
 import hu.unideb.back.model.Food;
 import hu.unideb.back.service.FoodService;
 import hu.unideb.back.service.FoodServiceImpl;
+import hu.unideb.back.service.convertesrs.CreateFoodRequestConverter;
+import hu.unideb.back.service.convertesrs.UpdateFoodRequestConverter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,62 +24,45 @@ import java.util.List;
 
 //@Controller
 @RestController
+@RequestMapping("/api/food")
 public class FoodController {
+
     private static final Logger logger = LoggerFactory.getLogger(FoodController.class);
+
     @Autowired
     private FoodService foodService;
-/*
-    @RequestMapping(value = "/index")
-    public String index(Model model){
-        return "forward:index.jsp";
-    }
-*/
+    @Autowired
+    private CreateFoodRequestConverter createFoodRequestConverter;
+    @Autowired
+    private UpdateFoodRequestConverter updateFoodRequestConverter;
 
-    /*
-        @RequestMapping(value = "/index")
-        public String creator(Model model){
-            return "forward:index.jsp";
-        }
+    @RequestMapping(value = "/foodslist")
+    public @ResponseBody ResponseEntity<?> getFoods(){
+        logger.info("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa foodslist" );
 
-        @RequestMapping(value = "/index", method = RequestMethod.POST)
-        public String directCreator(@ModelAttribute("index") Model model){
-            System.out.println("directCreatory");
-            return "redirect:keszitok.html";
-        }
-        */
-    @RequestMapping(value = "/foodslist", method = RequestMethod.GET)
-    public @ResponseBody
-    List<Food> getFoods() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        logger.debug("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa " + dateFormat.format(date));
-        //List<Food> foods=new ArrayList<Food>();
-/*
-        Food food=new Food();
-        food.setName("InsertTest");
-        food.setMennyiseg(21);
-        food.setMennyisegFajta(2);
-        foods.add(food);
-        food.setName("InsertTest2");
-        food.setMennyiseg(41);
-        food.setMennyisegFajta(5);
-        foods.add(food);
-        for(Food f:foods){
-            System.out.println(food.getName()+" "+food.getMennyiseg()+" "+food.getMennyisegFajta());
-        }
-
-*/
-        return foodService.findAll();
+        return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
 
     }
-/*
-    @RequestMapping(value ="/yolo")
-    public String sayHello (Model model) {
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBB");
-        model.addAttribute("valami", "Hello World");
-        model.addAttribute("asd", "Hülye faszfej szar fos köcsög");
-        return "asdf";
-    }
-  */
 
+    @RequestMapping("/save")
+    public ResponseEntity<?> saveFood(@RequestBody CreateFoodRequest createFoodRequest){
+        foodService.saveFood(createFoodRequest);
+        return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+    }
+    @RequestMapping("/update")
+    public ResponseEntity<?> deleteFood(@RequestBody UpdateFoodRequest updateFoodRequest){
+        if (foodService.updateFood(updateFoodRequest)) {
+
+            return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.BAD_REQUEST);
+        }
+
+
+    }
+    @RequestMapping("/{foodId}/delete")
+    public ResponseEntity<?> deleteFood(@RequestBody CreateFoodRequest createFoodRequest){
+        foodService.saveFood(createFoodRequest);
+        return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+    }
 }
