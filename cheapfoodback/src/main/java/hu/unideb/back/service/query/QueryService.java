@@ -1,5 +1,8 @@
 package hu.unideb.back.service.query;
 
+import hu.unideb.back.model.Querys;
+import java.util.List;
+
 public interface QueryService {
-    String findIngredientsByIdAndmennyisegnev(Long Id);
+    List<Querys> findIngredientsById(Long Id);
 }

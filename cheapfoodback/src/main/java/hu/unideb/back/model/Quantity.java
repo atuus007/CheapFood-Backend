@@ -1,7 +1,6 @@
 package hu.unideb.back.model;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Table(name = "mennyisegek")
 @Entity
