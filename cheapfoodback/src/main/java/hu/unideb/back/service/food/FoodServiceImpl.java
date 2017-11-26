@@ -20,8 +20,10 @@ import java.util.stream.Collectors;
 @Service("foodService")
 public class FoodServiceImpl implements FoodService {
     private static final Logger logger = LoggerFactory.getLogger(FoodServiceImpl.class);
+
     @Autowired
     private FoodRepository foodRepository;
+
     @Autowired
     private CreateFoodRequestConverter createFoodRequestConverter;
     @Autowired
@@ -46,8 +48,9 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public void saveFood(CreateFoodRequest createFoodRequest) {
-       Food food=createFoodRequestConverter.from(createFoodRequest);
-       foodRepository.save(food);
+        logger.debug("saveFood() Service ");
+        Food food=createFoodRequestConverter.from(createFoodRequest);
+        foodRepository.save(food);
     }
 
     @Override
@@ -55,6 +58,7 @@ public class FoodServiceImpl implements FoodService {
         Optional<Food> foodOptional=foodRepository.findById(id);
         if(foodOptional.isPresent()){
             logger.debug("Food deleted");
+            foodRepository.delete(id);
             return true;
         }else {
             logger.debug("Food deleted failed YOLO");
