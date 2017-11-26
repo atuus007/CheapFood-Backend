@@ -21,38 +21,34 @@ public class FoodController {
 
     @Autowired
     private FoodService foodService;
-    @Autowired
-    private CreateFoodRequestConverter createFoodRequestConverter;
-    @Autowired
-    private UpdateFoodRequestConverter updateFoodRequestConverter;
+
 
     @RequestMapping(value = "/foodslist")
     public @ResponseBody ResponseEntity<?> getFoods(){
         logger.info("FooodsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa foodslist" );
-
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
-
     }
 
-    @RequestMapping("/save")
+    @RequestMapping("/savefood")
     public ResponseEntity<?> saveFood(@RequestBody CreateFoodRequest createFoodRequest){
         foodService.saveFood(createFoodRequest);
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
     }
-    @RequestMapping("/update")
-    public ResponseEntity<?> deleteFood(@RequestBody UpdateFoodRequest updateFoodRequest){
+    @RequestMapping("/updatefood")
+    public ResponseEntity<?> updateFood(@RequestBody UpdateFoodRequest updateFoodRequest){
         if (foodService.updateFood(updateFoodRequest)) {
-
             return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
         }else{
             return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.BAD_REQUEST);
         }
-
-
     }
     @RequestMapping("/{foodId}/delete")
-    public ResponseEntity<?> deleteFood(@RequestBody CreateFoodRequest createFoodRequest){
-        foodService.saveFood(createFoodRequest);
-        return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+    public ResponseEntity<?> deleteFood(@PathVariable(value = "foodId") long id){
+        logger.info("DELELEELELEELTE: "+id);
+        if(foodService.deleteFood(id)){
+            return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.BAD_REQUEST);
+        }
     }
 }
