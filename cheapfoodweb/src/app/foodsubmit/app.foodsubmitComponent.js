@@ -8,6 +8,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var foodsubmitComponent = (function () {
     function foodsubmitComponent() {
+        this.foodsList = [];
+        //newFoodForm= new ngForm;
+        /*constructor(nev: string, osszetevok: string, mennyiseg: string,
+           ar: number) {
+           this.nev = nev;
+           this.osszetevok = osszetevok;
+           this.mennyiseg = mennyiseg;
+           this.ar = ar;
+         }
+         onSubmit(form: newFoodForm) {
+            if (form.valid) {
+              console.log(form.value);
+            }
+        
+        
+        
+          onSubmit(form: newFoodForm) {
+            if (form.valid) {
+              console.log(form.value);
+            }
+          }*/
     }
     foodsubmitComponent.prototype.onSubmit = function () {
         console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.ar);

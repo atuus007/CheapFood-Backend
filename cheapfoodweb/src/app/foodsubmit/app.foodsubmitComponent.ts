@@ -19,7 +19,7 @@ export class foodsubmitComponent  {
   osszetevok: string;
   mennyiseg: string;
   ar: number;
-  foodsList: IFoodSubmit[];
+  foodsList: IFoodSubmit[]=[];
   onSubmit(): void{
       console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.ar);
       this.foodsList.push({"nev": this.nev, "osszetevok": this.osszetevok,"mennyiseg":this.mennyiseg,"ar": this.ar});
