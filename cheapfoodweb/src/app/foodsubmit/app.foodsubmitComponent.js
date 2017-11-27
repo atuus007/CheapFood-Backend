@@ -9,10 +9,10 @@ var core_1 = require("@angular/core");
 var foodsubmitComponent = (function () {
     function foodsubmitComponent() {
     }
-    foodsubmitComponent.prototype.onSubmit = function (form) {
-        if (form.valid) {
-            console.log(form.value);
-        }
+    foodsubmitComponent.prototype.onSubmit = function () {
+        console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.ar);
+        this.foodsList.push({ "nev": this.nev, "osszetevok": this.osszetevok, "mennyiseg": this.mennyiseg, "ar": this.ar });
+        console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.ar + " tomb: " + this.foodsList.length);
     };
     return foodsubmitComponent;
 }());
