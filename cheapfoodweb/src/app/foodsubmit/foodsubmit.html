@@ -1,109 +1,60 @@
 <div class="foodsubmit">
 <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
-<!--<form [formGroup]="userform" (ngSubmit)="onsubmit()">
-  <div class="form-group">
-    <label>Étel neve:</label>
-    <input type="text" class="form-control" FormControlName="nev" placeholder="étel neve">
-  </div>
-  <div class="form-group">
-    <label>1. Összetevő:</label>
-    <input type="text" class="form-control" FormControlName="osszetevok1" placeholder="pl: liszt">
-  </div>
-  <div class="form-group">
-    <label>1. Összetevő mennyisége:</label>
-    <input type="text" class="form-control" FormControlName="mennyiseg1" placeholder="darabszám">
-  </div>
-  <div class="form-group">
-    <label>Étel elkészítési ára:</label>
-    <input type="text" class="form-control" FormControlName="ar"  placeholder="845">
-  </div>
-  <button type="submit" class="btn btn-primary">Küldés</button>
-</form> -->
-<!--
-<form #newFoodForm="ngForm" (ngSubmit)="onSubmit(newFoodForm)">
+
+<!--<form #newFoodForm="ngForm" (ngSubmit)="onSubmit(newFoodForm)">-->
 
   <input type="text" placeholder="Étel neve"
          required maxlength="25"
-         [(ngModel)]="nev" name="nev"
+         [(ngModel)]='nev' name="nev"
          #pickedName="ngModel">
   <div *ngIf="!pickedName.valid && pickedName.touched">
     Étel nevet mindenképp adj meg!
   </div>
 
-  <input type="text" placeholder="pl: Liszt"
-         required [(ngModel)]="osszetevok1"
-         name="osszetevok1" #osszetevok1="ngModel">
-  <div *ngIf="!osszetevok1.valid && osszetevok1.touched">
-    Első összetevő megadása kötelező!
-  </div>
-
-  <input type="text" placeholder="pl: 2"
-         [(ngModel)]="mennyiseg1" name="mennyiseg1" #mennyiseg1="ngModel">
-         <div *ngIf="!mennyiseg1.valid && mennyiseg1.touched">
-           Első összetevő mennyiségének megadása kötelező!
-         </div>
-  <input type="text" placeholder="pl: 580" required
-         [(ngModel)]="ar" name="ar"
-         #ar="ngModel">
-  <div *ngIf="!ar.valid && ar.touched">
-    Ár megadása kötelező!
-  </div>
-
-
-  <button type="submit" [disabled]="!newFoodForm.form.valid">
-    Register
-  </button>
-
-  <button type="button" (click)="newFoodForm.reset()">
-    Reset
-  </button>
-
-</form>
--->
-
-
-<form #newFoodForm="ngForm" (ngSubmit)="onSubmit(newFoodForm)">
-
-  <input type="text" placeholder="Étel neve"
-         required maxlength="25"
-         [(ngModel)]="nev" name="nev"
-         #pickedName="ngModel">
-  <div *ngIf="!pickedName.valid && pickedName.touched">
-    Étel nevet mindenképp adj meg!
-  </div>
-
-  <input type="text" placeholder="pl: liszt"
-         required maxlength="25"
-         [(ngModel)]="osszetevok" name="osszetevok"
+  <input type="text" 
+         placeholder="pl: liszt" 
+         required maxlength="25" 
+         [(ngModel)]='osszetevok' 
+         name="osszetevok" 
          #osszetevok1="ngModel">
+
   <div *ngIf="!osszetevok1.valid && osszetevok1.touched">
   Első összetevőt mindenképp adj meg!
   </div>
 
   <input type="text" placeholder="pl: 2" required
-         [(ngModel)]="mennyiseg" name="mennyiseg"
+         [(ngModel)]='mennyiseg' name="mennyiseg"
          #mennyiseg1="ngModel">
-         <div *ngIf="!mennyiseg1.valid && mennyiseg1.touched">
-           Első összetevő mennyiségének megadása kötelező!
-         </div>
+  <div *ngIf="!mennyiseg1.valid && mennyiseg1.touched">
+    Első összetevő mennyiségének megadása kötelező!
+  </div>
 
+  <input type="text" placeholder="pl: 580" required
+        [(ngModel)]='ar' name="ar"
+        #ar1="ngModel">
+        <div *ngIf="!ar1.valid && ar1.touched">
+          Ár megadása kötelező!
+        </div>
+  <button (click)="onSubmit()">
+      Elküld!
+    </button>
 
-         <input type="text" placeholder="pl: 580" required
-                [(ngModel)]="ar" name="ar"
-                #ar1="ngModel">
-         <div *ngIf="!ar1.valid && ar1.touched">
-           Ár megadása kötelező!
-         </div>
-
-
-  <button type="submit" [disabled]="!newFoodForm.form.valid">
+    <ol>
+      <li *ngFor="let food of foodsList">          
+        <span>{{ food.nev }} {{ food.osszetevok }} {{ food.mennyiseg }} {{ food.ar }}</span>    
+      </li>
+    </ol>
+  
+<!--
+  <h1>{{nev}} {{osszetevok | uppercase}} {{mennyiseg}} {{ar}}</h1>
+  <button type="submit" [disabled]="!newFoodForm.form.valid"   (click)="onSubmit()">
     Elküld!
   </button>
 
   <button type="button" (click)="newFoodForm.reset()">
     Reset!
   </button>
-
-</form>
+-->
+<!--</form>-->
 
 </div>
