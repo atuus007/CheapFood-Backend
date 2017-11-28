@@ -1,13 +1,13 @@
 "use strict";
-/*
-export class FoodSubmit implements IFoodSubmit{
+var FoodSubmit = (function () {
     //implicit módon törtnéi a dolog
-    constructor(public nev: string,
-                public osszetevok: string,
-                public mennyiseg: string,
-                public ar: number){
-
-                }
-}
-*/ 
+    function FoodSubmit(nev, osszetevok, mennyiseg, ar) {
+        this.nev = nev;
+        this.osszetevok = osszetevok;
+        this.mennyiseg = mennyiseg;
+        this.ar = ar;
+    }
+    return FoodSubmit;
+}());
+exports.FoodSubmit = FoodSubmit;
 //# sourceMappingURL=foodsubmit.js.map

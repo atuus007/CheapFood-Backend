@@ -5,7 +5,7 @@ import { AppComponent }  from '../app.component';
 import { FormGroup , FormControl,Validators  } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { IFoodSubmit }from './foodsubmit'
-
+import { FoodSubmit }from './foodsubmit'
 @Component({
   selector: 'foodsubmit',
   templateUrl: `./foodsubmit.html`,
@@ -19,7 +19,7 @@ export class foodsubmitComponent  {
   osszetevok: string;
   mennyiseg: string;
   ar: number;
-  foodsList: IFoodSubmit[]=[];
+  foodsList: FoodSubmit[]=[];
   onSubmit(): void{
       console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.ar);
       this.foodsList.push({"nev": this.nev, "osszetevok": this.osszetevok,"mennyiseg":this.mennyiseg,"ar": this.ar});

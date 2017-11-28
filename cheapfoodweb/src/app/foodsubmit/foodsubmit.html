@@ -38,7 +38,12 @@
   <button (click)="onSubmit()">
       Elküld!
     </button>
-  
+
+    <ol>
+      <li *ngFor="let food of foodsList">          
+        <span>{{ food.nev }} {{ food.osszetevok }} {{ food.mennyiseg }} {{ food.ar }}</span>    
+      </li>
+    </ol>
   
 <!--
   <h1>{{nev}} {{osszetevok | uppercase}} {{mennyiseg}} {{ar}}</h1>

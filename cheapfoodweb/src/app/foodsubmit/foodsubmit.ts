@@ -4,7 +4,7 @@ export interface IFoodSubmit{
     mennyiseg: string;
     ar: number;
 }
-/*
+
 export class FoodSubmit implements IFoodSubmit{
     //implicit módon törtnéi a dolog
     constructor(public nev: string,
@@ -14,4 +14,3 @@ export class FoodSubmit implements IFoodSubmit{
 
                 }
 }
-*/
