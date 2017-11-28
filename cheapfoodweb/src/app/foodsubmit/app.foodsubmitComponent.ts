@@ -13,19 +13,21 @@ import { FoodSubmit }from './foodsubmit'
 
 
 export class foodsubmitComponent  {
- 
+
 
   nev: string;
   osszetevok: string;
-  mennyiseg: string;
+  mennyiseg: number;
+  mennyisegselect: string;
   ar: number;
   foodsList: FoodSubmit[]=[];
-  onSubmit(): void{
-      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.ar);
-      this.foodsList.push({"nev": this.nev, "osszetevok": this.osszetevok,"mennyiseg":this.mennyiseg,"ar": this.ar});
 
-      
-      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.ar+" tomb: "+this.foodsList.length);
+  onSubmit(): void{
+      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+" "+this.ar);
+      this.foodsList.push({"nev": this.nev, "osszetevok": this.osszetevok,"mennyiseg": this.mennyiseg,"mennyisegselect": this.mennyisegselect,"ar": this.ar});
+
+
+      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+"  "+this.ar+" tomb: "+this.foodsList.length);
   }
 //newFoodForm= new ngForm;
 /*constructor(nev: string, osszetevok: string, mennyiseg: string,
