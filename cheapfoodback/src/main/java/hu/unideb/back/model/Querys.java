@@ -6,14 +6,23 @@ public class Querys {
     private String hozzavalok_name;
     private long szorzo;
     private String mennyisegek_name;
+    private int atlagar;
 
-    public Querys(long et_id, String hozzavalok_name, long szorzo, String mennyisegek_name) {
+    public Querys(long et_id, String hozzavalok_name, long szorzo, String mennyisegek_name,int atlagar) {
         this.et_id = et_id;
         this.hozzavalok_name = hozzavalok_name;
         this.szorzo = szorzo;
         this.mennyisegek_name = mennyisegek_name;
+        this.atlagar = atlagar;
     }
 
+    public long getAtlagar() {
+        return atlagar;
+    }
+
+    public void setAtlagar(int atlagar) {
+        this.atlagar = atlagar;
+    }
     public long getEt_id() {
         return et_id;
     }

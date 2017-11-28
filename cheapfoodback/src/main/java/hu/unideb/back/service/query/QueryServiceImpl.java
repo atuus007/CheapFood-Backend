@@ -28,8 +28,10 @@ public class QueryServiceImpl implements QueryService {
         szorzolist = queryRepository.findSzorzoById(Id);
         List<String>  mennyiseglist = new ArrayList<>();
         mennyiseglist = queryRepository.findmennyisegById(Id);
+        List<Integer>  atalgarlist = new ArrayList<>();
+        atalgarlist = queryRepository.findcostById(Id);
         for(int i = 0; i<etellist.size();i++){
-            Querys qasd = new Querys(etellist.get(i),hozzavaloklist.get(i),szorzolist.get(i),mennyiseglist.get(i));
+            Querys qasd = new Querys(etellist.get(i),hozzavaloklist.get(i),szorzolist.get(i),mennyiseglist.get(i),atalgarlist.get(i));
             returnlist1.add(qasd);
         }
         return returnlist1;
