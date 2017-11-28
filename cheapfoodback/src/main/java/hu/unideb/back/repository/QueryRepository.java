@@ -17,4 +17,6 @@ public interface QueryRepository extends CrudRepository<Ingredients, Long>{
     List<Long> findSzorzoById(@Param("id") Long id);
     @Query("SELECT  my.name FROM Food et, Ingredients hv, Genelogy gy, Quantity my WHERE 1=1 AND et.id = gy.parentid AND gy.gyerekid = hv.id  AND hv.mennyiseg = my.id AND et.id = :id")
     List<String> findmennyisegById(@Param("id") Long id);
+    @Query("SELECT  hv.atlagar FROM Food et, Ingredients hv, Genelogy gy, Quantity my WHERE 1=1 AND et.id = gy.parentid AND gy.gyerekid = hv.id  AND hv.mennyiseg = my.id AND et.id = :id")
+    List<Integer> findcostById(@Param("id") Long id);
 }
