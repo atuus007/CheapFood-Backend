@@ -53,12 +53,16 @@
   <button [disabled]="!pickedName.valid || !osszetevok1.valid || !mennyiseg1.valid || !ar1.valid" (click)="onSubmit()">
       Elküld!
     </button>
-
+    <button (click)="getFoods()">
+      Listáz
+    </button>
+    <!--
     <ol>
       <li *ngFor="let food of foodsList">
         <span>{{ food.nev }} {{ food.osszetevok }} {{ food.mennyiseg }} {{ food.mennyisegselect }} {{ food.ar }}</span>
       </li>
     </ol>
+  -->
 
 <!--
   <h1>{{nev}} {{osszetevok | uppercase}} {{mennyiseg}} {{ar}}</h1>
