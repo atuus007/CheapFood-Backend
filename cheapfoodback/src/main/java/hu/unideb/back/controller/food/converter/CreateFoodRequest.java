@@ -1,29 +1,33 @@
-package hu.unideb.back.model.res;
+package hu.unideb.back.controller.food.converter;
 
 public class CreateFoodRequest {
-
-
     private String name;
-    private int mennyisegFajta;
+    private int mennyisegfajta;
     private int mennyiseg;
 
     public CreateFoodRequest() {
     }
 
-
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public int getMennyisegFajta() {
-        return mennyisegFajta;
+
+    public int getMennyisegfajta() {
+        return mennyisegfajta;
     }
-    public void setMennyisegFajta(int mennyisegFajta) {
-        this.mennyisegFajta = mennyisegFajta;
+
+    public void setMennyisegfajta(int mennyisegfajta) {
+        this.mennyisegfajta = mennyisegfajta;
     }
-    public int getMennyiseg() { return mennyiseg; }
+
+    public int getMennyiseg() {
+        return mennyiseg;
+    }
+
     public void setMennyiseg(int mennyiseg) {
         this.mennyiseg = mennyiseg;
     }

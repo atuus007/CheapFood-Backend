@@ -1,18 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from '../app.component';
 import { FormGroup , FormControl,Validators  } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { IFoodSubmit }from './foodsubmit'
-import { FoodSubmit }from './foodsubmit'
+// import { FoodSubmit }from './foodsubmit'
+import { FoodSubmitService } from './foodSubmitService';
 @Component({
   selector: 'foodsubmit',
   templateUrl: `./foodsubmit.html`,
 })
 
 
-export class foodsubmitComponent  {
+export class foodsubmitComponent implements OnInit {
+  ngOnInit(): void {
+    /*
+    this._foodService.getFood()
+    .subscribe(foods => { this.foodsList = foods;},
+               error => this.errorMessage=<any>error
+    );*/
+  }
 
 
   nev: string;
@@ -20,14 +28,27 @@ export class foodsubmitComponent  {
   mennyiseg: number;
   mennyisegselect: string;
   ar: number;
-  foodsList: FoodSubmit[]=[];
-
+  errorMessage: string;
+  foodsList: IFoodSubmit[]=[];
+  constructor(private _foodService: FoodSubmitService){}
   onSubmit(): void{
       console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+" "+this.ar);
-      this.foodsList.push({"nev": this.nev, "osszetevok": this.osszetevok,"mennyiseg": this.mennyiseg,"mennyisegselect": this.mennyisegselect,"ar": this.ar});
+      //this.foodsList.push();
 
 
-      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+"  "+this.ar+" tomb: "+this.foodsList.length);
+      console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+"  "+this.ar);
+  }
+  
+  getFoods(): void{
+  
+ 
+    this._foodService.getFood()
+    .subscribe(foods => { this.foodsList = foods;},
+               error => this.errorMessage=<any>error
+    );
+    console.log("AAA: "+this.foodsList.length);
+    //console.log(this.foodsList[0].name);
+    //console.log(this.foodsList[0].mennyiseg);
   }
 //newFoodForm= new ngForm;
 /*constructor(nev: string, osszetevok: string, mennyiseg: string,

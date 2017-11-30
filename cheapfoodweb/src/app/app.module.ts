@@ -16,9 +16,10 @@ import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Compon
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  imports:      [ BrowserModule,routes,FormsModule,ReactiveFormsModule ],
+  imports:      [ BrowserModule,routes,FormsModule,ReactiveFormsModule, HttpClientModule],
   declarations: [ AppComponent,
                   headerComponent,
                   navComponent,

@@ -12,9 +12,11 @@ import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Compon
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { FoodSubmitService } from './foodsubmit/foodSubmitService';
 @Component({
   selector: 'my-app',
   templateUrl: `./main.html`,
+  providers: [FoodSubmitService]
 })
 export class AppComponent  {
 
