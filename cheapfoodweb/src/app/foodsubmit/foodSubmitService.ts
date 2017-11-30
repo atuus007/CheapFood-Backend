@@ -8,7 +8,8 @@ import 'rxjs/add/operator/do';
 
 @Injectable()
 export class FoodSubmitService{
-    private _foodUrl='api/food/foodslist';
+    private _foodUrl='http://localhost:8080/api/food/foodslist';
+    private _ingredientUrl='http://localhost:8080/api/ingredients/ingredients';
     constructor(private httpClient: HttpClient) {}
     getFood(): Observable<IFoodSubmit[]>{
         //ird át a Ifoodot hogy jól mappolja össze

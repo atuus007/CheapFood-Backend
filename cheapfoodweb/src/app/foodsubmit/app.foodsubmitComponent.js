@@ -17,9 +17,11 @@ var foodsubmitComponent = (function () {
         this.foodsList = [];
     }
     foodsubmitComponent.prototype.ngOnInit = function () {
-        var _this = this;
+        /*
         this._foodService.getFood()
-            .subscribe(function (foods) { _this.foodsList = foods; }, function (error) { return _this.errorMessage = error; });
+        .subscribe(foods => { this.foodsList = foods;},
+                   error => this.errorMessage=<any>error
+        );*/
     };
     foodsubmitComponent.prototype.onSubmit = function () {
         console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.ar);
@@ -27,7 +29,12 @@ var foodsubmitComponent = (function () {
         console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + "  " + this.ar);
     };
     foodsubmitComponent.prototype.getFoods = function () {
-        console.log("AAA: ");
+        var _this = this;
+        this._foodService.getFood()
+            .subscribe(function (foods) { _this.foodsList = foods; }, function (error) { return _this.errorMessage = error; });
+        console.log("AAA: " + this.foodsList.length);
+        //console.log(this.foodsList[0].name);
+        //console.log(this.foodsList[0].mennyiseg);
     };
     return foodsubmitComponent;
 }());

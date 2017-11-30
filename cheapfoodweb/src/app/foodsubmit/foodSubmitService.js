@@ -17,7 +17,8 @@ require("rxjs/add/operator/do");
 var FoodSubmitService = (function () {
     function FoodSubmitService(httpClient) {
         this.httpClient = httpClient;
-        this._foodUrl = 'api/food/foodslist';
+        this._foodUrl = 'http://localhost:8080/api/food/foodslist';
+        this._ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
     }
     FoodSubmitService.prototype.getFood = function () {
         //ird át a Ifoodot hogy jól mappolja össze

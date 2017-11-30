@@ -15,10 +15,11 @@ import { FoodSubmitService } from './foodSubmitService';
 
 export class foodsubmitComponent implements OnInit {
   ngOnInit(): void {
+    /*
     this._foodService.getFood()
     .subscribe(foods => { this.foodsList = foods;},
                error => this.errorMessage=<any>error
-    );
+    );*/
   }
 
 
@@ -39,7 +40,15 @@ export class foodsubmitComponent implements OnInit {
   }
   
   getFoods(): void{
-    console.log("AAA: ");
+  
+ 
+    this._foodService.getFood()
+    .subscribe(foods => { this.foodsList = foods;},
+               error => this.errorMessage=<any>error
+    );
+    console.log("AAA: "+this.foodsList.length);
+    //console.log(this.foodsList[0].name);
+    //console.log(this.foodsList[0].mennyiseg);
   }
 //newFoodForm= new ngForm;
 /*constructor(nev: string, osszetevok: string, mennyiseg: string,

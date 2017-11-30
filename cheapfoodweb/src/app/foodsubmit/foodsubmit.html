@@ -54,8 +54,14 @@
       Elküld!
     </button>
     <button (click)="getFoods()">
-      Listáz
+      Listáz!
+     
     </button>
+    <ol>
+        <li *ngFor="let food of foodsList">
+          <span>{{ food.id }} {{ food.name }} {{ food.mennyiseg }} {{ food.mennyisegfajta }}</span>
+        </li>
+      </ol>
     <!--
     <ol>
       <li *ngFor="let food of foodsList">
