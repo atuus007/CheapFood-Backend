@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 //@Controller
 @RestController
 @RequestMapping("/api/food")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FoodController {
 
     private static final Logger logger = LoggerFactory.getLogger(FoodController.class);

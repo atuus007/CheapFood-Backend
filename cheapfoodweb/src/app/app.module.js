@@ -22,6 +22,7 @@ var app_foodlist600Component_1 = require("./etelek/foodlist600/app.foodlist600Co
 var app_foodlist800Component_1 = require("./etelek/foodlist800/app.foodlist800Component");
 var app_foodsubmitComponent_1 = require("./foodsubmit/app.foodsubmitComponent");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/common/http");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -29,7 +30,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, app_router_1.routes, forms_1.FormsModule, forms_1.ReactiveFormsModule],
+        imports: [platform_browser_1.BrowserModule, app_router_1.routes, forms_1.FormsModule, forms_1.ReactiveFormsModule, http_1.HttpClientModule],
         declarations: [app_component_1.AppComponent,
             app_headerComponent_1.headerComponent,
             app_navComponent_1.navComponent,
