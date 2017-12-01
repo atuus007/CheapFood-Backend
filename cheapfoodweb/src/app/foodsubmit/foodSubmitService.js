@@ -10,26 +10,45 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
+//import { Http, Response, Headers, RequestOptions } from '@angular/http';
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/throw");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/do");
+var operators_1 = require("rxjs/operators");
+var httpOptions = {
+    headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
+};
 var FoodSubmitService = (function () {
     function FoodSubmitService(httpClient) {
         this.httpClient = httpClient;
-        this._foodUrl = 'http://localhost:8080/api/food/foodslist';
+        this._foodBaseUrl = 'http://localhost:8080/api/food';
         this._ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
     }
     FoodSubmitService.prototype.getFood = function () {
+        var url = this._foodBaseUrl + "/foodslist";
         //ird át a Ifoodot hogy jól mappolja össze
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAa");
-        return this.httpClient.get(this._foodUrl)
+        console.log("getFood AAAAAAAAAAAAAAAAAAAAAAAA");
+        return this.httpClient.get(url)
             .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
             .catch(this.handleError);
     };
     FoodSubmitService.prototype.handleError = function (err) {
         console.log(err.message);
         return Observable_1.Observable.throw(err.message);
+    };
+    FoodSubmitService.prototype.createFood = function (food) {
+        //let headers=new Headers({'Content-Type':'applocation/json'});
+        //let options = new RequestOptions({ headers: headers });
+        var _this = this;
+        console.log("createFood KURVAAAAAA " + food.id + " " + food.name + " " + food.mennyiseg);
+        var url = "http://localhost:8080/api/food/savefood";
+        //let options=new RequestOptions({headers: headers});
+        /*
+        return this.httpClient.post(url, JSON.stringify(food))
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);*/
+        return this.httpClient.post(url, food, httpOptions).pipe(operators_1.tap(function (hero) { return _this.log("added hero w/ id=" + hero.id); }), operators_1.catchError(this.handleError('addHero')));
     };
     return FoodSubmitService;
 }());
