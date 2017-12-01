@@ -43,7 +43,7 @@ AppModule = __decorate([
             app_foodlist400Component_1.foodlist400Component,
             app_foodlist600Component_1.foodlist600Component,
             app_foodlist800Component_1.foodlist800Component,
-            app_foodsubmitComponent_1.foodsubmitComponent
+            app_foodsubmitComponent_1.foodsubmitComponent,
         ],
         bootstrap: [app_component_1.AppComponent]
     })
