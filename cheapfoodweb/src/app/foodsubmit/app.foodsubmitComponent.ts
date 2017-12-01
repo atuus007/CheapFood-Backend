@@ -5,8 +5,9 @@ import { AppComponent }  from '../app.component';
 import { FormGroup , FormControl,Validators  } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { IFoodSubmit, FoodSubmit }from './foodsubmit'
+import { FoodSubmitService } from '../shared/foodSubmitService';
 // import { FoodSubmit }from './foodsubmit'
-import { FoodSubmitService } from './foodSubmitService';
+
 @Component({
   selector: 'foodsubmit',
   templateUrl: `./foodsubmit.html`,
