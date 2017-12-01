@@ -17,10 +17,9 @@ var foodsubmitComponent = (function () {
         this.foodsList = [];
         this.foodsList3 = [];
         this.foodsList2 = {
-            "id": 12,
-            "name": "KURVAAA ANyadat",
-            "mennyiseg": 20,
-            "mennyisegfajta": 1
+            "name": "AAAAAAAAAAAA",
+            "mennyiseg": 30,
+            "mennyisegfajta": 3
         };
     }
     foodsubmitComponent.prototype.ngOnInit = function () {
@@ -31,11 +30,17 @@ var foodsubmitComponent = (function () {
         );*/
     };
     foodsubmitComponent.prototype.onSubmit = function () {
-        var _this = this;
         console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.ar);
-        this._foodService.createFood(this.foodsList2);
-        this._foodService.getFood()
-            .subscribe(function (foods) { _this.foodsList3 = foods; }, function (error) { return _this.errorMessage = error; });
+        this._foodService.createFood(this.foodsList2)
+            .subscribe(function (res) {
+            console.log(res);
+        }, function (err) {
+            console.log("Error occured");
+        });
+        /*this._foodService.getFood()
+        .subscribe(foods => { this.foodsList3 = foods;},
+                   error => this.errorMessage=<any>error
+        );*/
         console.log("Result " + this.foodsList3.length);
     };
     foodsubmitComponent.prototype.getFoods = function () {

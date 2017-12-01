@@ -1,5 +1,5 @@
 export interface IFoodSubmit{
-    id: number;
+
     name: string;
     mennyiseg: number;
     mennyisegfajta: number;
@@ -7,7 +7,7 @@ export interface IFoodSubmit{
 
 export class FoodSubmit implements IFoodSubmit{
     //implicit módon törtnéi a dolog
-    constructor(public id: number,
+    constructor(
                 public name: string,
                 public mennyiseg: number,
                 public mennyisegfajta: number){
