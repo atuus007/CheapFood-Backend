@@ -6,7 +6,6 @@ import { footerComponent } from './footer/app.footerComponent';
 import { keszitokComponent } from './keszitok/app.keszitokComponent';
 import { etelekComponent } from './etelek/app.etelekComponent';
 import { foodlist200Component } from './etelek/foodlist200/app.foodlist200Component';
-import { etelek1Component } from './etelek/app.etelek1Component';
 import { foodlist400Component } from './etelek/foodlist400/app.foodlist400Component';
 import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Component';
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
