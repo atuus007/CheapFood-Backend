@@ -35,21 +35,27 @@ export class foodsubmitComponent implements OnInit {
   foodsList3: IFoodSubmit[]=[];
   foodsList2: FoodSubmit =
     {
-      "id":12,
-      "name":"KURVAAA ANyadat",
-      "mennyiseg":20,
-      "mennyisegfajta":1
+      
+      "name":"AAAAAAAAAAAA",
+      "mennyiseg":30,
+      "mennyisegfajta":3
     };
   
   constructor(private _foodService: FoodSubmitService){}
   onSubmit(): void{
       console.log("SSS: "+this.nev+" "+this.osszetevok+" "+this.mennyiseg+" "+this.mennyisegselect+" "+this.ar);
      
-      this._foodService.createFood(this.foodsList2);
-      this._foodService.getFood()
+      this._foodService.createFood(this.foodsList2)
+      .subscribe(   res=>{
+        console.log(res);
+        },
+        err=>{
+            console.log("Error occured");
+        });
+      /*this._foodService.getFood()
       .subscribe(foods => { this.foodsList3 = foods;},
                  error => this.errorMessage=<any>error
-      );
+      );*/
       console.log("Result "+this.foodsList3.length);
   }
   

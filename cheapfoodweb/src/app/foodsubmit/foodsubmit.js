@@ -1,8 +1,7 @@
 "use strict";
 var FoodSubmit = (function () {
     //implicit módon törtnéi a dolog
-    function FoodSubmit(id, name, mennyiseg, mennyisegfajta) {
-        this.id = id;
+    function FoodSubmit(name, mennyiseg, mennyisegfajta) {
         this.name = name;
         this.mennyiseg = mennyiseg;
         this.mennyisegfajta = mennyisegfajta;
