@@ -15,7 +15,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/throw");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/do");
-var operators_1 = require("rxjs/operators");
+//import { catchError, map, tap } from 'rxjs/operators';
 var httpOptions = {
     headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -40,15 +40,40 @@ var FoodSubmitService = (function () {
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
-        var _this = this;
-        console.log("createFood KURVAAAAAA " + food.id + " " + food.name + " " + food.mennyiseg);
-        var url = "http://localhost:8080/api/food/savefood";
+        console.log("createFood AAAAAA: " + food.name + " " + food.mennyiseg);
+        var url = 'http://localhost:8080/api/food/savefood';
+        var body = {
+            name: food.name,
+            mennyiseg: food.mennyiseg,
+            mennyisegfajta: food.mennyisegfajta
+        };
         //let options=new RequestOptions({headers: headers});
         /*
         return this.httpClient.post(url, JSON.stringify(food))
         .do(data=>console.log("All: "+JSON.stringify(data)))
         .catch(this.handleError);*/
-        return this.httpClient.post(url, food, httpOptions).pipe(operators_1.tap(function (hero) { return _this.log("added hero w/ id=" + hero.id); }), operators_1.catchError(this.handleError('addHero')));
+        //const p=this.httpClient.post<FoodSubmit>(url, food, httpOptions)
+        //.map((res: Response)=>res.json())
+        /*.do(data=>console.log("Create Food response: "+JSON.stringify(data)))*/
+        //.catch(this.handleError); this.httpClient.post(url, body)
+        //console.log("createFood AAAAAA: "+p);ű
+        /*
+        const req=this.httpClient.post(url, body).subscribe(
+        res=>{
+            console.log(res);
+        },
+        err=>{
+            console.log("Error occured");
+        }
+        );*/
+        return this.httpClient.post(url, body)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+        /*
+        .do(map((hero: FoodSubmit) => console.log(`added hero w/ id=${hero.id}`)),
+            catchError(this.handleError)
+          );
+          */
     };
     return FoodSubmitService;
 }());
