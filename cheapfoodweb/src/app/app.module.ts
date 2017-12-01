@@ -1,6 +1,5 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { routes } from './app.router';
 import { AppComponent }  from './app.component';
 import { headerComponent } from './header/app.headerComponent';
@@ -32,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
                   foodlist400Component,
                   foodlist600Component,
                   foodlist800Component,
-                  foodsubmitComponent
+                  foodsubmitComponent,
+
                   ],
   bootstrap:    [ AppComponent ]
 })

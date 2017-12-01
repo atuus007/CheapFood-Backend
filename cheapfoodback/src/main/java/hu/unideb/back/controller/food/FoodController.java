@@ -32,7 +32,9 @@ public class FoodController {
 
     @RequestMapping("/savefood")
     public ResponseEntity<?> saveFood(@RequestBody CreateFoodRequest createFoodRequest){
+        logger.info("SAVE FOOOOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa" );
         foodService.saveFood(createFoodRequest);
+        logger.info("SAVE FOOOOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa" );
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
     }
     @RequestMapping("/updatefood")
