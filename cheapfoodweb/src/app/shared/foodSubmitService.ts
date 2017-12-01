@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IFoodSubmit, FoodSubmit } from "./foodsubmit";
+
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 //import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from "rxjs/Observable";
@@ -7,6 +7,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import { Response } from "_debugger";
+import { IFoodSubmit, FoodSubmit } from "../foodsubmit/foodsubmit";
 //import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {

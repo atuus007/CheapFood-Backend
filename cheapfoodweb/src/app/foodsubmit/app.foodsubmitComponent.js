@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var foodSubmitService_1 = require("../shared/foodSubmitService");
 // import { FoodSubmit }from './foodsubmit'
-var foodSubmitService_1 = require("./foodSubmitService");
 var foodsubmitComponent = (function () {
     function foodsubmitComponent(_foodService) {
         this._foodService = _foodService;
