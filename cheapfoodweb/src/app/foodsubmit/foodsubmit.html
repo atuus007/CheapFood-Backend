@@ -41,6 +41,109 @@
     <option value="liter">liter</option>
   </select>
 </div>
+<!-- [hidden]="edited" -->
+<div [hidden]="edited" >
+  <input type="text"
+         placeholder="Második összetevő"
+         required maxlength="25"
+         [(ngModel)]='osszetevok2'
+         name="osszetevok2"
+         >
+</div>
+<div [hidden]="edited">
+  <input type="number" placeholder="2.Összetevő mennyiség"  step="0.1" required
+         [(ngModel)]='mennyiseg2' name="mennyiseg2"
+        >
+
+  <select [(ngModel)]='mennyisegselect2' name="mennyisegselect2">
+    <option value="kg" >kg</option>
+    <option value="ek">evőkanál</option>
+    <option value="tk">teáskanál</option>
+    <option value="dkg">dkg</option>
+    <option value="gramm">gramm</option>
+    <option value="db">db</option>
+    <option value="liter">liter</option>
+  </select>
+</div>
+
+<div [hidden]="edited2" >
+  <input type="text"
+         placeholder="Harmadik összetevő"
+         required maxlength="25"
+         [(ngModel)]='osszetevok3'
+         name="osszetevok3"
+         >
+</div>
+<div [hidden]="edited2">
+  <input type="number" placeholder="3.Összetevő mennyiség"  step="0.1" required
+         [(ngModel)]='mennyiseg3' name="mennyiseg3"
+        >
+
+  <select [(ngModel)]='mennyisegselect3' name="mennyisegselect3">
+    <option value="kg" >kg</option>
+    <option value="ek">evőkanál</option>
+    <option value="tk">teáskanál</option>
+    <option value="dkg">dkg</option>
+    <option value="gramm">gramm</option>
+    <option value="db">db</option>
+    <option value="liter">liter</option>
+  </select>
+</div>
+
+
+<!--  -->
+
+<div [hidden]="edited3" >
+  <input type="text"
+         placeholder="Negyedik összetevő"
+         required maxlength="25"
+         [(ngModel)]='osszetevok4'
+         name="osszetevok4"
+         >
+</div>
+<div [hidden]="edited3">
+  <input type="number" placeholder="4.Összetevő mennyiség"  step="0.1" required
+         [(ngModel)]='mennyiseg4' name="mennyiseg4"
+        >
+
+  <select [(ngModel)]='mennyisegselect4' name="mennyisegselect4">
+    <option value="kg" >kg</option>
+    <option value="ek">evőkanál</option>
+    <option value="tk">teáskanál</option>
+    <option value="dkg">dkg</option>
+    <option value="gramm">gramm</option>
+    <option value="db">db</option>
+    <option value="liter">liter</option>
+  </select>
+</div>
+
+
+
+<div [hidden]="edited4" >
+  <input type="text"
+         placeholder="Ötödik összetevő"
+         required maxlength="25"
+         [(ngModel)]='osszetevok5'
+         name="osszetevok5"
+         >
+</div>
+<div [hidden]="edited4">
+  <input type="number" placeholder="5.Összetevő mennyiség"  step="0.1" required
+         [(ngModel)]='mennyiseg5' name="mennyiseg5"
+        >
+
+  <select [(ngModel)]='mennyisegselect5' name="mennyisegselect5">
+    <option value="kg" >kg</option>
+    <option value="ek">evőkanál</option>
+    <option value="tk">teáskanál</option>
+    <option value="dkg">dkg</option>
+    <option value="gramm">gramm</option>
+    <option value="db">db</option>
+    <option value="liter">liter</option>
+  </select>
+</div>
+
+<!--  -->
 
 <div>
   <input type="number" placeholder="pl: 580" required
@@ -55,13 +158,28 @@
     </button>
     <button (click)="getFoods()">
       Listáz!
-     
+
     </button>
     <ol>
         <li *ngFor="let food of foodsList">
           <span>{{ food.id }} {{ food.name }} {{ food.mennyiseg }} {{ food.mennyisegfajta }}</span>
         </li>
       </ol>
+      <button [hidden]="gombeltunt" (click)="newIngredient(edited)" (click)="buttonHide(gombeltunt)" (click)=newbutt(gombeltunt2)>
+        Új összetevő hozzáadása
+      </button>
+      <button [hidden]="gombeltunt2"  (click)="newIngredient2(edited2)" (click)="buttonHide2(gombeltunt2)" (click)=newbutt2(gombeltunt3)>
+        Új összetevő hozzáadása
+      </button>
+      <button [hidden]="gombeltunt3"  (click)="newIngredient3(edited3)" (click)="buttonHide3(gombeltunt3)" (click)=newbutt3(gombeltunt4)>
+        Új összetevő hozzáadása
+      </button>
+      <button [hidden]="gombeltunt4"  (click)="newIngredient4(edited4)" (click)="buttonHide4(gombeltunt4)" (click)=MaxIng(maxingrediements) >
+        Új összetevő hozzáadása
+      </button>
+      <div [hidden]="maxingrediements">
+        <h2>Elérted a maximális összetevők mennyiségét!</h2>
+      </div>
     <!--
     <ol>
       <li *ngFor="let food of foodsList">
