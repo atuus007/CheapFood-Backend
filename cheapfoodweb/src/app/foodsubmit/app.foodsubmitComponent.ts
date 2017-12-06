@@ -49,9 +49,6 @@ export class foodsubmitComponent implements OnInit {
   gombeltunt2:boolean = true;
   gombeltunt3:boolean = true;
   gombeltunt4:boolean = true;
-  gombeltunt2:boolean = true;
-  gombeltunt3:boolean = true;
-  gombeltunt4:boolean = true;
   maxingrediements:boolean = true;
   foodsList: IFoodSubmit[]=[];
   foodsList3: IFoodSubmit[]=[];
