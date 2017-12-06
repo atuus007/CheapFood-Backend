@@ -10,10 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var foodSubmitService_1 = require("../shared/foodSubmitService");
-// import { FoodSubmit }from './foodsubmit'
 var foodsubmitComponent = (function () {
     function foodsubmitComponent(_foodService) {
         this._foodService = _foodService;
+        this.edited = true;
+        this.edited2 = true;
+        this.edited3 = true;
+        this.edited4 = true;
+        this.gombeltunt = false;
+        this.gombeltunt2 = true;
+        this.gombeltunt3 = true;
+        this.gombeltunt4 = true;
+        this.gombeltunt2 = true;
+        this.gombeltunt3 = true;
+        this.gombeltunt4 = true;
+        this.maxingrediements = true;
         this.foodsList = [];
         this.foodsList3 = [];
         this.foodsList2 = {
@@ -29,8 +40,88 @@ var foodsubmitComponent = (function () {
                    error => this.errorMessage=<any>error
         );*/
     };
+    foodsubmitComponent.prototype.newIngredient = function () {
+        console.log("2. Ingredient added");
+        this.edited = false;
+        return this.edited;
+    };
+    foodsubmitComponent.prototype.newIngredient2 = function () {
+        console.log("3. Ingredient added");
+        this.edited2 = false;
+        return this.edited2;
+    };
+    foodsubmitComponent.prototype.newIngredient3 = function () {
+        console.log("4. Ingredient added");
+        this.edited3 = false;
+        return this.edited3;
+    };
+    foodsubmitComponent.prototype.newIngredient4 = function () {
+        console.log("5. Ingredient added");
+        this.edited4 = false;
+        return this.edited4;
+    };
+    foodsubmitComponent.prototype.buttonHide = function () {
+        console.log("Gomb Eltuntetve");
+        this.gombeltunt = true;
+        return this.gombeltunt;
+    };
+    foodsubmitComponent.prototype.buttonHide2 = function () {
+        console.log("Gomb Eltuntetve");
+        this.gombeltunt2 = true;
+        return this.gombeltunt2;
+    };
+    foodsubmitComponent.prototype.buttonHide3 = function () {
+        console.log("Gomb Eltuntetve");
+        this.gombeltunt3 = true;
+        return this.gombeltunt3;
+    };
+    foodsubmitComponent.prototype.buttonHide4 = function () {
+        console.log("Gomb Eltuntetve");
+        this.gombeltunt4 = true;
+        return this.gombeltunt4;
+    };
+    foodsubmitComponent.prototype.newbutt = function () {
+        console.log("2.Gomb feljelent");
+        this.gombeltunt2 = false;
+        return this.gombeltunt2;
+    };
+    foodsubmitComponent.prototype.newbutt2 = function () {
+        console.log("3.Gomb feljelent");
+        this.gombeltunt3 = false;
+        return this.gombeltunt3;
+    };
+    foodsubmitComponent.prototype.newbutt3 = function () {
+        console.log("4.Gomb feljelent");
+        this.gombeltunt4 = false;
+        return this.gombeltunt4;
+    };
+    foodsubmitComponent.prototype.MaxIng = function () {
+        console.log("Maximum összetevő elérve!");
+        this.maxingrediements = false;
+        return this.maxingrediements;
+    };
     foodsubmitComponent.prototype.onSubmit = function () {
-        console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.ar);
+        if (!this.osszetevok2) {
+            console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.ar);
+            this.foodsList.push();
+        }
+        else if (!this.osszetevok3) {
+            console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.osszetevok2 + " " + this.mennyiseg2 + " " + this.mennyisegselect2 + " " + this.ar);
+            this.foodsList.push();
+        }
+        else if (!this.osszetevok4) {
+            console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.osszetevok2 + " " + this.mennyiseg2 + " " + this.mennyisegselect2 + " " + this.osszetevok3 + " " + this.mennyiseg3 + " " + this.mennyisegselect3 + " " + this.ar);
+            this.foodsList.push();
+        }
+        else if (!this.osszetevok5) {
+            console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.osszetevok2 + " " + this.mennyiseg2 + " " + this.mennyisegselect2 + " " + this.osszetevok3 + " " + this.mennyiseg3 + " " + this.mennyisegselect3 + " " + this.osszetevok4 + " " + this.mennyiseg4 + " " + this.mennyisegselect4 + " " + this.ar);
+            this.foodsList.push();
+        }
+        else if (this.osszetevok5) {
+            console.log("SSS: " + this.nev + " " + this.osszetevok + " " + this.mennyiseg + " " + this.mennyisegselect + " " + this.osszetevok2 + " " + this.mennyiseg2 + " " + this.mennyisegselect2 + " " + this.osszetevok3 + " " + this.mennyiseg3 + " " + this.mennyisegselect3 + " " + this.osszetevok4 + " " + this.mennyiseg4 + " " + this.mennyisegselect5 + " " + this.osszetevok5 + " " + this.mennyiseg5 + " " + this.mennyisegselect5 + " " + this.ar);
+            this.foodsList.push();
+        }
+        ////////////////////////////////
         this._foodService.createFood(this.foodsList2)
             .subscribe(function (res) {
             console.log(res);
