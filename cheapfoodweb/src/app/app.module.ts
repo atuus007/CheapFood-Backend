@@ -16,6 +16,7 @@ import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component';
+import { HozzavalokComponent } from './foodsubmit/hozzavalokComponent';
 
 @NgModule({
   imports:      [ BrowserModule,routes,FormsModule,ReactiveFormsModule, HttpClientModule],
@@ -32,6 +33,7 @@ import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component
                   foodlist800Component,
                   foodsubmitComponent,
                   FoodlistallComponent,
+                  HozzavalokComponent
 
                   ],
   bootstrap:    [ AppComponent ]

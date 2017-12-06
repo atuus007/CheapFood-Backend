@@ -18,7 +18,7 @@ var foodsubmitComponent = (function () {
     foodsubmitComponent.prototype.ngOnInit = function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
-            nev: ['fasdfas', [forms_1.Validators.required]],
+            nev: ['', [forms_1.Validators.required]],
             hozzavalok: this._fb.array([])
         });
         this.addHozzavalok();
@@ -36,17 +36,11 @@ var foodsubmitComponent = (function () {
         control.push(hozzvCtrl);
         console.log("AAAAAAA: " + control.length);
     };
-    /*
-      addNewRow() {
-        const control = <FormArray>this.invoiceForm.controls[this.nev];
-        control.push(this.initItemRows());
-      }
-    
-      deleteRow(index: number) {
-        const control = <FormArray>this.invoiceForm.controls['itemRows'];
-        control.removeAt(index);
-      }
-      */
+    foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
+        var control = this.foodForm.controls['hozzavalok'];
+        console.log("Deleted: " + i);
+        control.removeAt(i);
+    };
     foodsubmitComponent.prototype.getFoods = function () {
     };
     return foodsubmitComponent;
