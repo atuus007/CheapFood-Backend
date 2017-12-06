@@ -1,6 +1,6 @@
 export interface FoodSubmit {
 
-    name: string;
+    nev: string;
     hozzavalok: HozzavaloSubmit[];
 }
 

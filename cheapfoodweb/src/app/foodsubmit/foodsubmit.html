@@ -29,9 +29,10 @@
       </div>
 
     </div>
+    <button type="submit" [disabled]="!foodForm.valid">Elküld</button>
   </form>
   <button (click)="getFoods()">
     Listáz!
   </button>
-  <button type="submit" [disabled]="!foodForm.valid">Elküld</button>
+  
  

@@ -53,7 +53,10 @@ export class foodsubmitComponent implements OnInit {
     control.removeAt(i);
   }
   saveFood(model: FoodSubmit): void {
-      console.log("AA: "+model.name);
+
+
+      console.log("AA: "+model.nev);
+      console.log("AA: "+model.hozzavalok[0].osszetevok);
       /*
       this._foodService.createFood(this.foodsList2)
       .subscribe(   res=>{
@@ -69,8 +72,8 @@ export class foodsubmitComponent implements OnInit {
       console.log("Result "+this.foodsList3.length);
       */
   }
-  getFoods(): void{
-    
+  getFoods(): void {
+    console.log("FAAAAAAAAASZ:");
    /*
         this._foodService.getFood()
         .subscribe(foods => { this.foodsList = foods;},
@@ -81,4 +84,5 @@ export class foodsubmitComponent implements OnInit {
         //console.log(this.foodsList[0].mennyiseg);
       }
       */
+    }
 }

@@ -42,7 +42,8 @@ var foodsubmitComponent = (function () {
         control.removeAt(i);
     };
     foodsubmitComponent.prototype.saveFood = function (model) {
-        console.log("AA: " + model.name);
+        console.log("AA: " + model.nev);
+        console.log("AA: " + model.hozzavalok[0].osszetevok);
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{
@@ -59,6 +60,7 @@ var foodsubmitComponent = (function () {
         */
     };
     foodsubmitComponent.prototype.getFoods = function () {
+        console.log("FAAAAAAAAASZ:");
         /*
              this._foodService.getFood()
              .subscribe(foods => { this.foodsList = foods;},
