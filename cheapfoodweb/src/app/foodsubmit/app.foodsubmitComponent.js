@@ -41,7 +41,7 @@ var foodsubmitComponent = (function () {
         console.log("Deleted: " + i);
         control.removeAt(i);
     };
-    foodsubmitComponent.prototype.saveFood = function (model) {
+    foodsubmitComponent.prototype.save = function (model) {
         console.log("AA: " + model.nev);
         console.log("AA: " + model.hozzavalok[0].osszetevok);
         /*

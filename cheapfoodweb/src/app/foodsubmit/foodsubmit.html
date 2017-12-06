@@ -1,38 +1,35 @@
 <div class="foodsubmit">
   <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
 
-
-  <form [formGroup]='foodForm' novalidate (ngSubmit)="saveFood(foodForm)">
+<!--novalidate (ngSubmit)="save(foodForm)"-->
+  <form [formGroup]='foodForm' >
 
     <!-- Kaja neve-->
     <div class="form-group">
-      <div>
-        <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
-        <input type="text" class="form-control" formControlName="nev">
-        <button (click)="addHozzavalok()">
-           +
-        </button>
-        <div *ngIf="!foodForm.controls.nev.valid" class="text-danger">
-          Étel nevet mindenképp adj meg!
-        </div>
-      </div>
-      <div formArrayName="hozzavalok">
-        <div *ngFor="let hozzavalo of foodForm.controls.hozzavalok.controls; let i=index">
-          
-          <div [formGroupName]="i">    
-            <hzavl [group]="foodForm.controls.hozzavalok.controls[i]"></hzavl>
-          </div>
-          <button *ngIf="foodForm.controls.hozzavalok.controls.length > 1" (click)="deleteHozzavalok(i)">
-              Töröl
-           </button>
-        </div>
-      </div>
-
+      <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
+      <input type="text" class="form-control" formControlName="nev">
+      <small *ngIf="!foodForm.controls.nev.valid" class="text-danger">
+        Étel nevet mindenképp adj meg! (minimum 6 karakter).
+      </small>
     </div>
-    <button type="submit" [disabled]="!foodForm.valid">Elküld</button>
-  </form>
-  <button (click)="getFoods()">
-    Listáz!
-  </button>
-  
- 
+
+    <button (click)="addHozzavalok()">
+      +
+    </button>
+
+
+    <div formArrayName="hozzavalok">
+      <div *ngFor="let hozzavalo of foodForm.controls.hozzavalok.controls; let i=index">
+<!-- [formGroupName]="i"-->
+        <div>
+          <hzavl [group]="foodForm.controls.hozzavalok.controls[i]"></hzavl>
+        </div>
+        <button *ngIf="foodForm.controls.hozzavalok.controls.length > 1" (click)="deleteHozzavalok(i)">
+          Töröl
+        </button>
+      </div>
+    </div>
+
+<button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+</form>
+</div>

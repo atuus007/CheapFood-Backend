@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { NgForm } from '@angular/forms';
-import { IFoodSubmit, FoodSubmit } from './foodsubmit'
+import { FoodSubmit } from './foodsubmit'
 import { FoodSubmitService } from '../shared/foodSubmitService';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -52,7 +52,7 @@ export class foodsubmitComponent implements OnInit {
     console.log("Deleted: " + i);
     control.removeAt(i);
   }
-  saveFood(model: FoodSubmit): void {
+  save(model: FoodSubmit): void {
 
 
       console.log("AA: "+model.nev);
