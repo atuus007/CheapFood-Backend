@@ -2,7 +2,7 @@
   <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
 
 
-  <form [formGroup]='foodForm'>
+  <form [formGroup]='foodForm' novalidate (ngSubmit)="saveFood(foodForm)">
 
     <!-- Kaja neve-->
     <div class="form-group">
@@ -33,5 +33,5 @@
   <button (click)="getFoods()">
     Listáz!
   </button>
-  <pre>{{foodForm.value | json}}</pre>
+  <button type="submit" [disabled]="!foodForm.valid">Elküld</button>
  

@@ -1,15 +1,12 @@
-export interface IFoodSubmit{
+export interface FoodSubmit {
 
     name: string;
-    mennyiseg: number;
-    mennyisegfajta: number;
+    hozzavalok: HozzavaloSubmit[];
 }
 
-export class FoodSubmit implements IFoodSubmit{
-    //implicit módon törtnéi a dolog
-    constructor(
-                public name: string,
-                public mennyiseg: number,
-                public mennyisegfajta: number){
-                }
-}
+export interface HozzavaloSubmit {
+    
+        osszetevok: string;
+        mennyiseg: number;
+        mennyisegselect: number;
+    }

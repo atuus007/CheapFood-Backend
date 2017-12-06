@@ -10,10 +10,10 @@ export class HozzavalokComponent implements OnInit {
   @Input('group')
   public hval: FormGroup;
 
-  
+
   constructor() {
     console.log("export class FoodlistallComponent implements OnInit");
-   }
+  }
 
   ngOnInit() {
   }

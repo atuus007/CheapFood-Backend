@@ -52,8 +52,33 @@ export class foodsubmitComponent implements OnInit {
     console.log("Deleted: " + i);
     control.removeAt(i);
   }
-  getFoods(): void {
-
+  saveFood(model: FoodSubmit): void {
+      console.log("AA: "+model.name);
+      /*
+      this._foodService.createFood(this.foodsList2)
+      .subscribe(   res=>{
+        console.log(res);
+        },
+        err=>{
+            console.log("Error occured");
+        });
+      /*this._foodService.getFood()
+      .subscribe(foods => { this.foodsList3 = foods;},
+                 error => this.errorMessage=<any>error
+      );
+      console.log("Result "+this.foodsList3.length);
+      */
   }
- 
+  getFoods(): void{
+    
+   /*
+        this._foodService.getFood()
+        .subscribe(foods => { this.foodsList = foods;},
+                   error => this.errorMessage=<any>error
+        );
+        console.log("AAA: "+this.foodsList.length);
+        //console.log(this.foodsList[0].name);
+        //console.log(this.foodsList[0].mennyiseg);
+      }
+      */
 }

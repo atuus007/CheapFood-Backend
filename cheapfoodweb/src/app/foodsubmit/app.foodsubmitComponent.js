@@ -41,7 +41,34 @@ var foodsubmitComponent = (function () {
         console.log("Deleted: " + i);
         control.removeAt(i);
     };
+    foodsubmitComponent.prototype.saveFood = function (model) {
+        console.log("AA: " + model.name);
+        /*
+        this._foodService.createFood(this.foodsList2)
+        .subscribe(   res=>{
+          console.log(res);
+          },
+          err=>{
+              console.log("Error occured");
+          });
+        /*this._foodService.getFood()
+        .subscribe(foods => { this.foodsList3 = foods;},
+                   error => this.errorMessage=<any>error
+        );
+        console.log("Result "+this.foodsList3.length);
+        */
+    };
     foodsubmitComponent.prototype.getFoods = function () {
+        /*
+             this._foodService.getFood()
+             .subscribe(foods => { this.foodsList = foods;},
+                        error => this.errorMessage=<any>error
+             );
+             console.log("AAA: "+this.foodsList.length);
+             //console.log(this.foodsList[0].name);
+             //console.log(this.foodsList[0].mennyiseg);
+           }
+           */
     };
     return foodsubmitComponent;
 }());
