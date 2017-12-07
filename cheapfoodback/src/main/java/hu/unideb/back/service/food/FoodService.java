@@ -1,6 +1,7 @@
 package hu.unideb.back.service.food;
 
 import hu.unideb.back.controller.food.converter.CreateFoodRequest;
+import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.controller.food.converter.FoodResponse;
 import hu.unideb.back.controller.food.converter.UpdateFoodRequest;
 
@@ -11,6 +12,7 @@ public interface FoodService {
 
     List<FoodResponse> getAllFoods();
     void saveFood(CreateFoodRequest createFoodRequest);
+    void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns);
     boolean deleteFood(long id);
     boolean updateFood(UpdateFoodRequest updateFoodRequest);
     //Food insertFood(Food food);
