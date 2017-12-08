@@ -20,13 +20,16 @@ var FoodSubmitService = (function () {
         this._foodUrl = 'http://localhost:8080/api/food/foodslist';
         this._ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
     }
-    FoodSubmitService.prototype.getFood = function () {
+    /*
+    getFood(): Observable<FoodSubmit[]>{
         //ird át a Ifoodot hogy jól mappolja össze
         console.log("AAAAAAAAAAAAAAAAAAAAAAAa");
-        return this.httpClient.get(this._foodUrl)
-            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
-            .catch(this.handleError);
-    };
+        return this.httpClient.get<IFoodSubmit[]>(this._foodUrl)
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
+
+    }
+    */
     FoodSubmitService.prototype.handleError = function (err) {
         console.log(err.message);
         return Observable_1.Observable.throw(err.message);
