@@ -1,11 +1,14 @@
 package hu.unideb.back.service.food;
 
 import hu.unideb.back.controller.food.converter.CreateFoodRequest;
+import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.controller.food.converter.FoodResponse;
 import hu.unideb.back.controller.food.converter.UpdateFoodRequest;
 import hu.unideb.back.model.Food;
+import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.repository.FoodRepository;
 import hu.unideb.back.service.food.converter.CreateFoodRequestConverter;
+import hu.unideb.back.service.food.converter.CreateFoodRequestWithIngerdientsConverter;
 import hu.unideb.back.service.food.converter.FoodResoponseCoverter;
 import hu.unideb.back.service.food.converter.UpdateFoodRequestConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +33,8 @@ public class FoodServiceImpl implements FoodService {
     private UpdateFoodRequestConverter updateFoodRequestConverter;
     @Autowired
     private FoodResoponseCoverter foodResoponseCoverter;
-
-    // @Autowired
-   // public void setFoodRepository(FoodRepository foodRepository) {
-    //    this.foodRepository = foodRepository;
-    //}
+    @Autowired
+    private CreateFoodRequestWithIngerdientsConverter createFoodRequestWithIngerdientsConverter;
 
     @Override
     public List<FoodResponse> getAllFoods(){
@@ -50,6 +50,16 @@ public class FoodServiceImpl implements FoodService {
     public void saveFood(CreateFoodRequest createFoodRequest) {
         logger.debug("saveFood() Service ");
         Food food=createFoodRequestConverter.from(createFoodRequest);
+        food.setElkeszitesi_ido(123);
+        food.setOsszar(500);
+        //till the frontend dont have it
+        foodRepository.save(food);
+    }
+
+    @Override
+    public void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns) {
+        logger.debug("saveFood() Service ");
+        Food food=createFoodRequestWithIngerdientsConverter.from(createFoodRequestwithingerdietns);
         foodRepository.save(food);
     }
 

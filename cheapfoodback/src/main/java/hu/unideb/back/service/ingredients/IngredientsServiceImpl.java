@@ -1,13 +1,16 @@
 package hu.unideb.back.service.ingredients;
 
+import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.controller.food.converter.FoodResponse;
 import hu.unideb.back.controller.ingredients.converter.CreateIngredientsRequest;
 import hu.unideb.back.controller.ingredients.converter.IngredientsResponse;
 import hu.unideb.back.controller.ingredients.converter.UpdateIngredientsRequest;
+import hu.unideb.back.model.Food;
 import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.repository.IngredientsRepository;
 import hu.unideb.back.service.ingredients.converter.CreateIngredientsRequestConverter;
 import hu.unideb.back.service.ingredients.converter.IngredientsResoponseCoverter;
+import hu.unideb.back.service.food.converter.CreateFoodRequestWithIngerdientsConverter;
 import hu.unideb.back.service.ingredients.converter.UpdateIngredientsRequestConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +34,8 @@ public class IngredientsServiceImpl implements IngredientsService {
     private UpdateIngredientsRequestConverter updateIngredientsRequestConverter;
     @Autowired
     private IngredientsResoponseCoverter ingredientsResoponseCoverter;
+    @Autowired
+    private CreateFoodRequestWithIngerdientsConverter createFoodRequestWithIngerdientsConverter;
 
     @Override
     public List<IngredientsResponse> findAllIngredients(){
@@ -47,6 +52,16 @@ public class IngredientsServiceImpl implements IngredientsService {
         return ingredientsRepository.findIngredientsById(Id).stream()
                 .map(ingredientsResoponseCoverter::from)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void saveFoodwithingsing(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns) {
+        logger.debug("saveFood() Service ");
+        List<Ingredients> ingredientsList = createFoodRequestWithIngerdientsConverter.ingfrom(createFoodRequestwithingerdietns);
+        for(int i = 0; i < ingredientsList.size(); i++){
+            Ingredients ingredients = new Ingredients(ingredientsList.get(i).getAtlagar(),ingredientsList.get(i).getMennyiseg(),ingredientsList.get(i).getName());
+            ingredientsRepository.save(ingredients);
+        }
     }
 
     @Override
