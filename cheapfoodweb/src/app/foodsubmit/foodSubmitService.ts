@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IFoodSubmit, FoodSubmit } from "./foodsubmit";
+import {  FoodSubmit } from "./foodsubmit";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/observable/throw';
@@ -11,7 +11,8 @@ export class FoodSubmitService{
     private _foodUrl='http://localhost:8080/api/food/foodslist';
     private _ingredientUrl='http://localhost:8080/api/ingredients/ingredients';
     constructor(private httpClient: HttpClient) {}
-    getFood(): Observable<IFoodSubmit[]>{
+	/*
+    getFood(): Observable<FoodSubmit[]>{
         //ird át a Ifoodot hogy jól mappolja össze
         console.log("AAAAAAAAAAAAAAAAAAAAAAAa");
         return this.httpClient.get<IFoodSubmit[]>(this._foodUrl)
@@ -19,6 +20,7 @@ export class FoodSubmitService{
         .catch(this.handleError);
 
     }
+	*/
     private handleError(err: HttpErrorResponse){
         console.log(err.message);
         return Observable.throw(err.message);

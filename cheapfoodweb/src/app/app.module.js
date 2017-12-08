@@ -23,6 +23,7 @@ var app_foodsubmitComponent_1 = require("./foodsubmit/app.foodsubmitComponent");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var foodlistall_component_1 = require("./etelek/foodlistall/foodlistall.component");
+var hozzavalokComponent_1 = require("./foodsubmit/hozzavalokComponent");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -44,6 +45,7 @@ AppModule = __decorate([
             app_foodlist800Component_1.foodlist800Component,
             app_foodsubmitComponent_1.foodsubmitComponent,
             foodlistall_component_1.FoodlistallComponent,
+            hozzavalokComponent_1.HozzavalokComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

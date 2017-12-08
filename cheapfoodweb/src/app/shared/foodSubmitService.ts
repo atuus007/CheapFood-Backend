@@ -7,7 +7,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import { Response } from "_debugger";
-import { IFoodSubmit, FoodSubmit } from "../foodsubmit/foodsubmit";
+import { FoodSubmit } from "../foodsubmit/foodsubmit";
 //import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
@@ -18,6 +18,7 @@ export class FoodSubmitService{
     private _foodBaseUrl='http://localhost:8080/api/food';
     private _ingredientUrl='http://localhost:8080/api/ingredients/ingredients';
     constructor(private httpClient: HttpClient) {}
+	/*
     getFood(): Observable<IFoodSubmit[]>{
         const url=`${this._foodBaseUrl}/foodslist`;
         //ird át a Ifoodot hogy jól mappolja össze
@@ -27,6 +28,7 @@ export class FoodSubmitService{
         .catch(this.handleError);
 
     }
+	*/
     private handleError(err: HttpErrorResponse){
         console.log(err.message);
         return Observable.throw(err.message);
@@ -35,16 +37,17 @@ export class FoodSubmitService{
     createFood(food: FoodSubmit):Observable<FoodSubmit[]>{
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
-       
-        console.log("createFood AAAAAA: "+food.name+" "+food.mennyiseg);
         const url='http://localhost:8080/api/food/savefood';
+       /*
+        console.log("createFood AAAAAA: "+food.name+" "+food.mennyiseg);
+        
         const body={
             
             name:food.name,
             mennyiseg:food.mennyiseg,
             mennyisegfajta:food.mennyisegfajta
           };
-        
+        */
         //let options=new RequestOptions({headers: headers});
         /*
         return this.httpClient.post(url, JSON.stringify(food))
@@ -64,11 +67,12 @@ export class FoodSubmitService{
             console.log("Error occured");
         }
         );*/
+        /*
         return this.httpClient.post(url, body)
         .do(data=>console.log("All: "+JSON.stringify(data)))
         .catch(this.handleError);
-        
-        
+        */
+        return ;
         
         
         
