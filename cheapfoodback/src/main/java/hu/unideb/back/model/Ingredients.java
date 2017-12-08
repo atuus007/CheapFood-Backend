@@ -16,6 +16,13 @@ public class Ingredients {
     public Ingredients(){
 
     }
+
+    public Ingredients(int atlagar, int mennyiseg, String name) {
+        this.atlagar = atlagar;
+        this.mennyiseg = mennyiseg;
+        this.name = name;
+    }
+
     public int getMennyiseg() {
         return mennyiseg;
     }

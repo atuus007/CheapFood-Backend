@@ -1,10 +1,13 @@
 package hu.unideb.back.controller.food;
 
 import hu.unideb.back.controller.food.converter.CreateFoodRequest;
+import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.controller.food.converter.UpdateFoodRequest;
+import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.service.food.FoodService;
 import hu.unideb.back.service.food.converter.CreateFoodRequestConverter;
 import hu.unideb.back.service.food.converter.UpdateFoodRequestConverter;
+import hu.unideb.back.service.ingredients.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +26,9 @@ public class FoodController {
     @Autowired
     private FoodService foodService;
 
+    @Autowired
+    private IngredientsService ingredientsService;
+
 
     @RequestMapping(value = "/foodslist")
     public @ResponseBody ResponseEntity<?> getFoods(){
@@ -36,6 +42,15 @@ public class FoodController {
         foodService.saveFood(createFoodRequest);
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
     }
+
+    @RequestMapping("/savefoodwithings")
+    public ResponseEntity<?> saveFoodwithIngerdients(@RequestBody CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
+        logger.info("SAVE FOOOOD with ings!!!" );
+        foodService.saveFoodwithingsfood(createFoodRequestwithingerdietns);
+        ingredientsService.saveFoodwithingsing(createFoodRequestwithingerdietns);
+        return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
+    }
+
     @RequestMapping("/updatefood")
     public ResponseEntity<?> updateFood(@RequestBody UpdateFoodRequest updateFoodRequest){
         if (foodService.updateFood(updateFoodRequest)) {
