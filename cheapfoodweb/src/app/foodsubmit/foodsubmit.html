@@ -1,41 +1,65 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="foodsubmit">
-        <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
+  <div class="foodsubmit">
+    <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
 
-        <!--novalidate (ngSubmit)="save(foodForm)"-->
-        <form [formGroup]='foodForm' (ngSubmit)="save()">
-
-          <!-- Kaja neve-->
-          <div class="form-group">
-            <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
-            <label>Étel neve: </label>
-            <input type="text" class="form-control" formControlName="name" placeholder="Étel neve">
-            <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
-              Étel nevet mindenképp adj meg! (minimum 6 karakter).
-            </small>
-            <button (click)="addHozzavalok()">
-              +
-            </button>
-          </div>
-   
-          <div formArrayName="ingredientsList">
-            <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
-              <!-- [formGroupName]="i"-->
-              <div>
-                <hzavl [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
-              </div>
-              <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
-                Töröl
-              </button>
-            </div>
-          </div>
-
-<!--(click)='save()' type="submit"-->
-          <button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
-        </form>
-        <pre>form value: <br>{{foodForm.value | json}}</pre>
+    <!--novalidate (ngSubmit)="save(foodForm)" novalidate (ngSubmit)="save()"-->
+    <form [formGroup]='foodForm' novalidate (ngSubmit)="save()">
+      <!-- Kaja neve-->
+      <div class="form-group">
+        <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
+        <label>Étel neve: </label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Étel neve">
+        <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
+          Étel nevet mindenképp adj meg! (minimum 6 karakter).
+        </small>
+        <button (click)="addHozzavalok()">
+          +
+        </button>
       </div>
-    </div>
+
+      <div class="form-group col-xs-6">
+        <label>Elészitési idő(perc): </label>
+        <input type="number" class="form-control" placeholder="pl: 2" step="1" required formControlName="elkeszitesi_ido">
+        <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
+          Adj meg valamilyen mennyiséget
+        </small>
+      </div>
+      <div class="form-group col-xs-6">
+        <label>Mennyiséget: </label>
+        <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="mennyiseg">
+        <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
+          Adj meg valamilyen mennyiséget
+        </small>
+      </div>
+
+      <div class="form-group col-xs-6">
+          <label>Mértékegység: </label>
+          <select formControlName='mennyisegfajta' name="mennyisegfajta" class="form-control">
+            <option value=1>kg</option>
+            <option value=2>evőkanál</option>
+            <option value=3>teáskanál</option>
+            <option value=4>dkg</option>
+            <option value=5>gramm</option>
+            <option value=6>db</option>
+            <option value=7>liter</option>
+          </select>
+        </div>
+
+
+      <div formArrayName="ingredientsList">
+        <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
+          <div>
+            <hzavl [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
+          </div>
+          <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
+            Töröl
+          </button>
+        </div>
+      </div>
+
+      <!--(click)='save()' type="submit"-->
+      <button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+    </form>
+   <!-- <pre>form value: <br>{{foodForm.value | json}}</pre>-->
   </div>
+</div>

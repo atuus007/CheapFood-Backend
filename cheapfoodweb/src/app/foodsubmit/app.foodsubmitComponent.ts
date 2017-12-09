@@ -34,17 +34,19 @@ export class foodsubmitComponent implements OnInit {
 
     this.foodForm = this._fb.group({
       name: ['',[Validators.required, Validators.minLength(5)]],
+      elkeszitesi_ido: ['',[Validators.required]],
+      mennyiseg: ['',[Validators.required]],
+      mennyisegfajta: [''],
       ingredientsList: this._fb.array([]),
+      
     });//pipa
 
 
     this.addHozzavalok(); //pipa
-    console.log("ngOnInit "+this.foodForm);
+  
 
   }
   initHozzavalok() {
-    console.log("initHozzavalok "+this.foodForm);
-
     return this._fb.group({
       name: ['',[Validators.required]],
       mennyiseg: ['',[Validators.required]],
@@ -54,17 +56,11 @@ export class foodsubmitComponent implements OnInit {
 
   }
 
-  addHozzavalok() { //pipa
-
+  addHozzavalok():void { //pipa
     const control = <FormArray>this.foodForm.controls['ingredientsList'];
-  
     const hozzvCtrl = this.initHozzavalok();
-   
-    console.log("addHozzavalok: " +this.foodForm);
     control.push(hozzvCtrl);
-    
-    console.log("addHozzavalok: " + control.length);
-    console.log("control: " + control);
+    console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
   }
   deleteHozzavalok(i: number) {
     /*
@@ -75,13 +71,34 @@ export class foodsubmitComponent implements OnInit {
 */
   }
   save(): void {
+    console.log("save BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb");
+
+
+
+
 
 
     console.log("form: "+this.foodForm.get('name').value);
     console.log(this.foodForm.get('ingredientsList').value);
-    this.myFood =new FoodSubmit(this.foodForm.get('name').value,this.foodForm.get('ingredientsList').value);
-    console.log("Name: "+this.myFood.getName());
-    console.log(this.myFood.getIngredientsList());
+  
+    this.myFood =new FoodSubmit(
+      this.foodForm.get('name').value,
+      this.foodForm.get('ingredientsList').value,
+
+      this.foodForm.get('elkeszitesi_ido').value,
+      this.foodForm.get('mennyiseg').value,
+      this.foodForm.get('mennyisegfajta').value,
+      
+    );
+
+   console.log("Name: "+this.myFood.getName());
+    //console.log(this.myFood.getIngredientsList());
+
+
+
+
+    
+    //ez a jó
     this._foodService.saveFoodWithThings(this.myFood).subscribe(  
       res=>{
         console.log(res);
@@ -92,6 +109,63 @@ export class foodsubmitComponent implements OnInit {
           alert("Hiba!!");
       }
     );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
       /*

@@ -23,13 +23,14 @@ var foodsubmitComponent = (function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
             name: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5)]],
+            elkeszitesi_ido: ['', [forms_1.Validators.required]],
+            mennyiseg: ['', [forms_1.Validators.required]],
+            mennyisegfajta: [''],
             ingredientsList: this._fb.array([]),
         }); //pipa
         this.addHozzavalok(); //pipa
-        console.log("ngOnInit " + this.foodForm);
     };
     foodsubmitComponent.prototype.initHozzavalok = function () {
-        console.log("initHozzavalok " + this.foodForm);
         return this._fb.group({
             name: ['', [forms_1.Validators.required]],
             mennyiseg: ['', [forms_1.Validators.required]],
@@ -40,10 +41,8 @@ var foodsubmitComponent = (function () {
     foodsubmitComponent.prototype.addHozzavalok = function () {
         var control = this.foodForm.controls['ingredientsList'];
         var hozzvCtrl = this.initHozzavalok();
-        console.log("addHozzavalok: " + this.foodForm);
         control.push(hozzvCtrl);
-        console.log("addHozzavalok: " + control.length);
-        console.log("control: " + control);
+        console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
     };
     foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
         /*
@@ -54,11 +53,13 @@ var foodsubmitComponent = (function () {
     */
     };
     foodsubmitComponent.prototype.save = function () {
+        console.log("save BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb");
         console.log("form: " + this.foodForm.get('name').value);
         console.log(this.foodForm.get('ingredientsList').value);
-        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
+        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value, this.foodForm.get('elkeszitesi_ido').value, this.foodForm.get('mennyiseg').value, this.foodForm.get('mennyisegfajta').value);
         console.log("Name: " + this.myFood.getName());
-        console.log(this.myFood.getIngredientsList());
+        //console.log(this.myFood.getIngredientsList());
+        //ez a jó
         this._foodService.saveFoodWithThings(this.myFood).subscribe(function (res) {
             console.log(res);
             alert("Hozzáadás sikeres!!");

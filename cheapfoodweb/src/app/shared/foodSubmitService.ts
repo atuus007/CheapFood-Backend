@@ -43,6 +43,10 @@ export class FoodSubmitService {
         const body = {
 
             name: foodThings.getName(),
+           
+            elkeszitesi_ido: foodThings.getElkIdo(),
+            mennyiseg: foodThings.getMennyiseg(),
+            mennyisegfajta: foodThings.getMennyisegFajta(),
             ingredientsList: foodThings.getIngredientsList()
         };
         console.log("1: ");

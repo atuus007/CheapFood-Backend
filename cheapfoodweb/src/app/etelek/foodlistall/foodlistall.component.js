@@ -21,8 +21,9 @@ var FoodlistallComponent = (function () {
         this.foodService.getAllFoods().subscribe(function (foods) { _this.asdf = foods; }, function (error) { console.log(error); });
         // console.log(this.asdf[0].getId());
     };
-    FoodlistallComponent.prototype.findIngById = function (id) {
-        console.log(id);
+    FoodlistallComponent.prototype.findIngById = function (id, index) {
+        console.log(id + " " + index);
+        this.selectedRow = index;
     };
     FoodlistallComponent.prototype.getFoods = function () {
         /*

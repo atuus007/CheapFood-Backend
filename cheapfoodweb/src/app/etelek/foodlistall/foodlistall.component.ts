@@ -13,6 +13,7 @@ export class FoodlistallComponent implements OnInit {
     console.log("export class FoodlistallComponent implements OnInit");
    }
    asdf: FoodResoponse[]=[];
+   selectedRow:number;
   ngOnInit() {
     this.foodService.getAllFoods().subscribe(
       foods => { this.asdf = foods;},
@@ -20,8 +21,9 @@ export class FoodlistallComponent implements OnInit {
     );
    // console.log(this.asdf[0].getId());
   }
-  findIngById(id: number): void{
-    console.log(id);
+  findIngById(id: number, index:number): void{
+    console.log(id+" "+index);
+    this.selectedRow=index;
   }
   getFoods(): void {
 

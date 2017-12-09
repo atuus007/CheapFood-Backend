@@ -46,6 +46,9 @@ var FoodSubmitService = (function () {
         console.log("AAAAAAAAAAAAAAAAAAAAAAA");
         var body = {
             name: foodThings.getName(),
+            elkeszitesi_ido: foodThings.getElkIdo(),
+            mennyiseg: foodThings.getMennyiseg(),
+            mennyisegfajta: foodThings.getMennyisegFajta(),
             ingredientsList: foodThings.getIngredientsList()
         };
         console.log("1: ");
