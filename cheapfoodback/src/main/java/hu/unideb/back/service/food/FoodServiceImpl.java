@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -46,10 +48,18 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
+    public List<FoodResponse> getAllFoodsbeetween(Integer money1, Integer money2){
+        logger.debug("getAllFoodsbeetween() Service ");
+        return foodRepository.findAllByOsszarBetween(money1,money2)
+                .stream().map(foodResoponseCoverter::from)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void saveFood(CreateFoodRequest createFoodRequest) {
         logger.debug("saveFood() Service ");
         Food food=createFoodRequestConverter.from(createFoodRequest);
-        food.setElkeszitesi_ido(123);
+        //food.setElkeszitesi_ido(123);
         food.setOsszar(500);
         //till the frontend dont have it
         foodRepository.save(food);

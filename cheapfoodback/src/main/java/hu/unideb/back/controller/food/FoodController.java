@@ -40,6 +40,12 @@ public class FoodController {
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/foodslist/{money1}/{money2}")
+    public @ResponseBody ResponseEntity<?> getFoodsbetweenvalue(@PathVariable(value = "money1") Integer money1,@PathVariable(value = "money2") Integer money2 ){
+        logger.info("foodslist beweeeeeeeeeeeen" );
+        return new ResponseEntity<>(foodService.getAllFoodsbeetween(money1,money2), HttpStatus.OK);
+    }
+
     @RequestMapping("/savefood")
     public ResponseEntity<?> saveFood(@RequestBody CreateFoodRequest createFoodRequest){
         logger.info("SAVE FOOOOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa" );
