@@ -45,12 +45,9 @@ var foodsubmitComponent = (function () {
         console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
     };
     foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
-        /*
-        const control = <FormArray>this.foodForm.controls['ingredientsList'];
-        
+        var control = this.foodForm.controls['ingredientsList'];
         console.log("Deleted: " + i);
         control.removeAt(i);
-    */
     };
     foodsubmitComponent.prototype.save = function () {
         console.log("save BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb");
@@ -58,6 +55,9 @@ var foodsubmitComponent = (function () {
         console.log(this.foodForm.get('ingredientsList').value);
         this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value, this.foodForm.get('elkeszitesi_ido').value, this.foodForm.get('mennyiseg').value, this.foodForm.get('mennyisegfajta').value);
         console.log("Name: " + this.myFood.getName());
+        console.log("elkeszitesi_ido: " + this.myFood.getElkIdo());
+        console.log("mennyiseg: " + this.myFood.getMennyiseg());
+        console.log("mennyisegfajta: " + this.myFood.getMennyisegFajta());
         //console.log(this.myFood.getIngredientsList());
         //ez a jó
         this._foodService.saveFoodWithThings(this.myFood).subscribe(function (res) {

@@ -63,12 +63,12 @@ export class foodsubmitComponent implements OnInit {
     console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
   }
   deleteHozzavalok(i: number) {
-    /*
+ 
     const control = <FormArray>this.foodForm.controls['ingredientsList'];
     
     console.log("Deleted: " + i);
     control.removeAt(i);
-*/
+
   }
   save(): void {
     console.log("save BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb");
@@ -92,6 +92,10 @@ export class foodsubmitComponent implements OnInit {
     );
 
    console.log("Name: "+this.myFood.getName());
+   console.log("elkeszitesi_ido: "+this.myFood.getElkIdo());
+   console.log("mennyiseg: "+this.myFood.getMennyiseg());
+   console.log("mennyisegfajta: "+this.myFood.getMennyisegFajta());
+
     //console.log(this.myFood.getIngredientsList());
 
 

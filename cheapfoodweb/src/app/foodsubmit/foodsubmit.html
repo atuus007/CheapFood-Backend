@@ -3,7 +3,7 @@
     <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
 
     <!--novalidate (ngSubmit)="save(foodForm)" novalidate (ngSubmit)="save()"-->
-    <form [formGroup]='foodForm' novalidate (ngSubmit)="save()">
+    <form [formGroup]='foodForm' novalidate>
       <!-- Kaja neve-->
       <div class="form-group">
         <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
@@ -24,6 +24,7 @@
           Adj meg valamilyen mennyiséget
         </small>
       </div>
+
       <div class="form-group col-xs-6">
         <label>Mennyiséget: </label>
         <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="mennyiseg">
@@ -33,17 +34,17 @@
       </div>
 
       <div class="form-group col-xs-6">
-          <label>Mértékegység: </label>
-          <select formControlName='mennyisegfajta' name="mennyisegfajta" class="form-control">
-            <option value=1>kg</option>
-            <option value=2>evőkanál</option>
-            <option value=3>teáskanál</option>
-            <option value=4>dkg</option>
-            <option value=5>gramm</option>
-            <option value=6>db</option>
-            <option value=7>liter</option>
-          </select>
-        </div>
+        <label>Mértékegység: </label>
+        <select formControlName='mennyisegfajta' name="mennyisegfajta" class="form-control">
+          <option value=1>kg</option>
+          <option value=2>evőkanál</option>
+          <option value=3>teáskanál</option>
+          <option value=4>dkg</option>
+          <option value=5>gramm</option>
+          <option value=6>db</option>
+          <option value=7>liter</option>
+        </select>
+      </div>
 
 
       <div formArrayName="ingredientsList">
@@ -58,8 +59,8 @@
       </div>
 
       <!--(click)='save()' type="submit"-->
-      <button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+      <button type="submit" (click)='save()' class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
     </form>
-   <!-- <pre>form value: <br>{{foodForm.value | json}}</pre>-->
+    <!-- <pre>form value: <br>{{foodForm.value | json}}</pre>-->
   </div>
 </div>
