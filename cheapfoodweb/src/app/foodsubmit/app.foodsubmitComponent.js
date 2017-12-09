@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var foodsubmit_1 = require("./foodsubmit");
 var foodsubmitComponent = (function () {
     function foodsubmitComponent(_fb) {
         this._fb = _fb;
@@ -61,13 +62,16 @@ var foodsubmitComponent = (function () {
         console.log("==============================================================");
         console.log("form: " + this.foodForm.get('name').value);
         console.log(this.foodForm.get('ingredientsList').value);
+        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
+        console.log("Name: " + this.myFood.getName());
+        console.log(this.myFood.getIngredientsList());
         //this.myFood.name=this.foodForm.get('name').value;
         //console.log("foodname: "+this.myFood.name);
         //this.myFood.ingredientsList=this.foodForm.get('ingredientsList').value;
         //console.log(this.myFood.name);
         //console.log(this.myFood.ingredientsList[0].ingName+" "+this.myFood.ingredientsList[0].atlagar+" "+this.myFood.ingredientsList[0].mennyiseg);
-        this.valami = this.foodForm.get('ingredientsList').value;
-        console.log(this.valami[0].name + " " + this.valami[0].atlagar + " " + this.valami[0].mennyiseg);
+        //this.valami=this.foodForm.get('ingredientsList').value;
+        //console.log(this.valami[0].name+" "+this.valami[0].atlagar+" "+this.valami[0].mennyiseg);
         //console.log(this.valami[1].name+" "+this.valami[1].atlagar);
         // this.myFood.name
         console.log("==============================================================");

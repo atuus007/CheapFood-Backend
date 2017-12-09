@@ -83,14 +83,17 @@ export class foodsubmitComponent implements OnInit {
     console.log("==============================================================");
     console.log("form: "+this.foodForm.get('name').value);
     console.log(this.foodForm.get('ingredientsList').value);
+    this.myFood =new FoodSubmit(this.foodForm.get('name').value,this.foodForm.get('ingredientsList').value);
+    console.log("Name: "+this.myFood.getName());
+    console.log(this.myFood.getIngredientsList());
     //this.myFood.name=this.foodForm.get('name').value;
     //console.log("foodname: "+this.myFood.name);
     //this.myFood.ingredientsList=this.foodForm.get('ingredientsList').value;
     //console.log(this.myFood.name);
     //console.log(this.myFood.ingredientsList[0].ingName+" "+this.myFood.ingredientsList[0].atlagar+" "+this.myFood.ingredientsList[0].mennyiseg);
-    this.valami=this.foodForm.get('ingredientsList').value;
+    //this.valami=this.foodForm.get('ingredientsList').value;
 
-    console.log(this.valami[0].name+" "+this.valami[0].atlagar+" "+this.valami[0].mennyiseg);
+    //console.log(this.valami[0].name+" "+this.valami[0].atlagar+" "+this.valami[0].mennyiseg);
     //console.log(this.valami[1].name+" "+this.valami[1].atlagar);
 
    // this.myFood.name
