@@ -16,5 +16,6 @@ public interface IngredientsRepository extends CrudRepository<Ingredients, Long>
 
     Optional<Ingredients> findById(long id);
 
-    Integer findIngredientsByName(String name);
+    @Query("SELECT i.id FROM Ingredients i WHERE i.name LIKE CONCAT('%',:name1,'%')")
+    Integer findIngredientsByName(@Param("name1") String name1);
 }

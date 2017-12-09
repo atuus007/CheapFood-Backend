@@ -1,23 +1,14 @@
 package hu.unideb.back.controller.food.converter;
 
-import hu.unideb.back.model.Genelogy;
-import hu.unideb.back.model.Ingredients;
+import hu.unideb.back.model.IngredientswithGenelogy;
+
 import java.util.List;
 
 public class CreateFoodRequestwithingerdietns {
     private String name;
-    private List<Ingredients> ingredientsList;
-    private List<Integer> genelogyList;
+    private List<IngredientswithGenelogy> ingredientsList;
 
     public CreateFoodRequestwithingerdietns() {
-    }
-
-    public List<Integer> getGenelogyList() {
-        return genelogyList;
-    }
-
-    public void setGenelogyList(List<Integer> genelogyList) {
-        this.genelogyList = genelogyList;
     }
 
     public String getName() {
@@ -28,11 +19,11 @@ public class CreateFoodRequestwithingerdietns {
         this.name = name;
     }
 
-    public List<Ingredients> getIngredientsList() {
+    public List<IngredientswithGenelogy> getIngredientsList() {
         return ingredientsList;
     }
 
-    public void setIngredientsList(List<Ingredients> ingredientsList) {
+    public void setIngredientsList(List<IngredientswithGenelogy> ingredientsList) {
         this.ingredientsList = ingredientsList;
     }
 }

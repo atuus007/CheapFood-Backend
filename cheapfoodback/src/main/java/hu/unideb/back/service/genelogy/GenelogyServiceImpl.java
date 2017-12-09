@@ -39,21 +39,20 @@ public class GenelogyServiceImpl implements GenelogyService {
 
     @Override
     public void saveFoodwithingsing(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
-        logger.debug("saveFood() Service ");
+        logger.debug("genelogyService() ");
         List<Integer> genelogyList = createFoodRequestWithIngerdientsGenlgyConverter.genelogyfrom(createFoodRequestwithingerdietns);
         Integer FoodID = foodService.findIngredientsIDByName(createFoodRequestWithIngerdientsGenlgyConverter.foodfrom(createFoodRequestwithingerdietns));
         List<String> IngerdientsNamesS = createFoodRequestWithIngerdientsGenlgyConverter.ingfrom(createFoodRequestwithingerdietns);
         List<Integer> IngerdientsIDS = new ArrayList<>();
-        for(int i = 0; i < IngerdientsIDS.size(); i++){
+        for(int i = 0; i < IngerdientsNamesS.size(); i++){
+                //System.out.println(ingredientsService.findIngredientsIDByName(IngerdientsNamesS.get(i)));
                 IngerdientsIDS.add(ingredientsService.findIngredientsIDByName(IngerdientsNamesS.get(i)));
         }
-        logger.debug("FoodID" + FoodID);
-        for (int i = 0; i < IngerdientsIDS.size(); i++){
-            logger.debug("IngedientsID i: " + i + " ID: " + IngerdientsIDS.get(i));
+        logger.info("FoodID: " + FoodID);
+        for(int i = 0; i < IngerdientsIDS.size(); i++){
+            Genelogy genelogy = new Genelogy(FoodID,IngerdientsIDS.get(i),genelogyList.get(i));
+            genelogyRepository.save(genelogy);
         }
-        /*for(int i = 0; i < genelogyList.size(); i++){
-            Genelogy genelogy = new Genelogy();
-        }*/
     }
 
 
