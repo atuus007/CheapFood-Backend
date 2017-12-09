@@ -5,6 +5,7 @@ public class FoodResponse {
     private String name;
     private int mennyisegfajta;
     private int mennyiseg;
+    private int osszar;
 
     public FoodResponse() {
     }
@@ -39,5 +40,13 @@ public class FoodResponse {
 
     public void setMennyiseg(int mennyiseg) {
         this.mennyiseg = mennyiseg;
+    }
+
+    public int getOsszar() {
+        return osszar;
+    }
+
+    public void setOsszar(int osszar) {
+        this.osszar = osszar;
     }
 }
