@@ -1,10 +1,11 @@
-export interface FoodSubmit {
+export class FoodSubmit {
 
-    nev: string;
-    hozzavalok: HozzavaloSubmit[];
+    private name: string;
+    
+    ingredientsList: HozzavaloSubmit[];
 }
 
-export interface HozzavaloSubmit {
+export class HozzavaloSubmit {
     
         name: string;
         mennyiseg: number;
