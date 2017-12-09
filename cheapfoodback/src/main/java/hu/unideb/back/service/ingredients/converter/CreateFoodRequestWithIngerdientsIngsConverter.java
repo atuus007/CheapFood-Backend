@@ -3,6 +3,7 @@ package hu.unideb.back.service.ingredients.converter;
 import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.model.Food;
 import hu.unideb.back.model.Ingredients;
+import hu.unideb.back.model.IngredientswithGenelogy;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +26,13 @@ public class CreateFoodRequestWithIngerdientsIngsConverter {
 
     public List<Ingredients> ingfrom(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
         logger.info("Convertin CreateFoodrequestwithing ING Part.");
+        List<IngredientswithGenelogy> ingredientswithGenelogies = new ArrayList<>();
+        ingredientswithGenelogies.addAll(createFoodRequestwithingerdietns.getIngredientsList());
         List<Ingredients> ingredientsList = new ArrayList<>();
-        ingredientsList.addAll(createFoodRequestwithingerdietns.getIngredientsList());
+        for(int i = 0; i< ingredientswithGenelogies.size(); i++){
+            Ingredients ingredients = new Ingredients(ingredientswithGenelogies.get(i).getAtlagar(),ingredientswithGenelogies.get(i).getMennyisegfajta(),ingredientswithGenelogies.get(i).getName());
+            ingredientsList.add(ingredients);
+        }
         return  ingredientsList;
     }
 }

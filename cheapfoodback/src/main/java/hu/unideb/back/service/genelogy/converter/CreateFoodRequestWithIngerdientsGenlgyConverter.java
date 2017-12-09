@@ -26,11 +26,11 @@ public class CreateFoodRequestWithIngerdientsGenlgyConverter {
     public List<Integer> genelogyfrom(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
         logger.info("Convertin CreateFoodrequestwithing Genelogy Part.");
         List<Integer> genelogyList = new ArrayList<>();
-        /*for(int i = 0; i<createFoodRequestwithingerdietns.getGenelogyList().size(); i++){
-            logger.debug(createFoodRequestwithingerdietns.getGenelogyList().get(i).toString());
-        }*/
+        for(int i = 0; i<createFoodRequestwithingerdietns.getIngredientsList().size(); i++){
+            //System.out.println(createFoodRequestwithingerdietns.getIngredientsList().get(i).getMennyiseg());
+            genelogyList.add(createFoodRequestwithingerdietns.getIngredientsList().get(i).getMennyiseg());
+        }
 
-        genelogyList.addAll(createFoodRequestwithingerdietns.getGenelogyList());
         return  genelogyList;
     }
     public List<String> ingfrom(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
@@ -38,12 +38,16 @@ public class CreateFoodRequestWithIngerdientsGenlgyConverter {
         List<String> ingredientsList = new ArrayList<>();
         for(int i = 0; i < createFoodRequestwithingerdietns.getIngredientsList().size(); i++){
             ingredientsList.add(createFoodRequestwithingerdietns.getIngredientsList().get(i).getName());
+            //System.out.print("IngredeintsName: ");
+            //System.out.println(ingredientsList.get(i)); --TILL THIS OK!
         }
+
         return ingredientsList;
     }
     public String foodfrom(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
         logger.info("Convertin CreateFoodrequestwithing Food Part for Genelogy.");
         String foodName = createFoodRequestwithingerdietns.getName();
+
         return foodName;
     }
 }
