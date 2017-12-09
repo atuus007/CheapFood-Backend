@@ -7,6 +7,7 @@ import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.service.food.FoodService;
 import hu.unideb.back.service.food.converter.CreateFoodRequestConverter;
 import hu.unideb.back.service.food.converter.UpdateFoodRequestConverter;
+import hu.unideb.back.service.genelogy.GenelogyService;
 import hu.unideb.back.service.ingredients.IngredientsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,6 +30,9 @@ public class FoodController {
     @Autowired
     private IngredientsService ingredientsService;
 
+    @Autowired
+    private GenelogyService genelogyService;
+
 
     @RequestMapping(value = "/foodslist")
     public @ResponseBody ResponseEntity<?> getFoods(){
@@ -46,8 +50,10 @@ public class FoodController {
     @RequestMapping("/savefoodwithings")
     public ResponseEntity<?> saveFoodwithIngerdients(@RequestBody CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
         logger.info("SAVE FOOOOD with ings!!!" );
-        foodService.saveFoodwithingsfood(createFoodRequestwithingerdietns);
-        ingredientsService.saveFoodwithingsing(createFoodRequestwithingerdietns);
+        Integer osszar = 0;
+        osszar = ingredientsService.saveFoodwithingsing(createFoodRequestwithingerdietns);
+        foodService.saveFoodwithingsfood(createFoodRequestwithingerdietns, osszar);
+        genelogyService.saveFoodwithingsing(createFoodRequestwithingerdietns);
         return new ResponseEntity<>(foodService.getAllFoods(), HttpStatus.OK);
     }
 

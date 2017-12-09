@@ -14,4 +14,6 @@ public interface FoodRepository extends CrudRepository<Food, Long> {
     Optional<Food>findById(long id);
     //Food insertFood(Food food);
     //Food getFoodById(Integer id);
+
+    Integer findIngredientsByName(String name);
 }

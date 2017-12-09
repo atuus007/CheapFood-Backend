@@ -13,5 +13,8 @@ public interface IngredientsRepository extends CrudRepository<Ingredients, Long>
 
     @Query("SELECT i.name FROM Ingredients i where i.id = :id")
     List<Ingredients> findIngredientsById(@Param("id") Long id);
+
     Optional<Ingredients> findById(long id);
+
+    Integer findIngredientsByName(String name);
 }
