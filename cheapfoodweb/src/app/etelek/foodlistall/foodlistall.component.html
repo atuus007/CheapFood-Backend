@@ -1,5 +1,7 @@
   <div>
+
       <table class="foodlistTable">
+
           <tr>
             <td>
               <p>Minden </p>
@@ -7,6 +9,26 @@
             <td>
                 <p>lista 1. eleme </p>
             </td>
+          </tr>
+          <tr *ngFor="let food of asdf; let i=index" (click)='findIngById(food.id)'>
+              <td>
+                  <p>{{food.id}} </p>
+              </td>
+              <td>
+                  <p>{{food.name}} </p>
+              </td>
+              <td>
+                  <p>{{food.mennyisegfajta}} </p>
+              </td>
+              <td>
+                  <p>{{food.mennyiseg}} </p>
+              </td>
+              <td>
+                  <p>{{food.elkeszitesi_ido}} </p>
+              </td>
+              <td>
+                  <p>{{food.osszar}} </p>
+              </td>
           </tr>
       </table>
   </div>

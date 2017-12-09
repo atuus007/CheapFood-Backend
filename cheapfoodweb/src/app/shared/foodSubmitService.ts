@@ -8,16 +8,18 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import { Response } from "_debugger";
 import { FoodSubmit } from "../foodsubmit/foodsubmit";
+import { FoodResoponse } from "./food.response";
 //import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+};
 @Injectable()
-export class FoodSubmitService{
-    private _foodBaseUrl='http://localhost:8080/api/food';
-    private _ingredientUrl='http://localhost:8080/api/ingredients/ingredients';
-    constructor(private httpClient: HttpClient) {}
+export class FoodSubmitService {
+    private _foodBaseUrl = 'http://localhost:8080/api/food';
+    private _ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
+    private _saveFoodThings = 'http://localhost:8080/api/food/savefoodwithings';
+    constructor(private httpClient: HttpClient) { }
 	/*
     getFood(): Observable<IFoodSubmit[]>{
         const url=`${this._foodBaseUrl}/foodslist`;
@@ -29,25 +31,54 @@ export class FoodSubmitService{
 
     }
 	*/
-    private handleError(err: HttpErrorResponse){
+    private handleError(err: HttpErrorResponse) {
         console.log(err.message);
         return Observable.throw(err.message);
-        
+
     }
-    createFood(food: FoodSubmit):Observable<FoodSubmit[]>{
+    saveFoodWithThings(foodThings: FoodSubmit): Observable<FoodSubmit[]> {
+        const url = 'http://localhost:8080/api/food/savefoodwithings';
+
+        console.log("AAAAAAAAAAAAAAAAAAAAAAA");
+        const body = {
+
+            name: foodThings.getName(),
+            ingredientsList: foodThings.getIngredientsList()
+        };
+        console.log("1: ");
+
+        console.log(body);
+        console.log("2: ");
+        console.log(JSON.stringify(foodThings));
+        return this.httpClient.post(url, body)
+                              .do(data=>console.log("All: "+JSON.stringify(data)))
+                              .catch(this.handleError);
+        /*
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+     */
+    }
+    getAllFoods():Observable<FoodResoponse[]>{
+        const url=`${this._foodBaseUrl}/foodslist`;
+        //ird át a Ifoodot hogy jól mappolja össze
+       
+        return this.httpClient.get<FoodResoponse[]>(url)
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
+    }
+    createFood(food: FoodSubmit): void{
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
-        const url='http://localhost:8080/api/food/savefood';
-       /*
-        console.log("createFood AAAAAA: "+food.name+" "+food.mennyiseg);
-        
-        const body={
-            
-            name:food.name,
-            mennyiseg:food.mennyiseg,
-            mennyisegfajta:food.mennyisegfajta
-          };
-        */
+        const url = 'http://localhost:8080/api/food/savefood';
+        /*
+         console.log("createFood AAAAAA: "+food.name+" "+food.mennyiseg);
+         
+         const body={
+             
+             name:food.name,
+             mennyiseg:food.mennyiseg,
+             mennyisegfajta:food.mennyisegfajta
+           };
+         */
         //let options=new RequestOptions({headers: headers});
         /*
         return this.httpClient.post(url, JSON.stringify(food))
@@ -72,12 +103,11 @@ export class FoodSubmitService{
         .do(data=>console.log("All: "+JSON.stringify(data)))
         .catch(this.handleError);
         */
-        return ;
-        
-        
-        
-        
-        
+
+
+
+
+
         /*
         .do(map((hero: FoodSubmit) => console.log(`added hero w/ id=${hero.id}`)),
             catchError(this.handleError)

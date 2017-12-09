@@ -1,35 +1,41 @@
-<div class="foodsubmit">
-  <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="foodsubmit">
+        <p>Itt küldhetsz be újabb recepteket! Ehhez nem kell mást tenned mint kitölteni az alábbi mezőket!</p>
 
-<!--novalidate (ngSubmit)="save(foodForm)"-->
-  <form [formGroup]='foodForm' >
+        <!--novalidate (ngSubmit)="save(foodForm)"-->
+        <form [formGroup]='foodForm' (ngSubmit)="save()">
 
-    <!-- Kaja neve-->
-    <div class="form-group">
-      <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
-      <input type="text" class="form-control" formControlName="nev">
-      <small *ngIf="!foodForm.controls.nev.valid" class="text-danger">
-        Étel nevet mindenképp adj meg! (minimum 6 karakter).
-      </small>
-    </div>
+          <!-- Kaja neve-->
+          <div class="form-group">
+            <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
+            <label>Étel neve: </label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Étel neve">
+            <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
+              Étel nevet mindenképp adj meg! (minimum 6 karakter).
+            </small>
+            <button (click)="addHozzavalok()">
+              +
+            </button>
+          </div>
+   
+          <div formArrayName="ingredientsList">
+            <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
+              <!-- [formGroupName]="i"-->
+              <div>
+                <hzavl [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
+              </div>
+              <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
+                Töröl
+              </button>
+            </div>
+          </div>
 
-    <button (click)="addHozzavalok()">
-      +
-    </button>
-
-
-    <div formArrayName="hozzavalok">
-      <div *ngFor="let hozzavalo of foodForm.controls.hozzavalok.controls; let i=index">
-<!-- [formGroupName]="i"-->
-        <div>
-          <hzavl [group]="foodForm.controls.hozzavalok.controls[i]"></hzavl>
-        </div>
-        <button *ngIf="foodForm.controls.hozzavalok.controls.length > 1" (click)="deleteHozzavalok(i)">
-          Töröl
-        </button>
+<!--(click)='save()' type="submit"-->
+          <button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+        </form>
+        <pre>form value: <br>{{foodForm.value | json}}</pre>
       </div>
     </div>
-
-<button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
-</form>
-</div>
+  </div>

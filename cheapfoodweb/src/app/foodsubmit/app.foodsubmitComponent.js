@@ -10,40 +10,62 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
+var foodsubmit_1 = require("./foodsubmit");
+var foodSubmitService_1 = require("../shared/foodSubmitService");
 var foodsubmitComponent = (function () {
-    function foodsubmitComponent(_fb) {
+    function foodsubmitComponent(_fb, _foodService) {
         this._fb = _fb;
+        this._foodService = _foodService;
         this.hozzavalokszama = [];
-    }
+        this.valami = [];
+    } //pipa
     foodsubmitComponent.prototype.ngOnInit = function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
-            nev: ['', [forms_1.Validators.required]],
-            hozzavalok: this._fb.array([])
-        });
-        this.addHozzavalok();
+            name: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5)]],
+            ingredientsList: this._fb.array([]),
+        }); //pipa
+        this.addHozzavalok(); //pipa
+        console.log("ngOnInit " + this.foodForm);
     };
     foodsubmitComponent.prototype.initHozzavalok = function () {
+        console.log("initHozzavalok " + this.foodForm);
         return this._fb.group({
-            osszetevok: [''],
-            mennyiseg: [''],
-            mennyisegselect: ['']
+            name: ['', [forms_1.Validators.required]],
+            mennyiseg: ['', [forms_1.Validators.required]],
+            atlagar: ['', [forms_1.Validators.required]],
+            mennyisegfajta: ['']
         });
     };
     foodsubmitComponent.prototype.addHozzavalok = function () {
-        var control = this.foodForm.controls['hozzavalok'];
+        var control = this.foodForm.controls['ingredientsList'];
         var hozzvCtrl = this.initHozzavalok();
+        console.log("addHozzavalok: " + this.foodForm);
         control.push(hozzvCtrl);
-        console.log("AAAAAAA: " + control.length);
+        console.log("addHozzavalok: " + control.length);
+        console.log("control: " + control);
     };
     foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
-        var control = this.foodForm.controls['hozzavalok'];
+        /*
+        const control = <FormArray>this.foodForm.controls['ingredientsList'];
+        
         console.log("Deleted: " + i);
         control.removeAt(i);
+    */
     };
-    foodsubmitComponent.prototype.save = function (model) {
-        console.log("AA: " + model.nev);
-        console.log("AA: " + model.hozzavalok[0].osszetevok);
+    foodsubmitComponent.prototype.save = function () {
+        console.log("form: " + this.foodForm.get('name').value);
+        console.log(this.foodForm.get('ingredientsList').value);
+        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
+        console.log("Name: " + this.myFood.getName());
+        console.log(this.myFood.getIngredientsList());
+        this._foodService.saveFoodWithThings(this.myFood).subscribe(function (res) {
+            console.log(res);
+            alert("Hozzáadás sikeres!!");
+        }, function (err) {
+            console.log("Error occured");
+            alert("Hiba!!");
+        });
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{
@@ -60,7 +82,6 @@ var foodsubmitComponent = (function () {
         */
     };
     foodsubmitComponent.prototype.getFoods = function () {
-        console.log("FAAAAAAAAASZ:");
         /*
              this._foodService.getFood()
              .subscribe(foods => { this.foodsList = foods;},
@@ -79,7 +100,7 @@ foodsubmitComponent = __decorate([
         selector: 'foodsubmit',
         templateUrl: "./foodsubmit.html",
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder])
+    __metadata("design:paramtypes", [forms_1.FormBuilder, foodSubmitService_1.FoodSubmitService])
 ], foodsubmitComponent);
 exports.foodsubmitComponent = foodsubmitComponent;
 //# sourceMappingURL=app.foodsubmitComponent.js.map

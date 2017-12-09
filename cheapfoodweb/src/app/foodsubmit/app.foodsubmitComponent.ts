@@ -4,9 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { NgForm } from '@angular/forms';
-import { FoodSubmit } from './foodsubmit'
+import { FoodSubmit,HozzavaloSubmit } from './foodsubmit'
 import { FoodSubmitService } from '../shared/foodSubmitService';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FoodlistallComponent } from '../etelek/foodlistall/foodlistall.component';
 
 @Component({
   selector: 'foodsubmit',
@@ -16,47 +17,83 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export class foodsubmitComponent implements OnInit {
   hozzavalokszama: number[] = [];
-  public foodForm: FormGroup;
-  constructor(private _fb: FormBuilder) { }
+
+  public foodForm: FormGroup; //pipa
+
+  constructor(private _fb: FormBuilder, private _foodService: FoodSubmitService) { }//pipa
 
   //nev: string;
   //osszetevok: string;
   //mennyiseg: number;
   mennyisegselect: string;
-
+  valami: HozzavaloSubmit[]=[];
+  myFood: FoodSubmit;
   ngOnInit(): void {
+
     //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
+
     this.foodForm = this._fb.group({
-      nev: ['', [Validators.required]],
-      hozzavalok: this._fb.array([])
-    });
-    this.addHozzavalok();
+      name: ['',[Validators.required, Validators.minLength(5)]],
+      ingredientsList: this._fb.array([]),
+    });//pipa
+
+
+    this.addHozzavalok(); //pipa
+    console.log("ngOnInit "+this.foodForm);
+
   }
   initHozzavalok() {
+    console.log("initHozzavalok "+this.foodForm);
+
     return this._fb.group({
-      osszetevok: [''],
-      mennyiseg: [''],
-      mennyisegselect: ['']
+      name: ['',[Validators.required]],
+      mennyiseg: ['',[Validators.required]],
+      atlagar: ['',[Validators.required]],
+      mennyisegfajta: ['']
     });
+
   }
-  addHozzavalok() {
-    const control = <FormArray>this.foodForm.controls['hozzavalok'];
 
+  addHozzavalok() { //pipa
+
+    const control = <FormArray>this.foodForm.controls['ingredientsList'];
+  
     const hozzvCtrl = this.initHozzavalok();
-
+   
+    console.log("addHozzavalok: " +this.foodForm);
     control.push(hozzvCtrl);
-    console.log("AAAAAAA: " + control.length);
+    
+    console.log("addHozzavalok: " + control.length);
+    console.log("control: " + control);
   }
   deleteHozzavalok(i: number) {
-    const control = <FormArray>this.foodForm.controls['hozzavalok'];
+    /*
+    const control = <FormArray>this.foodForm.controls['ingredientsList'];
+    
     console.log("Deleted: " + i);
     control.removeAt(i);
+*/
   }
-  save(model: FoodSubmit): void {
+  save(): void {
 
 
-      console.log("AA: "+model.nev);
-      console.log("AA: "+model.hozzavalok[0].osszetevok);
+    console.log("form: "+this.foodForm.get('name').value);
+    console.log(this.foodForm.get('ingredientsList').value);
+    this.myFood =new FoodSubmit(this.foodForm.get('name').value,this.foodForm.get('ingredientsList').value);
+    console.log("Name: "+this.myFood.getName());
+    console.log(this.myFood.getIngredientsList());
+    this._foodService.saveFoodWithThings(this.myFood).subscribe(  
+      res=>{
+        console.log(res);
+        alert("Hozzáadás sikeres!!");
+      },
+      err=>{
+          console.log("Error occured");
+          alert("Hiba!!");
+      }
+    );
+
+
       /*
       this._foodService.createFood(this.foodsList2)
       .subscribe(   res=>{
@@ -73,7 +110,7 @@ export class foodsubmitComponent implements OnInit {
       */
   }
   getFoods(): void {
-    console.log("FAAAAAAAAASZ:");
+  
    /*
         this._foodService.getFood()
         .subscribe(foods => { this.foodsList = foods;},
