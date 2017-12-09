@@ -27,20 +27,21 @@ export class foodsubmitComponent implements OnInit {
   ngOnInit(): void {
     //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
     this.foodForm = this._fb.group({
-      nev: ['', [Validators.required]],
-      hozzavalok: this._fb.array([])
+      name: [''],
+      ingredientsList: this._fb.array([])
     });
     this.addHozzavalok();
   }
   initHozzavalok() {
     return this._fb.group({
-      osszetevok: [''],
-      mennyiseg: [''],
-      mennyisegselect: ['']
+      name: ['',[Validators.required]],
+      mennyiseg: ['',[Validators.required]],
+      atlagar: ['',[Validators.required]],
+      mennyisegfajta: ['']
     });
   }
   addHozzavalok() {
-    const control = <FormArray>this.foodForm.controls['hozzavalok'];
+    const control = <FormArray>this.foodForm.controls['ingredientsList'];
 
     const hozzvCtrl = this.initHozzavalok();
 
@@ -48,15 +49,16 @@ export class foodsubmitComponent implements OnInit {
     console.log("AAAAAAA: " + control.length);
   }
   deleteHozzavalok(i: number) {
-    const control = <FormArray>this.foodForm.controls['hozzavalok'];
+    const control = <FormArray>this.foodForm.controls['ingredientsList'];
     console.log("Deleted: " + i);
     control.removeAt(i);
   }
-  save(model: FoodSubmit): void {
+  save(): void {
 
-
-      console.log("AA: "+model.nev);
-      console.log("AA: "+model.hozzavalok[0].osszetevok);
+   
+    
+    console.log("adsfasf: "+this.foodForm.get("name"));
+    alert("ADADFASDFADSFADf");
       /*
       this._foodService.createFood(this.foodsList2)
       .subscribe(   res=>{

@@ -6,7 +6,8 @@ export interface FoodSubmit {
 
 export interface HozzavaloSubmit {
     
-        osszetevok: string;
+        name: string;
         mennyiseg: number;
-        mennyisegselect: number;
+        atlagar: number;
+        mennyisegfajta: number;
     }

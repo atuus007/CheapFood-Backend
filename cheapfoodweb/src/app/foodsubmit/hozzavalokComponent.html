@@ -1,19 +1,28 @@
 <div [formGroup]="hval">
 
     <div class="form-group col-xs-6">
-        <label>Osszetevok</label>
-        <input type="text" class="form-control" formControlName="osszetevok" placeholder="pl: liszt" required maxlength="25">
-        <small [hidden]="hval.controls.osszetevok.valid" class="text-danger">
+        <label>Hozzávaló: </label>
+        <input type="text" class="form-control" formControlName="name" placeholder="pl: liszt" required maxlength="25">
+        <small [hidden]="hval.controls.name.valid" class="text-danger">
             Adj meg valamilyen összetevőt
         </small>
+
         <div class="form-group col-xs-6">
+            <label>Ár: </label>
+            <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="atlagar">
+            <small [hidden]="hval.controls.atlagar.valid" class="text-danger">
+                Add meg az árat.
+            </small>
+        </div>
+        <div class="form-group col-xs-6">
+            <label>Mennyiséget: </label>
             <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="mennyiseg">
             <small [hidden]="hval.controls.mennyiseg.valid" class="text-danger">
                 Adj meg valamilyen mennyiséget
             </small>
         </div>
         <div class="form-group col-xs-6">
-            <select formControlName='mennyisegselect' name="mennyisegselect">
+            <select formControlName='mennyisegfajta' name="mennyisegfajta">
                 <option value="1">kg</option>
                 <option value="2">evőkanál</option>
                 <option value="3">teáskanál</option>

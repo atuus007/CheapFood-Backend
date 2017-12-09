@@ -18,32 +18,33 @@ var foodsubmitComponent = (function () {
     foodsubmitComponent.prototype.ngOnInit = function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
-            nev: ['', [forms_1.Validators.required]],
-            hozzavalok: this._fb.array([])
+            name: [''],
+            ingredientsList: this._fb.array([])
         });
         this.addHozzavalok();
     };
     foodsubmitComponent.prototype.initHozzavalok = function () {
         return this._fb.group({
-            osszetevok: [''],
-            mennyiseg: [''],
-            mennyisegselect: ['']
+            name: ['', [forms_1.Validators.required]],
+            mennyiseg: ['', [forms_1.Validators.required]],
+            atlagar: ['', [forms_1.Validators.required]],
+            mennyisegfajta: ['']
         });
     };
     foodsubmitComponent.prototype.addHozzavalok = function () {
-        var control = this.foodForm.controls['hozzavalok'];
+        var control = this.foodForm.controls['ingredientsList'];
         var hozzvCtrl = this.initHozzavalok();
         control.push(hozzvCtrl);
         console.log("AAAAAAA: " + control.length);
     };
     foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
-        var control = this.foodForm.controls['hozzavalok'];
+        var control = this.foodForm.controls['ingredientsList'];
         console.log("Deleted: " + i);
         control.removeAt(i);
     };
-    foodsubmitComponent.prototype.save = function (model) {
-        console.log("AA: " + model.nev);
-        console.log("AA: " + model.hozzavalok[0].osszetevok);
+    foodsubmitComponent.prototype.save = function () {
+        console.log("adsfasf: " + this.foodForm.get("name"));
+        alert("ADADFASDFADSFADf");
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{
