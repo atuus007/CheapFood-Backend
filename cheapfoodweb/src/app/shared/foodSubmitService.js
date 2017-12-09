@@ -59,6 +59,13 @@ var FoodSubmitService = (function () {
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
      */
     };
+    FoodSubmitService.prototype.getAllFoods = function () {
+        var url = this._foodBaseUrl + "/foodslist";
+        //ird át a Ifoodot hogy jól mappolja össze
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });

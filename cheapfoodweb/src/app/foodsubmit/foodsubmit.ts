@@ -1,5 +1,3 @@
-import { HozzavalokComponent } from "./hozzavalokComponent";
-
 export class FoodSubmit {
 
     private name: string;

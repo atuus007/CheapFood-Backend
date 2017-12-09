@@ -9,11 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var foodSubmitService_1 = require("../../shared/foodSubmitService");
 var FoodlistallComponent = (function () {
-    function FoodlistallComponent() {
+    function FoodlistallComponent(foodService) {
+        this.foodService = foodService;
+        this.asdf = [];
         console.log("export class FoodlistallComponent implements OnInit");
     }
     FoodlistallComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.foodService.getAllFoods().subscribe(function (foods) { _this.asdf = foods; }, function (error) { console.log(error); });
+        // console.log(this.asdf[0].getId());
+    };
+    FoodlistallComponent.prototype.findIngById = function (id) {
+        console.log(id);
+    };
+    FoodlistallComponent.prototype.getFoods = function () {
+        /*
+             this._foodService.getFood()
+             .subscribe(foods => { this.foodsList = foods;},
+                        error => this.errorMessage=<any>error
+             );
+             console.log("AAA: "+this.foodsList.length);
+             //console.log(this.foodsList[0].name);
+             //console.log(this.foodsList[0].mennyiseg);
+           }
+           */
     };
     return FoodlistallComponent;
 }());
@@ -22,7 +43,7 @@ FoodlistallComponent = __decorate([
         selector: 'fall',
         templateUrl: './foodlistall.component.html',
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [foodSubmitService_1.FoodSubmitService])
 ], FoodlistallComponent);
 exports.FoodlistallComponent = FoodlistallComponent;
 //# sourceMappingURL=foodlistall.component.js.map

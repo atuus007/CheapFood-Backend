@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import { Response } from "_debugger";
 import { FoodSubmit } from "../foodsubmit/foodsubmit";
+import { FoodResoponse } from "./food.response";
 //import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
@@ -55,6 +56,14 @@ export class FoodSubmitService {
         /*
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
      */
+    }
+    getAllFoods():Observable<FoodResoponse[]>{
+        const url=`${this._foodBaseUrl}/foodslist`;
+        //ird át a Ifoodot hogy jól mappolja össze
+       
+        return this.httpClient.get<FoodResoponse[]>(url)
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
     }
     createFood(food: FoodSubmit): void{
         //let headers=new Headers({'Content-Type':'applocation/json'});
