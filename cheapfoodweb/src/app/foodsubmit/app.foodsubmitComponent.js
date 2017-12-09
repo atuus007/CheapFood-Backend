@@ -59,7 +59,12 @@ var foodsubmitComponent = (function () {
         this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
         console.log("Name: " + this.myFood.getName());
         console.log(this.myFood.getIngredientsList());
-        this._foodService.saveFoodWithThings();
+        this._foodService.saveFoodWithThings(this.myFood) /*.subscribe(   res=>{
+            console.log(res);
+          },
+          err=>{
+              console.log("Error occured");
+          })*/;
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{

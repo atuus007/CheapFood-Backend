@@ -24,6 +24,7 @@ var FoodSubmitService = (function () {
         this.httpClient = httpClient;
         this._foodBaseUrl = 'http://localhost:8080/api/food';
         this._ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
+        this._saveFoodThings = 'http://localhost:8080/api/food/savefoodwithings';
     }
     /*
     getFood(): Observable<IFoodSubmit[]>{
@@ -40,8 +41,23 @@ var FoodSubmitService = (function () {
         console.log(err.message);
         return Observable_1.Observable.throw(err.message);
     };
-    FoodSubmitService.prototype.saveFoodWithThings = function () {
-        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    FoodSubmitService.prototype.saveFoodWithThings = function (foodThings) {
+        var url = 'http://localhost:8080/api/food/savefoodwithings';
+        console.log("AAAAAAAAAAAAAAAAAAAAAAA");
+        var body = {
+            name: foodThings.getName(),
+            ingredientsList: foodThings.getIngredientsList()
+        };
+        console.log("1: ");
+        console.log(body);
+        console.log("2: ");
+        console.log(JSON.stringify(foodThings));
+        return;
+        /*
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+      return this.httpClient.post(url, JSON.stringify(foodThings))
+      .do(data=>console.log("All: "+JSON.stringify(data)))
+      .catch(this.handleError);*/
     };
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
