@@ -24,9 +24,8 @@ export class FoodSubmit {
 }
 
 export class HozzavaloSubmit {
-
     name: string;
-    mennyiseg: number;
     atlagar: number;
+    mennyiseg: number;
     mennyisegfajta: number;
 }

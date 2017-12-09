@@ -34,7 +34,7 @@ export class foodsubmitComponent implements OnInit {
 
     this.foodForm = this._fb.group({
       name: ['',[Validators.required, Validators.minLength(5)]],
-      ingredientsList: this._fb.array([])
+      ingredientsList: this._fb.array([]),
     });//pipa
 
 
@@ -53,13 +53,16 @@ export class foodsubmitComponent implements OnInit {
     });
 
   }
+
   addHozzavalok() { //pipa
 
     const control = <FormArray>this.foodForm.controls['ingredientsList'];
-
+  
     const hozzvCtrl = this.initHozzavalok();
+   
     console.log("addHozzavalok: " +this.foodForm);
     control.push(hozzvCtrl);
+    
     console.log("addHozzavalok: " + control.length);
     console.log("control: " + control);
   }
@@ -79,12 +82,16 @@ export class foodsubmitComponent implements OnInit {
     this.myFood =new FoodSubmit(this.foodForm.get('name').value,this.foodForm.get('ingredientsList').value);
     console.log("Name: "+this.myFood.getName());
     console.log(this.myFood.getIngredientsList());
-    this._foodService.saveFoodWithThings(this.myFood)/*.subscribe(   res=>{
+    this._foodService.saveFoodWithThings(this.myFood).subscribe(  
+      res=>{
         console.log(res);
+        alert("Hozzáadás sikeres!!");
       },
       err=>{
           console.log("Error occured");
-      })*/;
+          alert("Hiba!!");
+      }
+    );
 
 
       /*

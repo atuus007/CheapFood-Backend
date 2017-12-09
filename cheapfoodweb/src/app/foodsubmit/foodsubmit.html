@@ -19,7 +19,7 @@
               +
             </button>
           </div>
-
+   
           <div formArrayName="ingredientsList">
             <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
               <!-- [formGroupName]="i"-->
@@ -31,6 +31,7 @@
               </button>
             </div>
           </div>
+
 <!--(click)='save()' type="submit"-->
           <button type="submit" class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
         </form>

@@ -52,12 +52,12 @@ var FoodSubmitService = (function () {
         console.log(body);
         console.log("2: ");
         console.log(JSON.stringify(foodThings));
-        return;
+        return this.httpClient.post(url, body)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
         /*
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-      return this.httpClient.post(url, JSON.stringify(foodThings))
-      .do(data=>console.log("All: "+JSON.stringify(data)))
-      .catch(this.handleError);*/
+     */
     };
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
@@ -97,7 +97,6 @@ var FoodSubmitService = (function () {
         .do(data=>console.log("All: "+JSON.stringify(data)))
         .catch(this.handleError);
         */
-        return;
         /*
         .do(map((hero: FoodSubmit) => console.log(`added hero w/ id=${hero.id}`)),
             catchError(this.handleError)

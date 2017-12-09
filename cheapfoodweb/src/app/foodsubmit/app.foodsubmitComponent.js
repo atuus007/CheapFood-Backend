@@ -23,7 +23,7 @@ var foodsubmitComponent = (function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
             name: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5)]],
-            ingredientsList: this._fb.array([])
+            ingredientsList: this._fb.array([]),
         }); //pipa
         this.addHozzavalok(); //pipa
         console.log("ngOnInit " + this.foodForm);
@@ -59,12 +59,13 @@ var foodsubmitComponent = (function () {
         this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
         console.log("Name: " + this.myFood.getName());
         console.log(this.myFood.getIngredientsList());
-        this._foodService.saveFoodWithThings(this.myFood) /*.subscribe(   res=>{
+        this._foodService.saveFoodWithThings(this.myFood).subscribe(function (res) {
             console.log(res);
-          },
-          err=>{
-              console.log("Error occured");
-          })*/;
+            alert("Hozzáadás sikeres!!");
+        }, function (err) {
+            console.log("Error occured");
+            alert("Hiba!!");
+        });
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{

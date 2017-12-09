@@ -49,14 +49,14 @@ export class FoodSubmitService {
         console.log(body);
         console.log("2: ");
         console.log(JSON.stringify(foodThings));
-        return;
+        return this.httpClient.post(url, body)
+                              .do(data=>console.log("All: "+JSON.stringify(data)))
+                              .catch(this.handleError);
         /*
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-      return this.httpClient.post(url, JSON.stringify(foodThings))
-      .do(data=>console.log("All: "+JSON.stringify(data)))
-      .catch(this.handleError);*/
+     */
     }
-    createFood(food: FoodSubmit): Observable<FoodSubmit[]> {
+    createFood(food: FoodSubmit): void{
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
         const url = 'http://localhost:8080/api/food/savefood';
@@ -94,7 +94,6 @@ export class FoodSubmitService {
         .do(data=>console.log("All: "+JSON.stringify(data)))
         .catch(this.handleError);
         */
-        return;
 
 
 
