@@ -27,6 +27,9 @@ public class CreateFoodRequestWithIngerdientsFoodConverter {
         logger.info("Convertin CreateFoodrequestwithing Food Part.");
         Food food = new Food();
         food.setName(createFoodRequestwithingerdietns.getName());
+        food.setElkeszitesi_ido(createFoodRequestwithingerdietns.getElkeszitesi_ido());
+        food.setMennyiseg(createFoodRequestwithingerdietns.getMennyiseg());
+        food.setMennyisegfajta(createFoodRequestwithingerdietns.getMennyisegfajta());
         return food;
     }
 }
