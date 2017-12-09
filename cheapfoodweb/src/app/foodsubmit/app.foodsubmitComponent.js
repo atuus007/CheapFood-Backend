@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var foodsubmit_1 = require("./foodsubmit");
+var foodSubmitService_1 = require("../shared/foodSubmitService");
 var foodsubmitComponent = (function () {
-    function foodsubmitComponent(_fb) {
+    function foodsubmitComponent(_fb, _foodService) {
         this._fb = _fb;
+        this._foodService = _foodService;
         this.hozzavalokszama = [];
         this.valami = [];
     } //pipa
@@ -52,41 +54,12 @@ var foodsubmitComponent = (function () {
     */
     };
     foodsubmitComponent.prototype.save = function () {
-        //alert(model.value['name']);
-        //alert(model.controls['addresses'].value['street']);
-        //console.log("MODEL: "+model);
-        //console.log("save: " + this.foodForm);
-        //alert("AAA: "+model.hozzavalok[0]);
-        //let json=JSON.parse(model);
-        //console.log(model);
-        console.log("==============================================================");
         console.log("form: " + this.foodForm.get('name').value);
         console.log(this.foodForm.get('ingredientsList').value);
         this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
         console.log("Name: " + this.myFood.getName());
         console.log(this.myFood.getIngredientsList());
-        //this.myFood.name=this.foodForm.get('name').value;
-        //console.log("foodname: "+this.myFood.name);
-        //this.myFood.ingredientsList=this.foodForm.get('ingredientsList').value;
-        //console.log(this.myFood.name);
-        //console.log(this.myFood.ingredientsList[0].ingName+" "+this.myFood.ingredientsList[0].atlagar+" "+this.myFood.ingredientsList[0].mennyiseg);
-        //this.valami=this.foodForm.get('ingredientsList').value;
-        //console.log(this.valami[0].name+" "+this.valami[0].atlagar+" "+this.valami[0].mennyiseg);
-        //console.log(this.valami[1].name+" "+this.valami[1].atlagar);
-        // this.myFood.name
-        console.log("==============================================================");
-        //  alert("AAA: "+model.value['name']);
-        //  alert("CCC: "+model.value['addresses'][0]);
-        //  alert("BBB: "+this.myForm.value['name']);
-        ///////////////////////////
-        //console.log(this.searchForm.get('properties').at(0).value);
-        ////////////////////////
-        //alert("save: " + this.foodForm);
-        //alert("save:foodname: " + this.foodForm.get('name'));
-        //alert("save:fdasdfadsdfdas " + this.foodForm.get('ingredientsList').get('name'));
-        //alert("this.foodForm.value['name']: "+this.foodForm.value['name']);
-        //alert("this.foodForm.value['ingredientsList'] "+this.foodForm.value['ingredientsList']);
-        //alert("this.foodForm.value['ingredientsList'] "+this.foodForm.value['ingredientsList'].value());
+        this._foodService.saveFoodWithThings();
         /*
         this._foodService.createFood(this.foodsList2)
         .subscribe(   res=>{
@@ -121,7 +94,7 @@ foodsubmitComponent = __decorate([
         selector: 'foodsubmit',
         templateUrl: "./foodsubmit.html",
     }),
-    __metadata("design:paramtypes", [forms_1.FormBuilder])
+    __metadata("design:paramtypes", [forms_1.FormBuilder, foodSubmitService_1.FoodSubmitService])
 ], foodsubmitComponent);
 exports.foodsubmitComponent = foodsubmitComponent;
 //# sourceMappingURL=app.foodsubmitComponent.js.map

@@ -34,6 +34,9 @@ export class FoodSubmitService{
         return Observable.throw(err.message);
         
     }
+    saveFoodWithThings(){
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    }
     createFood(food: FoodSubmit):Observable<FoodSubmit[]>{
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });

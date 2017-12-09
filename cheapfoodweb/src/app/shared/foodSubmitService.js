@@ -40,6 +40,9 @@ var FoodSubmitService = (function () {
         console.log(err.message);
         return Observable_1.Observable.throw(err.message);
     };
+    FoodSubmitService.prototype.saveFoodWithThings = function () {
+        console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+    };
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });

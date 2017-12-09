@@ -20,7 +20,8 @@ export class FoodSubmitService{
         .catch(this.handleError);
 
     }
-	*/
+    */
+
     private handleError(err: HttpErrorResponse){
         console.log(err.message);
         return Observable.throw(err.message);
