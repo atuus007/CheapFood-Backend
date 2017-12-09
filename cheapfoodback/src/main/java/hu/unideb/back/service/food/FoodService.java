@@ -12,9 +12,10 @@ public interface FoodService {
 
     List<FoodResponse> getAllFoods();
     void saveFood(CreateFoodRequest createFoodRequest);
-    void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns);
+    void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns, int osszar);
     boolean deleteFood(long id);
     boolean updateFood(UpdateFoodRequest updateFoodRequest);
+    Integer findIngredientsIDByName(String Name);
     //Food insertFood(Food food);
     //Food getFoodById(Integer id);
 }

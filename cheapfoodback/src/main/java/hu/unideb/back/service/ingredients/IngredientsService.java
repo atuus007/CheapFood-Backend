@@ -13,8 +13,9 @@ public interface IngredientsService {
     List<IngredientsResponse> findAllIngredients();
     List<IngredientsResponse> findIngredientsById(Long Id);
     void saveIngredients(CreateIngredientsRequest createIngredientsRequest);
-    void saveFoodwithingsing(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns);
+    int saveFoodwithingsing(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns);
     boolean deleteIngredients(long id);
     boolean updateIngredients(UpdateIngredientsRequest updateIngredientsRequest);
+    Integer findIngredientsIDByName(String Name);
 
 }

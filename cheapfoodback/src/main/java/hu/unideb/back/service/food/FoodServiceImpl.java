@@ -5,10 +5,9 @@ import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns
 import hu.unideb.back.controller.food.converter.FoodResponse;
 import hu.unideb.back.controller.food.converter.UpdateFoodRequest;
 import hu.unideb.back.model.Food;
-import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.repository.FoodRepository;
 import hu.unideb.back.service.food.converter.CreateFoodRequestConverter;
-import hu.unideb.back.service.food.converter.CreateFoodRequestWithIngerdientsConverter;
+import hu.unideb.back.service.food.converter.CreateFoodRequestWithIngerdientsFoodConverter;
 import hu.unideb.back.service.food.converter.FoodResoponseCoverter;
 import hu.unideb.back.service.food.converter.UpdateFoodRequestConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class FoodServiceImpl implements FoodService {
     @Autowired
     private FoodResoponseCoverter foodResoponseCoverter;
     @Autowired
-    private CreateFoodRequestWithIngerdientsConverter createFoodRequestWithIngerdientsConverter;
+    private CreateFoodRequestWithIngerdientsFoodConverter createFoodRequestWithIngerdientsFoodConverter;
 
     @Override
     public List<FoodResponse> getAllFoods(){
@@ -57,10 +56,19 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns) {
+    public void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns, int osszar) {
         logger.debug("saveFood() Service ");
-        Food food=createFoodRequestWithIngerdientsConverter.from(createFoodRequestwithingerdietns);
+        Food food= createFoodRequestWithIngerdientsFoodConverter.from(createFoodRequestwithingerdietns);
+        food.setOsszar(osszar);
         foodRepository.save(food);
+    }
+
+    @Override
+    public Integer findIngredientsIDByName(String Name){
+        logger.debug("findIngredientsByName Service");
+        Integer FoodName;
+        FoodName = foodRepository.findIngredientsByName(Name);
+        return FoodName;
     }
 
     @Override

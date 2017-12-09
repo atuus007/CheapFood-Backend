@@ -1,6 +1,5 @@
 package hu.unideb.back.service.food.converter;
 
-import hu.unideb.back.controller.food.converter.CreateFoodRequest;
 import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.model.Food;
 import hu.unideb.back.model.Ingredients;
@@ -15,12 +14,12 @@ import java.util.List;
 
 
 @Service
-public class CreateFoodRequestWithIngerdientsConverter {
+public class CreateFoodRequestWithIngerdientsFoodConverter {
     private final ModelMapper modelMapper;
-    private static final Logger logger = LoggerFactory.getLogger(CreateFoodRequestWithIngerdientsConverter.class);
+    private static final Logger logger = LoggerFactory.getLogger(CreateFoodRequestWithIngerdientsFoodConverter.class);
 
     @Autowired
-    public CreateFoodRequestWithIngerdientsConverter(ModelMapper modelMapper) {
+    public CreateFoodRequestWithIngerdientsFoodConverter(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
@@ -28,14 +27,6 @@ public class CreateFoodRequestWithIngerdientsConverter {
         logger.info("Convertin CreateFoodrequestwithing Food Part.");
         Food food = new Food();
         food.setName(createFoodRequestwithingerdietns.getName());
-
         return food;
-    }
-
-    public List<Ingredients> ingfrom(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns){
-        logger.info("Convertin CreateFoodrequestwithing ING Part.");
-        List<Ingredients> ingredientsList = new ArrayList<>();
-        ingredientsList.addAll(createFoodRequestwithingerdietns.getIngredientsList());
-        return  ingredientsList;
     }
 }
