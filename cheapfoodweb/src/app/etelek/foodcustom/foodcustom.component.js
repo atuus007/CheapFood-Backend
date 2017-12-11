@@ -37,7 +37,7 @@ var FoodcustomComponent = (function () {
             */
         /*
         this.fsadfasdfas=this.route.params.subscribe(
-         
+    
     
           param=>{
           this.fsadfasdfas=param;
@@ -66,7 +66,6 @@ FoodcustomComponent = __decorate([
     core_1.Component({
         selector: 'app-foodcustom',
         templateUrl: './foodcustom.component.html',
-        styleUrls: ['./foodcustom.component.css']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         router_1.Router])

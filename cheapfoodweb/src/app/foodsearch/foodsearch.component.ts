@@ -5,7 +5,7 @@ import { FoodSubmit } from '../foodsubmit/foodsubmit';
 @Component({
   selector: 'app-foodsearch',
   templateUrl: './foodsearch.component.html',
-  styleUrls: ['./foodsearch.component.css']
+//  styleUrls: ['./foodsearch.component.css']
 })
 export class FoodsearchComponent implements OnInit {
 
@@ -13,7 +13,7 @@ export class FoodsearchComponent implements OnInit {
   search:string;
   foodresult: FoodSubmit[]=[];
   ngOnInit() {
-    
+
   }
   keres(){
     console.log("kereset: "+this.search);

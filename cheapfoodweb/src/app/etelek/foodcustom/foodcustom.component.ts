@@ -6,11 +6,11 @@ import { Params } from '@angular/router/src/shared';
 @Component({
   selector: 'app-foodcustom',
   templateUrl: './foodcustom.component.html',
-  styleUrls: ['./foodcustom.component.css']
+  //styleUrls: ['./foodcustom.component.css']
 })
 export class FoodcustomComponent implements OnInit, OnDestroy {
 
-  
+
   @HostBinding('style.display')   display = 'block';
   @HostBinding('style.position')  position = 'absolute';
   private sub: Subscription;
@@ -43,7 +43,7 @@ export class FoodcustomComponent implements OnInit, OnDestroy {
     */
     /*
     this.fsadfasdfas=this.route.params.subscribe(
-     
+
 
       param=>{
       this.fsadfasdfas=param;

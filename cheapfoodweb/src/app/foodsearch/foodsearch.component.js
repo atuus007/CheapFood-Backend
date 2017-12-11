@@ -26,7 +26,6 @@ FoodsearchComponent = __decorate([
     core_1.Component({
         selector: 'app-foodsearch',
         templateUrl: './foodsearch.component.html',
-        styleUrls: ['./foodsearch.component.css']
     }),
     __metadata("design:paramtypes", [foodSubmitService_1.FoodSubmitService])
 ], FoodsearchComponent);
