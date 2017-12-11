@@ -1,19 +1,22 @@
 package hu.unideb.back.service.ingredients;
 
-import hu.unideb.back.controller.food.converter.FoodResponse;
+import hu.unideb.back.controller.food.converter.CreateFoodRequestwithingerdietns;
 import hu.unideb.back.controller.ingredients.converter.CreateIngredientsRequest;
 import hu.unideb.back.controller.ingredients.converter.IngredientsResponse;
 import hu.unideb.back.controller.ingredients.converter.UpdateIngredientsRequest;
 import hu.unideb.back.model.Ingredients;
 import hu.unideb.back.repository.IngredientsRepository;
+import hu.unideb.back.service.ingredients.converter.CreateFoodRequestWithIngerdientsIngsConverter;
 import hu.unideb.back.service.ingredients.converter.CreateIngredientsRequestConverter;
 import hu.unideb.back.service.ingredients.converter.IngredientsResoponseCoverter;
+import hu.unideb.back.service.food.converter.CreateFoodRequestWithIngerdientsFoodConverter;
 import hu.unideb.back.service.ingredients.converter.UpdateIngredientsRequestConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -31,6 +34,8 @@ public class IngredientsServiceImpl implements IngredientsService {
     private UpdateIngredientsRequestConverter updateIngredientsRequestConverter;
     @Autowired
     private IngredientsResoponseCoverter ingredientsResoponseCoverter;
+    @Autowired
+    private CreateFoodRequestWithIngerdientsIngsConverter createFoodRequestWithIngerdientsIngsConverter;
 
     @Override
     public List<IngredientsResponse> findAllIngredients(){
@@ -47,6 +52,27 @@ public class IngredientsServiceImpl implements IngredientsService {
         return ingredientsRepository.findIngredientsById(Id).stream()
                 .map(ingredientsResoponseCoverter::from)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public int saveFoodwithingsing(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns) {
+        logger.debug("saveFood() Service ");
+        int osszar = 0;
+        List<Ingredients> ingredientsList = createFoodRequestWithIngerdientsIngsConverter.ingfrom(createFoodRequestwithingerdietns);
+        for(int i = 0; i < ingredientsList.size(); i++){
+            Ingredients ingredients = new Ingredients(ingredientsList.get(i).getAtlagar(),ingredientsList.get(i).getMennyiseg(),ingredientsList.get(i).getName());
+            osszar += ingredients.getAtlagar();
+            ingredientsRepository.save(ingredients);
+        }
+        return osszar;
+    }
+
+    @Override
+    public Integer findIngredientsIDByName(String Name){
+        logger.debug("findIngredientsByName Service");
+        Integer IngredientsName;
+        IngredientsName = ingredientsRepository.findIngredientsByName(Name);
+        return IngredientsName;
     }
 
     @Override

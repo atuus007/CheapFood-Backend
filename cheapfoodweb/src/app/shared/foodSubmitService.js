@@ -24,29 +24,77 @@ var FoodSubmitService = (function () {
         this.httpClient = httpClient;
         this._foodBaseUrl = 'http://localhost:8080/api/food';
         this._ingredientUrl = 'http://localhost:8080/api/ingredients/ingredients';
+        this._saveFoodThings = 'http://localhost:8080/api/food/savefoodwithings';
     }
-    FoodSubmitService.prototype.getFood = function () {
-        var url = this._foodBaseUrl + "/foodslist";
+    /*
+    getFood(): Observable<IFoodSubmit[]>{
+        const url=`${this._foodBaseUrl}/foodslist`;
         //ird át a Ifoodot hogy jól mappolja össze
         console.log("getFood AAAAAAAAAAAAAAAAAAAAAAAA");
-        return this.httpClient.get(url)
-            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
-            .catch(this.handleError);
-    };
+        return this.httpClient.get<IFoodSubmit[]>(url)
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
+
+    }
+    */
     FoodSubmitService.prototype.handleError = function (err) {
         console.log(err.message);
         return Observable_1.Observable.throw(err.message);
     };
+    FoodSubmitService.prototype.saveFoodWithThings = function (foodThings) {
+        var url = 'http://localhost:8080/api/food/savefoodwithings';
+        console.log("AAAAAAAAAAAAAAAAAAAAAAA");
+        var body = {
+            name: foodThings.getName(),
+            elkeszitesi_ido: foodThings.getElkIdo(),
+            mennyiseg: foodThings.getMennyiseg(),
+            mennyisegfajta: foodThings.getMennyisegFajta(),
+            ingredientsList: foodThings.getIngredientsList()
+        };
+        console.log(body);
+        console.log(JSON.stringify(foodThings));
+        return this.httpClient.post(url, body)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+        /*
+      console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+     */
+    };
+    FoodSubmitService.prototype.getIngredientsById = function (id) {
+        var url = 'http://localhost:8080/query/' + id;
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    FoodSubmitService.prototype.getAllFoods = function () {
+        var url = this._foodBaseUrl + "/foodslist";
+        //ird át a Ifoodot hogy jól mappolja össze
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    FoodSubmitService.prototype.findfoodBymoney = function (money1, money2) {
+        var url = 'http://localhost:8080/api/food/foodslist/' + money1 + '/' + money2;
+        console.log(url);
+        // {money1}/{money2}
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
     FoodSubmitService.prototype.createFood = function (food) {
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
-        console.log("createFood AAAAAA: " + food.name + " " + food.mennyiseg);
         var url = 'http://localhost:8080/api/food/savefood';
-        var body = {
-            name: food.name,
-            mennyiseg: food.mennyiseg,
-            mennyisegfajta: food.mennyisegfajta
-        };
+        /*
+         console.log("createFood AAAAAA: "+food.name+" "+food.mennyiseg);
+         
+         const body={
+             
+             name:food.name,
+             mennyiseg:food.mennyiseg,
+             mennyisegfajta:food.mennyisegfajta
+           };
+         */
         //let options=new RequestOptions({headers: headers});
         /*
         return this.httpClient.post(url, JSON.stringify(food))
@@ -66,9 +114,11 @@ var FoodSubmitService = (function () {
             console.log("Error occured");
         }
         );*/
+        /*
         return this.httpClient.post(url, body)
-            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
-            .catch(this.handleError);
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
+        */
         /*
         .do(map((hero: FoodSubmit) => console.log(`added hero w/ id=${hero.id}`)),
             catchError(this.handleError)

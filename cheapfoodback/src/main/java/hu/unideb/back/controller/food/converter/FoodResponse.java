@@ -5,6 +5,8 @@ public class FoodResponse {
     private String name;
     private int mennyisegfajta;
     private int mennyiseg;
+    private int elkeszitesi_ido;
+    private int osszar;
 
     public FoodResponse() {
     }
@@ -39,5 +41,21 @@ public class FoodResponse {
 
     public void setMennyiseg(int mennyiseg) {
         this.mennyiseg = mennyiseg;
+    }
+
+    public int getOsszar() {
+        return osszar;
+    }
+
+    public void setOsszar(int osszar) {
+        this.osszar = osszar;
+    }
+
+    public int getElkeszitesi_ido() {
+        return elkeszitesi_ido;
+    }
+
+    public void setElkeszitesi_ido(int elkeszitesi_ido) {
+        this.elkeszitesi_ido = elkeszitesi_ido;
     }
 }
