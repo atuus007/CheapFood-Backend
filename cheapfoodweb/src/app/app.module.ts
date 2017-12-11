@@ -19,6 +19,7 @@ import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component
 import { HozzavalokComponent } from './foodsubmit/hozzavalokComponent';
 import { FoodsearchComponent } from './foodsearch/foodsearch.component';
 import { QuantityPipe } from './shared/food.pipe';
+import { FoodcustomComponent } from './etelek/foodcustom/foodcustom.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { QuantityPipe } from './shared/food.pipe';
                   FoodlistallComponent,
                   HozzavalokComponent,
                   FoodsearchComponent,
-                  QuantityPipe
+                  QuantityPipe,
+                  FoodcustomComponent
 
                   ],
   bootstrap:    [ AppComponent ]

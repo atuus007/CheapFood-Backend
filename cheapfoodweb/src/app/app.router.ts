@@ -14,6 +14,7 @@ import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Compon
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component';
 import { FoodsearchComponent } from './foodsearch/foodsearch.component';
+import { FoodcustomComponent } from './etelek/foodcustom/foodcustom.component';
 
  const router: Routes = [
     { path: 'etelek' , 
@@ -23,6 +24,7 @@ import { FoodsearchComponent } from './foodsearch/foodsearch.component';
                  { path: 'f6' , component: foodlist600Component},
                  { path: 'f8' , component: foodlist800Component},
                  { path: 'fall' , component: FoodlistallComponent},
+                 { path: 'foodcustom/:min/:max' , component: FoodcustomComponent}
             ]
         },
     { path: 'keszitok' , component: keszitokComponent},
@@ -30,6 +32,7 @@ import { FoodsearchComponent } from './foodsearch/foodsearch.component';
    
     { path: 'foodsubmit' , component: foodsubmitComponent},
     { path: 'foodsearch' , component: FoodsearchComponent}
+    
     
 
 

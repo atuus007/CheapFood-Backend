@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FoodResoponse } from '../../shared/food.response';
 import { FoodSubmitService } from '../../shared/foodSubmitService';
+import { IngrediensRespons } from '../../shared/ingredients.response';
 
 @Component({
   selector: 'fall',
@@ -13,6 +14,7 @@ export class FoodlistallComponent implements OnInit {
     console.log("export class FoodlistallComponent implements OnInit");
    }
    asdf: FoodResoponse[]=[];
+   adf: IngrediensRespons[]=[];
    selectedRow:number;
   ngOnInit() {
     this.foodService.getAllFoods().subscribe(
@@ -23,11 +25,12 @@ export class FoodlistallComponent implements OnInit {
   }
   findIngById(id: number, index:number): void{
     console.log(id+" "+index);
-    this.selectedRow=index;
+    this.foodService.getIngredientsById(id).subscribe(
+      ingrediens => { this.adf = ingrediens;},
+      error => {console.log(<any>error);}
+    );
   }
-  writeSoomethin():string{
-    return 'sadfasdfasdfa';
-  }
+  
   getFoods(): void {
 
 

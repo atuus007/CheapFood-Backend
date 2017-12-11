@@ -62,6 +62,9 @@ var FoodSubmitService = (function () {
     };
     FoodSubmitService.prototype.getIngredientsById = function (id) {
         var url = 'http://localhost:8080/query/' + id;
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
     };
     FoodSubmitService.prototype.getAllFoods = function () {
         var url = this._foodBaseUrl + "/foodslist";

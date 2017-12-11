@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { FoodResoponse } from '../../shared/food.response';
 import { FoodSubmitService } from '../../shared/foodSubmitService';
+import { IngrediensRespons } from '../../shared/ingredients.response';
 
 @Component({
   selector: 'f6',
@@ -8,6 +9,7 @@ import { FoodSubmitService } from '../../shared/foodSubmitService';
 })
 export class foodlist600Component implements OnInit{
   asdf: FoodResoponse[]=[];
+  adf: IngrediensRespons[]=[];
   constructor(private foodService: FoodSubmitService) {}
   ngOnInit(): void {
     this.foodService.findfoodBymoney(600,800).subscribe(
@@ -17,6 +19,9 @@ export class foodlist600Component implements OnInit{
   }
   findIngById(id: number, index:number): void{
     console.log(id+" "+index);
-    
+    this.foodService.getIngredientsById(id).subscribe(
+      ingrediens => { this.adf = ingrediens;},
+      error => {console.log(<any>error);}
+    );
   }
  }

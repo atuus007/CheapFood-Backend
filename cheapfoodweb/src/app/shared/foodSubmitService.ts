@@ -9,6 +9,7 @@ import 'rxjs/add/operator/do';
 import { Response } from "_debugger";
 import { FoodSubmit } from "../foodsubmit/foodsubmit";
 import { FoodResoponse } from "./food.response";
+import { IngrediensRespons } from "./ingredients.response";
 //import { catchError, map, tap } from 'rxjs/operators';
 
 const httpOptions = {
@@ -59,8 +60,11 @@ export class FoodSubmitService {
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
      */
     }
-    getIngredientsById(id:number){
+    getIngredientsById(id:number):Observable<IngrediensRespons[]>{
         const url = 'http://localhost:8080/query/'+id;
+        return this.httpClient.get<FoodResoponse[]>(url)
+        .do(data=>console.log("All: "+JSON.stringify(data)))
+        .catch(this.handleError);
     }
     getAllFoods():Observable<FoodResoponse[]>{
         const url=`${this._foodBaseUrl}/foodslist`;
@@ -79,7 +83,7 @@ export class FoodSubmitService {
        .catch(this.handleError);
 
     }
-    createFood(food: FoodSubmit): void{
+    createFood(food: FoodSubmit):void {
         //let headers=new Headers({'Content-Type':'applocation/json'});
         //let options = new RequestOptions({ headers: headers });
         const url = 'http://localhost:8080/api/food/savefood';

@@ -26,6 +26,7 @@ var foodlistall_component_1 = require("./etelek/foodlistall/foodlistall.componen
 var hozzavalokComponent_1 = require("./foodsubmit/hozzavalokComponent");
 var foodsearch_component_1 = require("./foodsearch/foodsearch.component");
 var food_pipe_1 = require("./shared/food.pipe");
+var foodcustom_component_1 = require("./etelek/foodcustom/foodcustom.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -49,7 +50,8 @@ AppModule = __decorate([
             foodlistall_component_1.FoodlistallComponent,
             hozzavalokComponent_1.HozzavalokComponent,
             foodsearch_component_1.FoodsearchComponent,
-            food_pipe_1.QuantityPipe
+            food_pipe_1.QuantityPipe,
+            foodcustom_component_1.FoodcustomComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

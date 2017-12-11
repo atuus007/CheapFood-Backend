@@ -14,13 +14,16 @@ var foodlist600Component = (function () {
     function foodlist600Component(foodService) {
         this.foodService = foodService;
         this.asdf = [];
+        this.adf = [];
     }
     foodlist600Component.prototype.ngOnInit = function () {
         var _this = this;
         this.foodService.findfoodBymoney(600, 800).subscribe(function (foods) { _this.asdf = foods; }, function (error) { console.log(error); });
     };
     foodlist600Component.prototype.findIngById = function (id, index) {
+        var _this = this;
         console.log(id + " " + index);
+        this.foodService.getIngredientsById(id).subscribe(function (ingrediens) { _this.adf = ingrediens; }, function (error) { console.log(error); });
     };
     return foodlist600Component;
 }());
