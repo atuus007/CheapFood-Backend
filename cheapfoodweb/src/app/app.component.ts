@@ -12,7 +12,7 @@ import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Compon
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { FoodSubmitService } from './shared/foodSubmitService';
-
+import { QuantityPipe } from './shared/food.pipe';
 @Component({
   selector: 'my-app',
   templateUrl: `./main.html`,

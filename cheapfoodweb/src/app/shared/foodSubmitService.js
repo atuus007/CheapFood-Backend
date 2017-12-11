@@ -51,9 +51,7 @@ var FoodSubmitService = (function () {
             mennyisegfajta: foodThings.getMennyisegFajta(),
             ingredientsList: foodThings.getIngredientsList()
         };
-        console.log("1: ");
         console.log(body);
-        console.log("2: ");
         console.log(JSON.stringify(foodThings));
         return this.httpClient.post(url, body)
             .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
@@ -62,9 +60,20 @@ var FoodSubmitService = (function () {
       console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
      */
     };
+    FoodSubmitService.prototype.getIngredientsById = function (id) {
+        var url = 'http://localhost:8080/query/' + id;
+    };
     FoodSubmitService.prototype.getAllFoods = function () {
         var url = this._foodBaseUrl + "/foodslist";
         //ird át a Ifoodot hogy jól mappolja össze
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    FoodSubmitService.prototype.findfoodBymoney = function (money1, money2) {
+        var url = 'http://localhost:8080/api/food/foodslist/' + money1 + '/' + money2;
+        console.log(url);
+        // {money1}/{money2}
         return this.httpClient.get(url)
             .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
             .catch(this.handleError);

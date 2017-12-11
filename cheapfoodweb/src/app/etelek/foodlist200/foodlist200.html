@@ -1,13 +1,38 @@
 <!--<etelek></etelek>-->
 <div>
-    <table class="foodlistTable">
-        <tr>
-          <td>
-            <p>200 - 400 FT os ételek </p>
-          </td>
-          <td>
-              <p>lista 1. eleme </p>
-          </td>
-        </tr>
-    </table>
+        <h1>Minden kaja 200-400 Ft között:</h1>
+        <table class="foodlistTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Név</th>
+                        <th>Mennyiség</th>
+                        <th>MennyiségFajta</th>
+                        <th>Elkészítési idő(perc)</th>
+                        <th>Összár(Ft)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let food of asdf; let i=index" (click)='findIngById(food.id, i)' [class.active]="i == selectedRow">
+                        <td>
+                            <p>{{food.id}} </p>
+                        </td>
+                        <td>
+                            <p>{{food.name}} </p>
+                        </td>
+                        <td>
+                            <p>{{food.mennyiseg}} </p>
+                        </td>
+                        <td>
+                            <p>{{food.mennyisegfajta | quantity}} </p>
+                        </td>
+                        <td>
+                            <p>{{food.elkeszitesi_ido}} </p>
+                        </td>
+                        <td>
+                            <p>{{food.osszar}} </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 </div>

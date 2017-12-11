@@ -25,6 +25,9 @@ var FoodlistallComponent = (function () {
         console.log(id + " " + index);
         this.selectedRow = index;
     };
+    FoodlistallComponent.prototype.writeSoomethin = function () {
+        return 'sadfasdfasdfa';
+    };
     FoodlistallComponent.prototype.getFoods = function () {
         /*
              this._foodService.getFood()

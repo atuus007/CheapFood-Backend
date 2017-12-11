@@ -9,6 +9,7 @@ var app_foodlist600Component_1 = require("./etelek/foodlist600/app.foodlist600Co
 var app_foodlist800Component_1 = require("./etelek/foodlist800/app.foodlist800Component");
 var app_foodsubmitComponent_1 = require("./foodsubmit/app.foodsubmitComponent");
 var foodlistall_component_1 = require("./etelek/foodlistall/foodlistall.component");
+var foodsearch_component_1 = require("./foodsearch/foodsearch.component");
 var router = [
     { path: 'etelek',
         component: app_etelekComponent_1.etelekComponent,
@@ -21,7 +22,8 @@ var router = [
     },
     { path: 'keszitok', component: app_keszitokComponent_1.keszitokComponent },
     { path: '', component: app_contentAreaComponent_1.contentAreaComponent },
-    { path: 'foodsubmit', component: app_foodsubmitComponent_1.foodsubmitComponent }
+    { path: 'foodsubmit', component: app_foodsubmitComponent_1.foodsubmitComponent },
+    { path: 'foodsearch', component: foodsearch_component_1.FoodsearchComponent }
 ];
 exports.routes = router_1.RouterModule.forRoot(router);
 exports.routesChild = router_1.RouterModule.forChild(router);

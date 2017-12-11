@@ -9,27 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var foodSubmitService_1 = require("../../shared/foodSubmitService");
-var foodlist200Component = (function () {
-    function foodlist200Component(foodService) {
-        this.foodService = foodService;
-        this.asdf = [];
+var foodSubmitService_1 = require("../shared/foodSubmitService");
+var FoodsearchComponent = (function () {
+    function FoodsearchComponent(_foodService) {
+        this._foodService = _foodService;
+        this.foodresult = [];
     }
-    foodlist200Component.prototype.ngOnInit = function () {
-        var _this = this;
-        this.foodService.findfoodBymoney(200, 400).subscribe(function (foods) { _this.asdf = foods; }, function (error) { console.log(error); });
+    FoodsearchComponent.prototype.ngOnInit = function () {
     };
-    foodlist200Component.prototype.findIngById = function (id, index) {
-        console.log(id + " " + index);
+    FoodsearchComponent.prototype.keres = function () {
+        console.log("kereset: " + this.search);
     };
-    return foodlist200Component;
+    return FoodsearchComponent;
 }());
-foodlist200Component = __decorate([
+FoodsearchComponent = __decorate([
     core_1.Component({
-        selector: 'f2',
-        templateUrl: "./foodlist200.html",
+        selector: 'app-foodsearch',
+        templateUrl: './foodsearch.component.html',
+        styleUrls: ['./foodsearch.component.css']
     }),
     __metadata("design:paramtypes", [foodSubmitService_1.FoodSubmitService])
-], foodlist200Component);
-exports.foodlist200Component = foodlist200Component;
-//# sourceMappingURL=app.foodlist200Component.js.map
+], FoodsearchComponent);
+exports.FoodsearchComponent = FoodsearchComponent;
+//# sourceMappingURL=foodsearch.component.js.map

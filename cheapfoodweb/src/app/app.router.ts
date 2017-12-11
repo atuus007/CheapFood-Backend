@@ -13,6 +13,7 @@ import { foodlist600Component } from './etelek/foodlist600/app.foodlist600Compon
 import { foodlist800Component } from './etelek/foodlist800/app.foodlist800Component';
 import { foodsubmitComponent } from './foodsubmit/app.foodsubmitComponent';
 import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component';
+import { FoodsearchComponent } from './foodsearch/foodsearch.component';
 
  const router: Routes = [
     { path: 'etelek' , 
@@ -27,7 +28,9 @@ import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component
     { path: 'keszitok' , component: keszitokComponent},
     { path: '' , component: contentAreaComponent},
    
-    { path: 'foodsubmit' , component: foodsubmitComponent}
+    { path: 'foodsubmit' , component: foodsubmitComponent},
+    { path: 'foodsearch' , component: FoodsearchComponent}
+    
 
 
 ];

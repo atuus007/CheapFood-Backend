@@ -25,6 +25,9 @@ export class FoodlistallComponent implements OnInit {
     console.log(id+" "+index);
     this.selectedRow=index;
   }
+  writeSoomethin():string{
+    return 'sadfasdfasdfa';
+  }
   getFoods(): void {
 
 
