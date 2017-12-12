@@ -25,4 +25,7 @@ public interface FoodRepository extends CrudRepository<Food, Long> {
     List<Food> findAllBeetween(@Param("money1") Integer money1, @Param("money2") Integer money2); //not working somewhy
 
     List<Food> findAllByOsszarBetween(@Param("money1") Integer money1, @Param("money2") Integer money2);
+
+    @Query("SELECT id, name, mennyiseg, mennyisegfajta, osszar, elkeszitesi_ido FROM Food et WHERE name LIKE CONCAT('%',:name1,'%')")
+    List<Food> findFoodByName(@Param("name1") String name1);
 }

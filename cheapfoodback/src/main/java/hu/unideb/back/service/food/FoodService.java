@@ -17,6 +17,7 @@ public interface FoodService {
     void saveFoodwithingsfood(CreateFoodRequestwithingerdietns createFoodRequestwithingerdietns, int osszar);
     boolean deleteFood(long id);
     boolean updateFood(UpdateFoodRequest updateFoodRequest);
+    List<FoodResponse> findFoodbyName(String name);
     Integer findIngredientsIDByName(String Name);
     //Food insertFood(Food food);
     //Food getFoodById(Integer id);

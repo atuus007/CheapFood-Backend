@@ -106,4 +106,11 @@ public class FoodServiceImpl implements FoodService {
         }
     }
 
+    @Override
+    public List<FoodResponse> findFoodbyName(String name) {
+        return foodRepository.findFoodByName(name).stream()
+                .map(foodResoponseCoverter::from)
+                .collect(Collectors.toList());
+    }
+
 }

@@ -45,7 +45,12 @@ public class FoodController {
         logger.info("foodslist beweeeeeeeeeeeen" );
         return new ResponseEntity<>(foodService.getAllFoodsbeetween(money1,money2), HttpStatus.OK);
     }
-
+    @RequestMapping(value = "/findfood/{name}")
+    public @ResponseBody ResponseEntity<?> findFoodById(@PathVariable(value = "name") String name){
+        logger.info("find food: "+name );
+        return new ResponseEntity<>(foodService.findFoodbyName(name), HttpStatus.OK);
+        //return new ResponseEntity<>(foodService.getAllFoodsbeetween(money1,money2), HttpStatus.OK);
+    }
     @RequestMapping("/savefood")
     public ResponseEntity<?> saveFood(@RequestBody CreateFoodRequest createFoodRequest){
         logger.info("SAVE FOOOOD AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa" );
