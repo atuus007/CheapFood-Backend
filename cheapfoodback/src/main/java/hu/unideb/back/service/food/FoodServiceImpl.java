@@ -107,11 +107,13 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public FoodResponse findFoodbyName(String name) {
+    public List<FoodResponse> findFoodbyName(String name) {
         FoodResponse foodResponses = new FoodResponse(foodRepository.findFoodidByName(name),foodRepository.findFoodexactnameByName(name),
                 foodRepository.findFoodmennyisegfajtaByName(name),foodRepository.findmennyisegFoodByName(name),
                 foodRepository.findFoodelkeszitesiidoByName(name),foodRepository.findFoodosszarByName(name));
-        return foodResponses;
+        List<FoodResponse> resplist = new ArrayList<>();
+        resplist.add(foodResponses);
+        return resplist;
 
     }
 
