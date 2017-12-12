@@ -35,7 +35,7 @@ font-weight: bold;
 }
 .col-xs-6{
   background-color:gray;
-  width: 930px;
+  width: 900px;
   display: table;
   margin: 0 auto;
   text-align:center;
@@ -45,6 +45,29 @@ font-weight: bold;
   animation-name:opacityanim ;
   animation-duration: 1s;
 }
+.col-xs-7{
+ display: table;
+  width: 900px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+float:left;
+}
+.foodtd{
+  text-align:left;
+  align-content: left;
+  width:200px;
+  height: 40px;
+}
+.foodtd2{
+color:white;
+  //display:absolute;
+  text-align:left;
+  align-content: left;
+  width:10px;
+  height: 30px;
+}
+
+
 #container{
   display: table;
   margin: 0 auto;
@@ -282,6 +305,9 @@ body {
 }
 #align2{
   width: 400px;
+}
+tr{
+  border:1px solid black;
 }
 .foodlistTable{
   border: 3px solid #FFFFFF;
