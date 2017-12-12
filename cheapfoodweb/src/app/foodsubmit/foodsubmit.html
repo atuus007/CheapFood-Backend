@@ -91,14 +91,14 @@
                 <div class="stronglabel">
                     <hzavl  [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
                 </div>
-                <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
+                <button  *ngIf="foodForm.controls.ingredientsList.controls.length > 1"   id="food-button" (click)="deleteHozzavalok(i)">
                     Töröl
                 </button>
         </div>
       </div>
 
       <!--(click)='save()' type="submit"-->
-      <button type="submit" (click)='save()' class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+      <button type="submit" id="food-button" (click)='save()' class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
       <button (click)="addHozzavalok()">
         +
       </button>
