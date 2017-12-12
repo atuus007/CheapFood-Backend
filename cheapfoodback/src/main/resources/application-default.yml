@@ -11,7 +11,7 @@ spring:
       repositories:
         enabled: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/fooddb2
+    url: jdbc:postgresql://localhost:5432/fooddb4
     username: rft
     password: test123
     driver-class-name: org.postgresql.Driver

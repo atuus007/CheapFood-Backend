@@ -24,11 +24,12 @@ export class FoodlistallComponent implements OnInit {
    // console.log(this.asdf[0].getId());
   }
   findIngById(id: number, index:number): void{
-    console.log(id+" "+index);
+    console.log("id: "+id+" index: "+index);
     this.foodService.getIngredientsById(id).subscribe(
       ingrediens => { this.adf = ingrediens;},
       error => {console.log(<any>error);}
     );
+    this.selectedRow=index;
   }
   
   getFoods(): void {

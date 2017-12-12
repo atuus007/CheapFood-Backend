@@ -24,8 +24,9 @@ var FoodlistallComponent = (function () {
     };
     FoodlistallComponent.prototype.findIngById = function (id, index) {
         var _this = this;
-        console.log(id + " " + index);
+        console.log("id: " + id + " index: " + index);
         this.foodService.getIngredientsById(id).subscribe(function (ingrediens) { _this.adf = ingrediens; }, function (error) { console.log(error); });
+        this.selectedRow = index;
     };
     FoodlistallComponent.prototype.getFoods = function () {
         /*

@@ -24,6 +24,7 @@ var foodlist400Component = (function () {
         var _this = this;
         console.log(id + " " + index);
         this.foodService.getIngredientsById(id).subscribe(function (ingrediens) { _this.adf = ingrediens; }, function (error) { console.log(error); });
+        this.selectedRow = index;
     };
     return foodlist400Component;
 }());

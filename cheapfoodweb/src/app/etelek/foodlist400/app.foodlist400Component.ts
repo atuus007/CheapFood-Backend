@@ -10,6 +10,7 @@ import { IngrediensRespons } from '../../shared/ingredients.response';
 export class foodlist400Component implements OnInit{
   asdf: FoodResoponse[]=[];
   adf: IngrediensRespons[]=[];
+  selectedRow:number;
   constructor(private foodService: FoodSubmitService) {}
   ngOnInit(): void {
     this.foodService.findfoodBymoney(400,600).subscribe(
@@ -23,5 +24,6 @@ export class foodlist400Component implements OnInit{
       ingrediens => { this.adf = ingrediens;},
       error => {console.log(<any>error);}
     );
+    this.selectedRow=index;
   }
  }

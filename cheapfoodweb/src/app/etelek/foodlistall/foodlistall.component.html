@@ -1,4 +1,4 @@
-<div class="foodlistTablecontainer"> 
+<div class="foodlistTablecontainer">
     <h1>Minden kaja:</h1>
     <table class="foodlistTable">
         <thead>
@@ -11,30 +11,41 @@
                 <th>Összár(Ft)</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             <tr *ngFor="let food of asdf; let i=index; let ing of adf " (click)='findIngById(food.id, i)' [class.active]="i == selectedRow">
-                <td>
+                <td class="tdfood">
                     <p>{{food.id}}</p>
                 </td>
-                <td>
+                <td class="tdfood">
                     <p>{{food.name}} </p>
                 </td>
-                <td>
+                <td class="tdfood">
                     <p>{{food.mennyiseg}}</p>
                 </td>
-                <td>
+                <td class="tdfood">
                     <p> {{food.mennyisegfajta | quantity}}</p>
                 </td>
-                <td>
+                <td class="tdfood">
                     <p> {{food.elkeszitesi_ido}} </p>
                 </td>
-                <td>
+                <td class="tdfood">
                     <p>{{food.osszar}}</p>
                 </td>
+                <td class="tdfood">
+                    <div class="foodIngrediements">
+                            <p>Összetevők:</p>
+                        <ol  *ngFor="let ing of adf" >
+                            
+                            <li *ngIf="selectedRow==i">
+                              {{ing.hozzavalok_name}} {{ing.szorzo}} {{ing.mennyisegek_name}}
+
+                            </li>
+                        </ol>
+
+                    </div>
+                </td>
             </tr>
-            <ol *ngFor="let ing of adf">
-                    <li>{{ing.et_id}} {{ing.hozzavalok_name}} {{ing.szorzo}} {{ing.mennyisegek_name}} {{ing.atlagar}}</li>
-            </ol>
+
         </tbody>
     </table>
 </div>

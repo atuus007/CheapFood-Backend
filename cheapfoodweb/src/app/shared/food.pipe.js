@@ -21,19 +21,31 @@ var QuantityPipe = (function () {
     QuantityPipe.prototype.transform = function (value, exponent) {
         switch (value) {
             case 1: {
-                this.retr = "dkg";
+                this.retr = "kg";
                 break;
             }
             case 2: {
-                this.retr = "db";
+                this.retr = "evőkanál";
                 break;
             }
             case 3: {
-                this.retr = "liter";
+                this.retr = "teáskanál";
                 break;
             }
             case 4: {
-                this.retr = "kg";
+                this.retr = "dkg";
+                break;
+            }
+            case 5: {
+                this.retr = "gramm";
+                break;
+            }
+            case 6: {
+                this.retr = "db";
+                break;
+            }
+            case 7: {
+                this.retr = "liter";
                 break;
             }
             default: {
