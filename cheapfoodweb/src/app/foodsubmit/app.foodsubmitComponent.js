@@ -23,48 +23,52 @@ var foodsubmitComponent = (function () {
         //this.hozzavalokszama = Array(10).fill(0).map((x, i) => i + 1);
         this.foodForm = this._fb.group({
             name: ['', [forms_1.Validators.required, forms_1.Validators.minLength(5)]],
+            elkeszitesi_ido: ['', [forms_1.Validators.required]],
+            mennyiseg: ['', [forms_1.Validators.required]],
+            mennyisegfajta: ['', [forms_1.Validators.required]],
             ingredientsList: this._fb.array([]),
         }); //pipa
         this.addHozzavalok(); //pipa
-        console.log("ngOnInit " + this.foodForm);
     };
     foodsubmitComponent.prototype.initHozzavalok = function () {
-        console.log("initHozzavalok " + this.foodForm);
         return this._fb.group({
             name: ['', [forms_1.Validators.required]],
             mennyiseg: ['', [forms_1.Validators.required]],
             atlagar: ['', [forms_1.Validators.required]],
-            mennyisegfajta: ['']
+            mennyisegfajta: ['', [forms_1.Validators.required]]
         });
     };
     foodsubmitComponent.prototype.addHozzavalok = function () {
         var control = this.foodForm.controls['ingredientsList'];
         var hozzvCtrl = this.initHozzavalok();
-        console.log("addHozzavalok: " + this.foodForm);
         control.push(hozzvCtrl);
-        console.log("addHozzavalok: " + control.length);
-        console.log("control: " + control);
+        console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
     };
     foodsubmitComponent.prototype.deleteHozzavalok = function (i) {
-        /*
-        const control = <FormArray>this.foodForm.controls['ingredientsList'];
-        
+        var control = this.foodForm.controls['ingredientsList'];
         console.log("Deleted: " + i);
         control.removeAt(i);
-    */
     };
     foodsubmitComponent.prototype.save = function () {
+        var _this = this;
+        console.log("save BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb");
         console.log("form: " + this.foodForm.get('name').value);
         console.log(this.foodForm.get('ingredientsList').value);
-        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value);
+        this.myFood = new foodsubmit_1.FoodSubmit(this.foodForm.get('name').value, this.foodForm.get('ingredientsList').value, this.foodForm.get('elkeszitesi_ido').value, this.foodForm.get('mennyiseg').value, this.foodForm.get('mennyisegfajta').value);
         console.log("Name: " + this.myFood.getName());
-        console.log(this.myFood.getIngredientsList());
+        console.log("elkeszitesi_ido: " + this.myFood.getElkIdo());
+        console.log("mennyiseg: " + this.myFood.getMennyiseg());
+        console.log("mennyisegfajta: " + this.myFood.getMennyisegFajta());
+        //console.log(this.myFood.getIngredientsList());
+        //ez a jó
         this._foodService.saveFoodWithThings(this.myFood).subscribe(function (res) {
             console.log(res);
             alert("Hozzáadás sikeres!!");
+            _this.foodForm.reset();
         }, function (err) {
             console.log("Error occured");
             alert("Hiba!!");
+            _this.foodForm.reset();
         });
         /*
         this._foodService.createFood(this.foodsList2)

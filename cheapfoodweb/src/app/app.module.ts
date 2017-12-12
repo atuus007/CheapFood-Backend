@@ -17,6 +17,10 @@ import { FormGroup , FormControl , ReactiveFormsModule , FormsModule } from '@an
 import { HttpClientModule } from '@angular/common/http';
 import { FoodlistallComponent } from './etelek/foodlistall/foodlistall.component';
 import { HozzavalokComponent } from './foodsubmit/hozzavalokComponent';
+import { FoodsearchComponent } from './foodsearch/foodsearch.component';
+import { QuantityPipe } from './shared/food.pipe';
+import { FoodcustomComponent } from './etelek/foodcustom/foodcustom.component';
+
 
 @NgModule({
   imports:      [ BrowserModule,routes,FormsModule,ReactiveFormsModule, HttpClientModule],
@@ -33,7 +37,10 @@ import { HozzavalokComponent } from './foodsubmit/hozzavalokComponent';
                   foodlist800Component,
                   foodsubmitComponent,
                   FoodlistallComponent,
-                  HozzavalokComponent
+                  HozzavalokComponent,
+                  FoodsearchComponent,
+                  QuantityPipe,
+                  FoodcustomComponent
 
                   ],
   bootstrap:    [ AppComponent ]

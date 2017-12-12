@@ -1,9 +1,24 @@
 h1 {
-  color: #369;
+  color: darkblue;
   font-family: 'Carter One', cursive;
   font-size: 250%;
+  text-align:center;
+
 }
 @charset "utf-8";
+.foodIngrediements{
+align-content: center;
+position: relative;
+display: table;
+text-align: center;
+//border:2px solid black;
+color: white;
+border-collapse: collapse;
+}
+.tdfood {
+  border-bottom: 1px solid #ddd;
+
+}
 .cim {
     text-align: center;
     color: darkblue;
@@ -15,6 +30,44 @@ h1 {
 	align-content: center;
 	display: relative;
 }
+.stronglabel{
+font-weight: bold;
+}
+.col-xs-6{
+  background-color:gray;
+  width: 900px;
+  display: table;
+  margin: 0 auto;
+  text-align:center;
+  position: relative;
+  -webkit-animation-name: opacityanim;
+  -webkit-animation-duration: 1s;
+  animation-name:opacityanim ;
+  animation-duration: 1s;
+}
+.col-xs-7{
+ display: table;
+  width: 900px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+float:left;
+}
+.foodtd{
+  text-align:left;
+  align-content: left;
+  width:200px;
+  height: 40px;
+}
+.foodtd2{
+color:white;
+  //display:absolute;
+  text-align:left;
+  align-content: left;
+  width:10px;
+  height: 30px;
+}
+
+
 #container{
   display: table;
   margin: 0 auto;
@@ -31,7 +84,7 @@ h1 {
   display: table;
   margin: 0 auto;
   text-align:center;
-		position: relative;
+	position: relative;
   -webkit-animation-name: animatebottom;
   -webkit-animation-duration: 1.5s;
   animation-name: animatebottom;
@@ -40,10 +93,17 @@ h1 {
 .ng-invalid.ng-touched:not(form) {
   border: 2px solid red;
 }
+.keresettfood{
+  text-align: center;
+  color: white;
+  text-shadow: inherit;
+  font-size: 18px;
+  border: 3px solid #f3f3f3;
 
+}
 .foodsubmit{
   border: 8px solid #f3f3f3;
-  width: 912px;
+  width: 900px;
   display: table;
   margin: 0 auto;
   text-align:center;
@@ -68,11 +128,12 @@ p {
 	background-color: #e7e7e7;
 }
 #food-button{
-text-decoration: none;
-	 background-color: white;
-     font-family: 'Carter One', cursive;
-    color: darkblue;
-    border: 1px solid #000080;
+  text-decoration: none;
+  padding: 0px 16px;
+	background-color: white;
+  font-family: 'Carter One', cursive;
+  color: darkblue;
+  border: 1px solid #000080;
 }
 body {
     background-position: center top;
@@ -97,9 +158,7 @@ body {
 }
 .headerlink:hover{
 	text-decoration: none;
-	font-size: 24px;
-	color: black;
-	//background-color: white;
+	font-size: 22px;
 	opacity: .9;
 	border-radius: 3px;
 }
@@ -189,9 +248,7 @@ body {
   animation-name: animatebottom;
   animation-duration: 4s;
 }
-.foodlistTable{
 
-}
 .etelek-feliras{
   align-content: center;
     display: block;
@@ -225,6 +282,8 @@ body {
   margin: 0 auto;
   text-align:center;
 	opacity: 0.8;
+  align-content: center;
+  align-items: center;
 	position: relative;
   -webkit-animation-name: animatebottom;
   -webkit-animation-duration: 1.9s;
@@ -232,7 +291,8 @@ body {
   animation-duration: 1.9s;
 }
 #etelek-gombok1{
-  border: 2px solid #000080;
+  align-items: center;
+  align-content: center;
 	width: 927px;
 	background-color:gray;
   margin: 0 auto;
@@ -246,23 +306,68 @@ body {
 #align2{
   width: 400px;
 }
+tr{
+  border:1px solid black;
+}
 .foodlistTable{
   border: 3px solid #FFFFFF;
   top:5px;
-  width: 933px;
+  width: 900px;
 	background-color:gray;
   margin: 0 auto;
   text-align:center;
 	opacity: 0.8;
 	position: relative;
 }
+.foodlistTablecontainer{
+  display: table;
+  margin: 0 auto;
+  text-align:center;
+	position: relative;
+  top:5px;
+  width: 912px;
+	background-color:gray;
+  margin: 0 auto;
+	opacity: 0.8;
+  border: 8px solid #f3f3f3;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1.5s;
+  animation-name: animatebottom;
+  animation-duration: 1.5s;
+}
+.foodcustomcss{
+    left:32.5%;
+    display: table;
+    margin: 0 auto;
+    text-align:center;
+  	position: relative;
+    top:5px;
+    width: 912px;
+  	background-color:gray;
+    margin: 0 auto;
+  	opacity: 0.8;
+    border: 8px solid #f3f3f3;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1.5s;
+    animation-name: animatebottom;
+    animation-duration: 1.5s;
+}
+
 
 @-webkit-keyframes animatebottom {
   from { bottom:-100px; opacity:0 }
-  to { bottom:0px; opacity:1 }
+  to { bottom:0px; opacity:0.8 }
+}
+@-webkit-keyframes opacityanim {
+  from { bottom:0px; opacity:0 }
+  to { bottom:0px; opacity:0.8 }
 }
 
+@keyframes opacityanim {
+  from { bottom:0px; opacity:0 }
+  to { bottom:0px; opacity:0.8 }
+}
 @keyframes animatebottom {
   from{ bottom:-100px; opacity:0 }
-  to{ bottom:0; opacity:1 }
+  to{ bottom:0; opacity:0.8 }
 }

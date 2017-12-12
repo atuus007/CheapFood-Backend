@@ -14,6 +14,7 @@ var FoodlistallComponent = (function () {
     function FoodlistallComponent(foodService) {
         this.foodService = foodService;
         this.asdf = [];
+        this.adf = [];
         console.log("export class FoodlistallComponent implements OnInit");
     }
     FoodlistallComponent.prototype.ngOnInit = function () {
@@ -21,8 +22,11 @@ var FoodlistallComponent = (function () {
         this.foodService.getAllFoods().subscribe(function (foods) { _this.asdf = foods; }, function (error) { console.log(error); });
         // console.log(this.asdf[0].getId());
     };
-    FoodlistallComponent.prototype.findIngById = function (id) {
-        console.log(id);
+    FoodlistallComponent.prototype.findIngById = function (id, index) {
+        var _this = this;
+        console.log("id: " + id + " index: " + index);
+        this.foodService.getIngredientsById(id).subscribe(function (ingrediens) { _this.adf = ingrediens; }, function (error) { console.log(error); });
+        this.selectedRow = index;
     };
     FoodlistallComponent.prototype.getFoods = function () {
         /*
