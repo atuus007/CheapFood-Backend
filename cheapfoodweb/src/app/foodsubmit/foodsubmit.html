@@ -7,36 +7,70 @@
       <!-- Kaja neve-->
       <div class="form-group col-xs-6">
         <!--<input type="text" placeholder="Étel neve" required maxlength="25" [(ngModel)]='nev' name="nev" #pickedName="ngModel">-->
-        <label class="stronglabel">Étel neve: </label>
-        <input type="text" class="form-control" formControlName="name" placeholder="Étel neve">
-        <small *ngIf="!foodForm.controls.name.valid  && foodForm.controls.name.touched" class="text-danger">
-          Étel nevet mindenképp adj meg! (minimum 6 karakter).
-        </small>
-        <button (click)="addHozzavalok()">
-          +
-        </button>
+      <table>
+        <tr>
+            <td class="foodtd">
+              <label class="stronglabel">Étel neve: </label>
+            </td>
+            <td class="foodtd">
+              <input type="text" class="form-control" formControlName="name" placeholder="Étel neve">
+            </td>
+
+
+              <td class="foodtd">
+                <small *ngIf="!foodForm.controls.name.valid" class="text-danger">
+                  Étel nevet mindenképp adj meg! (minimum 6 karakter).
+                </small>
+              </td>
+            </tr>
+
+      </table>
+
       </div>
 
       <div class="form-group col-xs-6">
-        <label class="stronglabel">Elészitési idő(perc): </label>
-        <input type="number" class="form-control" placeholder="pl: 2" step="1" required formControlName="elkeszitesi_ido"
-       >
-
-        <small *ngIf="!foodForm.controls.elkeszitesi_ido.valid && foodForm.controls.elkeszitesi_ido.touched" class="text-danger">
-          Adj meg valamilyen mennyiséget
-        </small>
+        <table>
+          <tr>
+            <td class="foodtd">
+                <label class="stronglabel">Elészitési idő(perc): </label>
+            </td>
+            <td>
+                <input type="number" class="form-control" placeholder="pl: 2" step="1" required formControlName="elkeszitesi_ido">
+            </td>
+            <td class="foodtd">
+              <small *ngIf="!foodForm.controls.elkeszitesi_ido.valid && foodForm.controls.elkeszitesi_ido.touched" class="text-danger">
+                Adj meg egy elkészítési időt!
+              </small>
+            </td>
+          </tr>
+      </table>
       </div>
 
       <div class="form-group col-xs-6">
+        <table>
+          <tr>
+            <td class="foodtd">
         <label class="stronglabel">Mennyiséget: </label>
-        <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="mennyiseg">
-        <small *ngIf="!foodForm.controls.mennyiseg.valid && foodForm.controls.mennyiseg.touched" class="text-danger">
-          Adj meg valamilyen mennyiséget
-        </small>
+            </td>
+            <td>
+                <input type="number" class="form-control" placeholder="pl: 2" step="0.1" required formControlName="mennyiseg">
+            </td>
+            <td class="foodtd">
+                <small *ngIf="!foodForm.controls.mennyiseg.valid && foodForm.controls.mennyiseg.touched" class="text-danger">
+                    Add meg az elkészült étel mennyiségét!
+                </small>
+              </td>
+            </tr>
+          </table>
       </div>
 
       <div class="form-group col-xs-6">
+        <table>
+          <tr>
+            <td class="foodtd">
         <label class="stronglabel">Mértékegység: </label>
+            </td>
+            <td class="foodtd">
         <select formControlName='mennyisegfajta' name="mennyisegfajta" class="form-control">
           <option value=1>kg</option>
           <option value=2>evőkanál</option>
@@ -46,22 +80,28 @@
           <option value=6>db</option>
           <option value=7>liter</option>
         </select>
+          </td>
+        </tr>
+       </table>
       </div>
 
 
-      <div formArrayName="ingredientsList">
-        <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
-          <div class="stronglabel">
-            <hzavl  [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
-          </div>
-          <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
-            Töröl
-          </button>
+      <div class="col-xs-7" formArrayName="ingredientsList">
+          <div *ngFor="let hozzavalo of foodForm.controls.ingredientsList.controls; let i=index">
+                <div class="stronglabel">
+                    <hzavl  [group]="foodForm.controls.ingredientsList.controls[i]"></hzavl>
+                </div>
+                <button *ngIf="foodForm.controls.ingredientsList.controls.length > 1" (click)="deleteHozzavalok(i)">
+                    Töröl
+                </button>
         </div>
       </div>
 
       <!--(click)='save()' type="submit"-->
       <button type="submit" (click)='save()' class="btn btn-primary pull-right" [disabled]="!foodForm.valid">Submit</button>
+      <button (click)="addHozzavalok()">
+        +
+      </button>
     </form>
     <!-- <pre>form value: <br>{{foodForm.value | json}}</pre>-->
   </div>

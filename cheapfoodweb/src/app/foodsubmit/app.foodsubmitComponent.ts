@@ -36,14 +36,14 @@ export class foodsubmitComponent implements OnInit {
       name: ['',[Validators.required, Validators.minLength(5)]],
       elkeszitesi_ido: ['',[Validators.required]],
       mennyiseg: ['',[Validators.required]],
-      mennyisegfajta: [''],
+      mennyisegfajta: ['',[Validators.required]],
       ingredientsList: this._fb.array([]),
-      
+
     });//pipa
 
 
     this.addHozzavalok(); //pipa
-  
+
 
   }
   initHozzavalok() {
@@ -51,7 +51,7 @@ export class foodsubmitComponent implements OnInit {
       name: ['',[Validators.required]],
       mennyiseg: ['',[Validators.required]],
       atlagar: ['',[Validators.required]],
-      mennyisegfajta: ['']
+      mennyisegfajta: ['',[Validators.required]]
     });
 
   }
@@ -63,9 +63,9 @@ export class foodsubmitComponent implements OnInit {
     console.log("addHozzavalok AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa");
   }
   deleteHozzavalok(i: number) {
- 
+
     const control = <FormArray>this.foodForm.controls['ingredientsList'];
-    
+
     console.log("Deleted: " + i);
     control.removeAt(i);
 
@@ -80,7 +80,7 @@ export class foodsubmitComponent implements OnInit {
 
     console.log("form: "+this.foodForm.get('name').value);
     console.log(this.foodForm.get('ingredientsList').value);
-  
+
     this.myFood =new FoodSubmit(
       this.foodForm.get('name').value,
       this.foodForm.get('ingredientsList').value,
@@ -88,7 +88,7 @@ export class foodsubmitComponent implements OnInit {
       this.foodForm.get('elkeszitesi_ido').value,
       this.foodForm.get('mennyiseg').value,
       this.foodForm.get('mennyisegfajta').value,
-      
+
     );
 
    console.log("Name: "+this.myFood.getName());
@@ -101,16 +101,20 @@ export class foodsubmitComponent implements OnInit {
 
 
 
-    
+
     //ez a jó
-    this._foodService.saveFoodWithThings(this.myFood).subscribe(  
+    this._foodService.saveFoodWithThings(this.myFood).subscribe(
       res=>{
         console.log(res);
         alert("Hozzáadás sikeres!!");
+        this.foodForm.reset();
+
       },
       err=>{
           console.log("Error occured");
           alert("Hiba!!");
+          this.foodForm.reset();
+
       }
     );
 
@@ -188,7 +192,7 @@ export class foodsubmitComponent implements OnInit {
       */
   }
   getFoods(): void {
-  
+
    /*
         this._foodService.getFood()
         .subscribe(foods => { this.foodsList = foods;},
