@@ -35,7 +35,19 @@ font-weight: bold;
 }
 .col-xs-6{
   background-color:gray;
-  width: 900px;
+  width: 890px;
+  display: table;
+  margin: 0 auto;
+  text-align:center;
+  position: relative;
+  -webkit-animation-name: opacityanim;
+  -webkit-animation-duration: 1s;
+  animation-name:opacityanim ;
+  animation-duration: 1s;
+}
+.col-xs-8{
+  background-color:gray;
+  width: 930px;
   display: table;
   margin: 0 auto;
   text-align:center;
