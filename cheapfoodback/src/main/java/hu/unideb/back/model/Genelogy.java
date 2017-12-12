@@ -18,6 +18,12 @@ public class Genelogy {
 
     }
 
+    public Genelogy(long parentid, long gyerekid, long szorzo) {
+        this.parentid = parentid;
+        this.gyerekid = gyerekid;
+        this.szorzo = szorzo;
+    }
+
     public long   getParentid() { return parentid; }
     public long   getGyerekid() { return gyerekid; }
     public void   setId(long id) { this.id = id; }

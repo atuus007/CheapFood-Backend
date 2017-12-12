@@ -4,6 +4,9 @@ import { Component } from '@angular/core';
   selector: 'etelek',
   templateUrl: `./etelek.html`,
 })
+
 export class etelekComponent  {
+  minar:number;
+  maxar:number;
 
  }
