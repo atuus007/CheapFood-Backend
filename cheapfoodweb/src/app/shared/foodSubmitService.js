@@ -76,7 +76,13 @@ var FoodSubmitService = (function () {
     FoodSubmitService.prototype.findfoodBymoney = function (money1, money2) {
         var url = 'http://localhost:8080/api/food/foodslist/' + money1 + '/' + money2;
         console.log(url);
-        // {money1}/{money2}
+        return this.httpClient.get(url)
+            .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
+            .catch(this.handleError);
+    };
+    FoodSubmitService.prototype.findfoodByName = function (name) {
+        var url = 'http://localhost:8080/api/food/findfood/' + name;
+        console.log(url);
         return this.httpClient.get(url)
             .do(function (data) { return console.log("All: " + JSON.stringify(data)); })
             .catch(this.handleError);

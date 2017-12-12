@@ -11,14 +11,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var foodSubmitService_1 = require("../shared/foodSubmitService");
 var FoodsearchComponent = (function () {
-    function FoodsearchComponent(_foodService) {
-        this._foodService = _foodService;
+    function FoodsearchComponent(foodService) {
+        this.foodService = foodService;
         this.foodresult = [];
+        this.foodresult2 = [];
+        this.ingRes = [];
     }
     FoodsearchComponent.prototype.ngOnInit = function () {
     };
     FoodsearchComponent.prototype.keres = function () {
-        console.log("kereset: " + this.search);
+        var _this = this;
+        this.foodService.findfoodByName(this.search).subscribe(function (foods) {
+            _this.foodresult2 = foods;
+            console.log("Res: ");
+            console.log(foods);
+        }, function (error) { console.log(error); });
+        //this.name=this.foodresult.getName();
+        // console.log("===================================7");
+        console.log("AAA: ");
+        console.log(this.foodresult2);
+        // console.log("===================================7");
+    };
+    FoodsearchComponent.prototype.keresHozzavalo = function (i, index) {
+        /*
+        console.log("id: "+i+" index: "+index);
+        this.foodService.getIngredientsById(i).subscribe(
+          ingrediens => { this.ingRes = ingrediens;},
+          error => {console.log(<any>error);}
+        );
+        this.selectedRow=index;
+        */
     };
     return FoodsearchComponent;
 }());

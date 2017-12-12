@@ -77,7 +77,14 @@ export class FoodSubmitService {
     findfoodBymoney(money1: number, money2:number):Observable<FoodResoponse[]>{
         const url = 'http://localhost:8080/api/food/foodslist/'+money1+'/'+money2;
         console.log(url);
-       // {money1}/{money2}
+       return this.httpClient.get<FoodResoponse[]>(url)
+       .do(data=>console.log("All: "+JSON.stringify(data)))
+       .catch(this.handleError);
+
+    }
+    findfoodByName(name:string):Observable<FoodResoponse[]>{
+        const url = 'http://localhost:8080/api/food/findfood/'+name;
+        console.log(url);
        return this.httpClient.get<FoodResoponse[]>(url)
        .do(data=>console.log("All: "+JSON.stringify(data)))
        .catch(this.handleError);
