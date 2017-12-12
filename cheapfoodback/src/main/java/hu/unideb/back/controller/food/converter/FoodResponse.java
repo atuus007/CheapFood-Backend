@@ -11,6 +11,15 @@ public class FoodResponse {
     public FoodResponse() {
     }
 
+    public FoodResponse(long id, String name, int mennyisegfajta, int mennyiseg, int elkeszitesi_ido, int osszar) {
+        this.id = id;
+        this.name = name;
+        this.mennyisegfajta = mennyisegfajta;
+        this.mennyiseg = mennyiseg;
+        this.elkeszitesi_ido = elkeszitesi_ido;
+        this.osszar = osszar;
+    }
+
     public long getId() {
         return id;
     }
