@@ -6,6 +6,19 @@ h1 {
 
 }
 @charset "utf-8";
+.foodIngrediements{
+align-content: center;
+position: relative;
+display: table;
+text-align: center;
+//border:2px solid black;
+color: white;
+border-collapse: collapse;
+}
+.tdfood {
+  border-bottom: 1px solid #ddd;
+
+}
 .cim {
     text-align: center;
     color: darkblue;

@@ -10,24 +10,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var foodSubmitService_1 = require("../../shared/foodSubmitService");
 var FoodcustomComponent = (function () {
-    function FoodcustomComponent(route, router) {
+    function FoodcustomComponent(route, router, foodService) {
         this.route = route;
         this.router = router;
+        this.foodService = foodService;
         this.display = 'block';
         this.position = 'absolute';
+        this.foodResult = [];
+        this.ingredientRes = [];
     }
     FoodcustomComponent.prototype.ngOnInit = function () {
-        /*
-        this.sub=this.route.queryParams.subscribe(
-          (params:Params)=>{
-            this.fsadfasdfas=params['min'];
-            console.log(params);
-            console.log(this.fsadfasdfas);
+        var _this = this;
+        this.fsadfasdfas = this.route.params.subscribe(function (param) {
+            _this.fsadfasdfas = param;
+            console.log("param");
+            // console.log(param[0]['min']);
+            console.log(param['min']);
+            _this.minar = param['min'];
+            console.log(_this.minar);
+            console.log(param['max']);
+            _this.maxar = param['max'];
+            console.log(_this.maxar);
+            //console.log(param[0]);
+            //console.log(param.get('min'));
         });
-    */
+        console.log(this.minar);
+        console.log(this.maxar);
+        if (this.minar < this.maxar) {
+            this.foodService.findfoodBymoney(this.minar, this.maxar).subscribe(function (foods) { _this.foodResult = foods; }, function (error) { console.log(error); });
+        }
+        else {
+            alert("minimum ár nagyobb mint a maximum ár");
+        }
+        //console.log(foodResult.length());
         //this.coustomfoods=this.route.paramMap.((params: ParamMap) =>this.fsadfasdfas=params.get()
         /*
+          param=>{
+                    this.fsadfasdfas=param;
+                    console.log("param");
+                   // console.log(param[0]['min']);
+                    console.log(param['min']);
+                    this.minar
+                    console.log(param['max']);
+                    //console.log(param[0]);
+                    //console.log(param.get('min'));
+        
+        
             this.route.params
             .zip(this.route.data)
             .subscribe((value) => {
@@ -46,8 +76,8 @@ var FoodcustomComponent = (function () {
           //console.log(param.get('min'));
         }
         );*/
-        console.log("=======================");
-        console.log(this.fsadfasdfas);
+        //console.log("=======================");
+        //console.log(this.fsadfasdfas);
     };
     FoodcustomComponent.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
@@ -68,7 +98,8 @@ FoodcustomComponent = __decorate([
         templateUrl: './foodcustom.component.html',
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router])
+        router_1.Router,
+        foodSubmitService_1.FoodSubmitService])
 ], FoodcustomComponent);
 exports.FoodcustomComponent = FoodcustomComponent;
 //# sourceMappingURL=foodcustom.component.js.map
